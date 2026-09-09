@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Studio | Diseño y Desarrollo Web Profesional</title>
+    <title>AV My Web Studio | Diseño y Desarrollo Web Profesional</title>
     <meta name="description" content="Diseño y creación de páginas web profesionales, rápidas y fáciles de usar.">
     
     <!-- Fonts -->
@@ -38,6 +38,15 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
+        /* AV Logo Minimalista */
+        .logo-av {
+            font-family: 'Times New Roman', serif;
+            font-weight: normal;
+            letter-spacing: -4px;
+            font-size: 1.75rem;
+            line-height: 1;
+        }
+        
         /* Animaciones suaves para las tarjetas */
         .package-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -64,8 +73,8 @@
     <header class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-zinc-200" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 relative flex items-center justify-between">
             <a href="#" class="text-black flex items-center gap-2 group">
-                <div class="font-extrabold text-2xl tracking-tighter">My<span class="text-zinc-500">Web</span></div>
-                <span class="font-semibold tracking-tight text-sm hidden sm:block ml-2 border-l border-zinc-300 pl-2">Studio</span>
+                <div class="logo-av text-black">A<span class="text-zinc-500">V</span></div>
+                <span class="font-semibold tracking-tight text-sm hidden sm:block ml-2 border-l border-zinc-300 pl-2">My Web Studio</span>
             </a>
             
             <nav class="hidden md:flex items-center gap-8">
@@ -463,9 +472,9 @@
     <!-- Footer -->
     <footer class="bg-black py-12 text-white">
         <div class="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center gap-4 text-center">
-            <div class="font-extrabold text-2xl tracking-tighter">My<span class="text-zinc-500">Web</span></div>
+            <div class="logo-av text-white mb-2">A<span class="text-zinc-500">V</span></div>
             <p class="text-zinc-400 text-sm">
-                &copy; <span id="current-year"></span> My Web Studio. Todos los derechos reservados.
+                &copy; <span id="current-year"></span> AV My Web Studio. Todos los derechos reservados.
             </p>
         </div>
     </footer>
@@ -623,7 +632,7 @@
 
             const phone = "525645890610";
             
-            let message = `*¡Hola! Me gustaría cotizar un proyecto web con My Web Studio (Promo 25% OFF)*\n\n`;
+            let message = `*¡Hola! Me gustaría cotizar un proyecto web con AV My Web Studio (Promo 25% OFF)*\n\n`;
             message += `👤 *Mi nombre:* ${name}\n`;
             message += `🤝 *Historial:* ${history}\n`;
             message += `📦 *Paquete interesado:* ${pkg}\n`;
