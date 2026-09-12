@@ -2,14 +2,14 @@
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>AV My Web Studio | Sitios Web que Venden</title>
-    <meta name="description" content="Diseño web profesional para negocios locales, consultorios y empresas.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AV My Web Studio | Diseño y Desarrollo Web Profesional</title>
+    <meta name="description" content="Diseño y creación de páginas web profesionales, rápidas y fáciles de usar.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,547 +17,1365 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
-                    colors: { primary: '#ef4444', secondary: '#22c55e' }
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
                 }
             }
         }
     </script>
     
-    <!-- Icons -->
+    <link rel="stylesheet" href="./css/styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
-        .logo-av { font-family: 'Times New Roman', serif; font-weight: normal; letter-spacing: -2px; font-size: 1.5rem; line-height: 1; }
-        .tab-content { display: none; animation: fadeIn 0.4s ease-out; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn { 
-            0% { opacity: 0; transform: translateY(10px); } 
-            100% { opacity: 1; transform: translateY(0); } 
+        /* AV Logo Minimalista */
+        .logo-av {
+            font-family: 'Times New Roman', serif;
+            font-weight: normal;
+            letter-spacing: -4px;
+            font-size: 1.75rem;
+            line-height: 1;
         }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Nav active states */
-        .nav-btn.active { color: #000; font-weight: 700; }
-        .nav-btn.active .nav-icon { stroke: #000; stroke-width: 2.5px; }
+        /* Animaciones suaves para las tarjetas */
+        .package-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #000;
+        }
         
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-        details[open] summary ~ * { animation: slideDown 0.3s ease-in-out; }
-        @keyframes slideDown { 0% { opacity: 0; transform: translateY(-10px); } 100% { opacity: 1; transform: translateY(0); } }
+        /* Ocultar barra de scroll en móviles pero permitir scroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
-<!-- pb-20 for mobile bottom nav space, pt-0 mobile, md:pt-20 for desktop top nav -->
-<body class="bg-white text-zinc-900 font-sans antialiased pb-24 md:pb-0 md:pt-20 selection:bg-black selection:text-white">
+<body class="bg-white text-zinc-900 font-sans antialiased overflow-x-hidden selection:bg-black selection:text-white">
 
-    <!-- DESKTOP TOP NAV -->
-    <header class="hidden md:flex fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100 h-20 items-center">
-        <div class="max-w-6xl mx-auto w-full px-6 flex justify-between items-center">
-            <button onclick="switchTab('home')" class="text-black flex items-center gap-2">
-                <div class="logo-av">A<span class="text-zinc-400">V</span></div>
-                <span class="font-bold tracking-tight text-sm border-l border-zinc-200 pl-2">My Web Studio</span>
-            </button>
-            <nav class="flex gap-8 items-center">
-                <button onclick="switchTab('paquetes')" class="nav-btn-desktop text-sm font-medium text-zinc-500 hover:text-black transition-colors" data-target="paquetes">Paquetes</button>
-                <button onclick="switchTab('ejemplos')" class="nav-btn-desktop text-sm font-medium text-zinc-500 hover:text-black transition-colors" data-target="ejemplos">Ejemplos</button>
-                <button onclick="switchTab('proceso')" class="nav-btn-desktop text-sm font-medium text-zinc-500 hover:text-black transition-colors" data-target="proceso">Proceso</button>
-                <button onclick="switchTab('dudas')" class="nav-btn-desktop text-sm font-medium text-zinc-500 hover:text-black transition-colors" data-target="dudas">Dudas</button>
-                <button onclick="switchTab('cotizar')" class="bg-primary hover:bg-red-600 text-white px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-md shadow-red-500/20">Cotizar Ahora</button>
+    <!-- Navbar -->
+    <header class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-zinc-200" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 relative flex items-center justify-between">
+            <a href="#" class="text-black flex items-center gap-2 group">
+                <div class="logo-av text-black">A<span class="text-zinc-500">V</span></div>
+                <span class="font-semibold tracking-tight text-sm hidden sm:block ml-2 border-l border-zinc-300 pl-2">My Web Studio</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#vista-previa" class="text-sm font-medium text-zinc-600 hover:text-black transition-colors">Vista Previa</a>
+                <a href="#paquetes" id="nav-paquetes-link" class="text-sm font-medium text-zinc-600 hover:text-black transition-colors">Promoción Septiembre</a>
+                <a href="#cotizacion" class="text-sm font-medium bg-black hover:bg-zinc-800 text-white px-5 py-2.5 rounded-full transition-all">Cotizar por WhatsApp</a>
             </nav>
+
+            <button class="md:hidden text-zinc-900" id="mobile-menu-btn" aria-label="Abrir menú">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-zinc-200 shadow-xl">
+            <div class="flex flex-col p-6 gap-4">
+                <a href="#vista-previa" class="text-base font-medium text-zinc-600 hover:text-black mobile-link">Vista Previa</a>
+                <a href="#paquetes" id="mobile-paquetes-link" class="text-base font-medium text-zinc-600 hover:text-black mobile-link">Promoción Septiembre</a>
+                <a href="#cotizacion" class="text-base font-medium text-black mobile-link mt-2">Cotizar por WhatsApp</a>
+            </div>
         </div>
     </header>
 
-    <!-- MOBILE BOTTOM NAV -->
-    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-white border-t border-zinc-200 flex justify-around items-center h-20 px-2 pb-safe shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
-        <button onclick="switchTab('home')" class="nav-btn active flex flex-col items-center gap-1 w-16" data-target="home">
-            <i data-lucide="home" class="nav-icon w-6 h-6 text-zinc-400"></i>
-            <span class="text-[10px] text-zinc-500">Inicio</span>
-        </button>
-        <button onclick="switchTab('paquetes')" class="nav-btn flex flex-col items-center gap-1 w-16" data-target="paquetes">
-            <i data-lucide="grid" class="nav-icon w-6 h-6 text-zinc-400"></i>
-            <span class="text-[10px] text-zinc-500">Paquetes</span>
-        </button>
-        <button onclick="switchTab('ejemplos')" class="nav-btn flex flex-col items-center gap-1 w-16" data-target="ejemplos">
-            <i data-lucide="layout-template" class="nav-icon w-6 h-6 text-zinc-400"></i>
-            <span class="text-[10px] text-zinc-500">Ejemplos</span>
-        </button>
-        <button onclick="switchTab('dudas')" class="nav-btn flex flex-col items-center gap-1 w-16" data-target="dudas">
-            <i data-lucide="help-circle" class="nav-icon w-6 h-6 text-zinc-400"></i>
-            <span class="text-[10px] text-zinc-500">Dudas</span>
-        </button>
-        <button onclick="switchTab('cotizar')" class="nav-btn flex flex-col items-center gap-1 w-16 relative" data-target="cotizar">
-            <div class="absolute -top-4 bg-primary text-white p-3 rounded-full shadow-lg shadow-red-500/30">
-                <i data-lucide="message-circle" class="w-6 h-6"></i>
-            </div>
-            <span class="text-[10px] text-black font-bold mt-8">Cotizar</span>
-        </button>
-    </nav>
-
-    <!-- MAIN CONTENT AREA -->
-    <main class="w-full">
-        
-        <!-- ==============================================
-             TAB 1: HOME
-        =============================================== -->
-        <section id="tab-home" class="tab-content active min-h-[85vh]">
-            <div class="max-w-4xl mx-auto px-6 pt-16 md:pt-24 pb-12 text-center">
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[85vh] flex items-center justify-center pt-24 pb-12 overflow-hidden bg-white">
+            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-100 via-white to-white pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto px-6 relative z-10 text-center animate-fade-in-up">
                 
-                <!-- Countdown -->
-                <div id="promo-banner" class="inline-flex flex-col items-center mb-8">
-                    <span class="bg-red-50 text-primary text-xs font-bold px-4 py-1.5 rounded-full mb-3 border border-red-100 flex items-center gap-2">
-                        <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span></span>
-                        OFERTA 25% OFF
-                    </span>
-                    <div class="flex gap-2 text-center justify-center items-center">
-                        <div class="bg-zinc-50 border border-zinc-200 px-3 py-2 rounded-xl min-w-[60px]">
-                            <span id="t-days" class="text-2xl font-black text-black">00</span>
-                            <span class="block text-[9px] font-bold text-zinc-400 uppercase">Días</span>
+                <!-- Minimalist Countdown & Promo Container -->
+                <div id="promo-container" class="inline-flex flex-col items-center mb-6">
+                    <div class="inline-flex flex-col sm:flex-row items-center gap-2 px-6 py-2.5 rounded-2xl sm:rounded-full bg-red-50 text-red-600 text-sm font-bold mb-3 border border-red-200 shadow-sm">
+                        <span class="flex items-center gap-1.5">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                            </span>
+                            <span>OFERTA LIMITADA</span>
+                        </span>
+                        <span class="hidden sm:block text-red-300">•</span>
+                        <span>25% OFF en todos los paquetes</span>
+                    </div>
+
+                    <!-- Contador Minimalista -->
+                    <div class="flex items-center justify-center gap-2 sm:gap-3 bg-zinc-50 border border-zinc-200/90 px-4 py-2.5 rounded-2xl shadow-sm">
+                        <div class="text-center min-w-[48px] sm:min-w-[56px]">
+                            <span id="timer-days" class="text-xl sm:text-2xl font-extrabold text-black font-mono tracking-tight">00</span>
+                            <span class="block text-[9px] sm:text-[10px] text-zinc-400 font-bold uppercase tracking-widest mt-0.5">Días</span>
                         </div>
-                        <span class="text-zinc-300 font-bold">:</span>
-                        <div class="bg-zinc-50 border border-zinc-200 px-3 py-2 rounded-xl min-w-[60px]">
-                            <span id="t-hours" class="text-2xl font-black text-black">00</span>
-                            <span class="block text-[9px] font-bold text-zinc-400 uppercase">Hrs</span>
+                        <span class="text-zinc-300 font-bold text-base sm:text-lg -mt-3">:</span>
+                        <div class="text-center min-w-[48px] sm:min-w-[56px]">
+                            <span id="timer-hours" class="text-xl sm:text-2xl font-extrabold text-black font-mono tracking-tight">00</span>
+                            <span class="block text-[9px] sm:text-[10px] text-zinc-400 font-bold uppercase tracking-widest mt-0.5">Horas</span>
                         </div>
-                        <span class="text-zinc-300 font-bold">:</span>
-                        <div class="bg-zinc-50 border border-zinc-200 px-3 py-2 rounded-xl min-w-[60px]">
-                            <span id="t-minutes" class="text-2xl font-black text-black">00</span>
-                            <span class="block text-[9px] font-bold text-zinc-400 uppercase">Min</span>
+                        <span class="text-zinc-300 font-bold text-base sm:text-lg -mt-3">:</span>
+                        <div class="text-center min-w-[48px] sm:min-w-[56px]">
+                            <span id="timer-minutes" class="text-xl sm:text-2xl font-extrabold text-black font-mono tracking-tight">00</span>
+                            <span class="block text-[9px] sm:text-[10px] text-zinc-400 font-bold uppercase tracking-widest mt-0.5">Min</span>
                         </div>
-                        <span class="text-zinc-300 font-bold">:</span>
-                        <div class="bg-zinc-50 border border-zinc-200 px-3 py-2 rounded-xl min-w-[60px]">
-                            <span id="t-seconds" class="text-2xl font-black text-primary">00</span>
-                            <span class="block text-[9px] font-bold text-zinc-400 uppercase">Seg</span>
+                        <span class="text-zinc-300 font-bold text-base sm:text-lg -mt-3">:</span>
+                        <div class="text-center min-w-[48px] sm:min-w-[56px]">
+                            <span id="timer-seconds" class="text-xl sm:text-2xl font-extrabold text-red-600 font-mono tracking-tight">00</span>
+                            <span class="block text-[9px] sm:text-[10px] text-zinc-400 font-bold uppercase tracking-widest mt-0.5">Seg</span>
                         </div>
                     </div>
+                    <p class="text-[11px] text-zinc-500 mt-2 font-medium">Finaliza el 15 de septiembre a las 11:59 PM</p>
                 </div>
 
-                <h1 class="text-4xl md:text-6xl font-extrabold text-black tracking-tight leading-tight mb-6">
-                    Tu negocio necesita una web <span class="text-zinc-400 italic">de verdad.</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-black tracking-tight mb-6 leading-tight">
+                    Tu negocio necesita <br/>
+                    una web <span class="text-zinc-500 italic">de verdad.</span>
                 </h1>
-                <p class="text-lg text-zinc-500 max-w-xl mx-auto mb-10 leading-relaxed">
-                    Diseño limpio, directo y profesional. Construyo páginas web que transmiten confianza total y te ayudan a conseguir más clientes.
+                <p class="text-lg md:text-xl text-zinc-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Diseño limpio, profesional y directo. Construyo páginas web que transmiten confianza y te ayudan a vender más.
                 </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <button onclick="switchTab('cotizar')" class="w-full sm:w-auto bg-[#22c55e] hover:bg-green-600 text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-lg shadow-green-500/20 transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="zap" class="w-5 h-5"></i>
-                        COTIZA AHORA - 25% OFF
-                    </button>
-                    <button onclick="switchTab('ejemplos')" class="text-sm font-semibold text-zinc-500 hover:text-black transition-colors px-6 py-4">
-                        Ver ejemplos de trabajo →
-                    </button>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#paquetes" id="hero-cta-btn" class="w-full sm:w-auto px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-xl font-medium transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-600/20">
+                        Ver Promoción 25% OFF
+                    </a>
+                    <a href="#cotizacion" class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-zinc-50 border border-zinc-200 text-black rounded-xl font-medium transition-all flex items-center justify-center gap-2">
+                        Hablar ahora
+                    </a>
                 </div>
-                
             </div>
         </section>
 
-        <!-- ==============================================
-             TAB 2: PAQUETES
-        =============================================== -->
-        <section id="tab-paquetes" class="tab-content py-12">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="mb-10">
-                    <h2 class="text-3xl font-extrabold text-black mb-3">Soluciones claras.</h2>
-                    <p class="text-zinc-500">Selecciona el paquete ideal para tu negocio y aprovecha el descuento.</p>
+        <!-- Previsualización de Paquetes Section -->
+        <section id="vista-previa" class="py-24 bg-zinc-950 border-t border-zinc-800">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-white/10 text-zinc-300 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-5 border border-white/10">Previsualización de Paquetes</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-5 tracking-tight">Así se verá tu negocio.<br/><span class="text-zinc-400 italic font-light">Diseño real adaptado a tu giro.</span></h2>
+                    <p class="text-zinc-400 max-w-2xl mx-auto text-base">Aquí tienes una idea clara de lo que incluye y cómo funciona cada paquete. Cada página se construye a la medida con tu logotipo, tus fotos, tus colores y lista para recibir clientes.</p>
                 </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- PREVIEW 1: Web Básica (Ejemplo: Cafetería / Restaurante) -->
+                <div class="mb-10 group bg-zinc-900 rounded-3xl border border-zinc-800 overflow-hidden hover:border-zinc-600 transition-all duration-500">
+                    <div class="grid lg:grid-cols-2 gap-0">
+                        <!-- Preview del browser -->
+                        <div class="relative p-4 bg-zinc-950 flex flex-col">
+                            <!-- Barra del navegador -->
+                            <div class="flex items-center gap-2 mb-3 px-2">
+                                <div class="flex gap-1.5"><div class="w-3 h-3 rounded-full bg-red-500/80"></div><div class="w-3 h-3 rounded-full bg-yellow-500/80"></div><div class="w-3 h-3 rounded-full bg-green-500/80"></div></div>
+                                <div class="flex-1 bg-zinc-800 rounded-md px-3 py-1 text-[11px] text-zinc-400 flex items-center gap-2"><span class="text-green-400">🔒</span>www.tudominio.com</div>
+                            </div>
+                            <!-- Mini website simulado -->
+                            <div class="rounded-xl overflow-hidden flex-1 relative" style="min-height:260px">
+                                <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=900&q=85" class="absolute inset-0 w-full h-full object-cover brightness-50" alt="Fondo café">
+                                <div class="relative z-10 p-5 h-full flex flex-col justify-between" style="font-family:sans-serif">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-white font-bold text-sm tracking-widest uppercase">Tu Marca ☕</span>
+                                        <div class="flex gap-4 text-white/70 text-[10px]">
+                                            <span>Menú</span><span>Horarios</span><span>Ubicación</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-zinc-300 text-[10px] uppercase tracking-widest mb-1">Negocio Local · Tu Ciudad</p>
+                                        <h3 class="text-white font-extrabold text-2xl leading-tight mb-3">La mejor calidad<br/>en un solo lugar.</h3>
+                                        <div class="flex gap-2">
+                                            <div class="bg-amber-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg">Ver Menú Digital</div>
+                                            <div class="bg-white/20 text-white text-[10px] px-3 py-1.5 rounded-lg">Cómo llegar con GPS</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-3">
+                                        <div class="bg-white/10 rounded-lg p-2 text-center"><div class="text-white font-bold text-sm">Menú</div><div class="text-zinc-400 text-[9px]">Enlace directo</div></div>
+                                        <div class="bg-white/10 rounded-lg p-2 text-center"><div class="text-white font-bold text-sm">WhatsApp</div><div class="text-zinc-400 text-[9px]">A un clic</div></div>
+                                        <div class="bg-white/10 rounded-lg p-2 text-center"><div class="text-white font-bold text-sm">Maps</div><div class="text-zinc-400 text-[9px]">Ubicación exacta</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Info del paquete -->
+                        <div class="p-8 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Muestra: Paquete Web Básica</span>
+                                    <span class="text-zinc-400 text-xs">Entrega en 3 a 5 días</span>
+                                </div>
+                                <h3 class="text-2xl font-extrabold text-white mb-3">Landing Page para Negocios Locales</h3>
+                                <p class="text-zinc-400 text-sm leading-relaxed mb-6">Diseño en 1 sola página rápida y concisa. Ideal si buscas que las personas encuentren tu negocio en Google Maps, conozcan tus productos o menú y te manden mensaje directo por WhatsApp sin complicarse.</p>
+                                <div class="space-y-2.5 mb-5">
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> 1 Página estructurada (Landing page moderna)</div>
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Catálogo o menú visual de tus productos/servicios</div>
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Enlaces directos a tus redes (TikTok, Instagram, WhatsApp)</div>
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Horario de atención y ubicación con mapa interactivo</div>
+                                </div>
+                                
+                                <!-- Comparativa Suscripción -->
+                                <div class="bg-zinc-950 rounded-xl p-3 border border-zinc-800 mb-5">
+                                    <span class="block text-white font-bold text-[11px] uppercase tracking-wider mb-2">Valor de la Suscripción ($250/mes)</span>
+                                    <div class="grid grid-cols-2 gap-3 text-[11px]">
+                                        <div class="text-zinc-500 border-r border-zinc-800 pr-2">
+                                            <span class="block text-red-400 font-bold mb-1">Sin Suscripción</span>
+                                            ❌ Tú haces los cambios<br>
+                                            ❌ Sin soporte técnico
+                                        </div>
+                                        <div class="text-zinc-300 pl-1">
+                                            <span class="block text-green-400 font-bold mb-1">Con Suscripción</span>
+                                            ✅ Modificaciones incluidas<br>
+                                            ✅ Nosotros hacemos el trabajo
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-zinc-800/80 rounded-2xl p-4 border border-zinc-700 flex flex-col gap-3">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-[11px] text-zinc-400 uppercase tracking-wider">Inversión Promoción</p>
+                                        <div class="flex items-baseline gap-2">
+                                            <p class="text-xl font-bold text-white">$1,125 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
+                                            <p class="line-through text-xs text-zinc-500">$1,500</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-2 py-1.5 rounded-lg text-center leading-tight">
+                                        ¡AHORRAS<br>$375 MXN!
+                                    </div>
+                                </div>
+                                <button onclick="selectPackage('Web Básica')" class="w-full bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2.5 rounded-xl transition-colors">
+                                    Elegir Básica
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREVIEWS 2 y 3 en grid (Profesional y Empresarial) -->
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+
+                    <!-- Preview 2: Paquete Profesional (Clínica / Salud) -->
+                    <div class="group bg-zinc-900 rounded-3xl border border-zinc-800 overflow-hidden hover:border-zinc-600 transition-all duration-500">
+                        <div class="p-4 bg-zinc-950">
+                            <div class="flex items-center gap-2 mb-3 px-1">
+                                <div class="flex gap-1.5"><div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div><div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div></div>
+                                <div class="flex-1 bg-zinc-800 rounded px-3 py-1 text-[10px] text-zinc-400 flex items-center gap-2"><span class="text-green-400">🔒</span>www.tudominio.com</div>
+                            </div>
+                            <div class="rounded-xl overflow-hidden" style="height:200px">
+                                <div class="w-full h-full flex flex-col" style="font-family:sans-serif; background:#f8fafb">
+                                    <div class="bg-white px-4 py-2.5 flex justify-between items-center border-b border-gray-100">
+                                        <span class="text-[11px] font-extrabold text-slate-800 tracking-tight">🦷 Clínica Dental</span>
+                                        <div class="flex gap-3 text-[9px] text-slate-500"><span>Servicios</span><span>Nosotros</span><span class="bg-slate-800 text-white px-2 py-0.5 rounded-full">Agendar Cita</span></div>
+                                    </div>
+                                    <div class="flex-1 relative">
+                                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80" class="absolute inset-0 w-full h-full object-cover opacity-20" alt="Clínica">
+                                        <div class="relative z-10 p-4">
+                                            <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Consultorio Profesional · Tu Ciudad</p>
+                                            <h4 class="text-slate-900 font-extrabold text-lg leading-tight mb-2">Tu salud y confianza<br/>en manos expertas.</h4>
+                                            <div class="flex gap-2 text-[9px]">
+                                                <span class="bg-slate-800 text-white px-2.5 py-1 rounded-lg font-semibold">Agendar Cita</span>
+                                                <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg">Lista de tratamientos</span>
+                                            </div>
+                                            <div class="flex gap-3 mt-3">
+                                                <div class="text-center"><div class="text-slate-800 font-bold text-sm">3 Páginas</div><div class="text-slate-400 text-[8px]">Secciones</div></div>
+                                                <div class="text-center"><div class="text-slate-800 font-bold text-sm">.com</div><div class="text-slate-400 text-[8px]">Dominio propio</div></div>
+                                                <div class="text-center"><div class="text-slate-800 font-bold text-sm">Formulario</div><div class="text-slate-400 text-[8px]">Citas en línea</div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Muestra: Paquete Profesional</span>
+                                    <span class="text-zinc-500 text-xs">Hasta 3 páginas</span>
+                                </div>
+                                <h3 class="text-xl font-extrabold text-white mb-2">Sitio Médico, Consultorio o Servicios</h3>
+                                <p class="text-zinc-400 text-sm leading-relaxed mb-4">Para especialistas que necesitan explicar a detalle sus tratamientos o servicios, mostrar certificaciones, inspirar máxima seriedad e incluir formulario de citas directas.</p>
+                                <div class="grid grid-cols-2 gap-2 mb-4">
+                                    <div class="flex items-center gap-1.5 text-xs text-zinc-300"><span class="text-green-400">✓</span> Hasta 3 páginas completas</div>
+                                    <div class="flex items-center gap-1.5 text-xs text-zinc-300"><span class="text-green-400">✓</span> Dominio propio .com incluido</div>
+                                    <div class="flex items-center gap-1.5 text-xs text-zinc-300"><span class="text-green-400">✓</span> Formulario de contacto y citas</div>
+                                    <div class="flex items-center gap-1.5 text-xs text-zinc-300"><span class="text-green-400">✓</span> Perfil Google Maps integrado</div>
+                                </div>
+                                
+                                <!-- Comparativa Suscripción -->
+                                <div class="bg-zinc-950 rounded-xl p-3 border border-zinc-800 mb-4">
+                                    <span class="block text-white font-bold text-[11px] uppercase tracking-wider mb-2">Valor de la Suscripción ($500/mes)</span>
+                                    <div class="grid grid-cols-2 gap-3 text-[11px]">
+                                        <div class="text-zinc-500 border-r border-zinc-800 pr-2">
+                                            <span class="block text-red-400 font-bold mb-1">Sin Suscripción</span>
+                                            ❌ Sitio estático y abandonado<br>
+                                            ❌ Vulnerable a fallos
+                                        </div>
+                                        <div class="text-zinc-300 pl-1">
+                                            <span class="block text-green-400 font-bold mb-1">Con Suscripción</span>
+                                            ✅ Actualizamos tus servicios<br>
+                                            ✅ Soporte y monitoreo total
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-zinc-800/80 rounded-xl p-4 border border-zinc-700 flex flex-col gap-3 mt-auto">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-[11px] text-zinc-400 uppercase tracking-wider">Inversión Promoción</p>
+                                        <div class="flex items-baseline gap-2">
+                                            <p class="text-lg font-bold text-white">$2,625 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
+                                            <p class="line-through text-xs text-zinc-500">$3,500</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-2 py-1 rounded-lg text-center leading-tight">
+                                        ¡AHORRAS<br>$875 MXN!
+                                    </div>
+                                </div>
+                                <button onclick="selectPackage('Profesional')" class="w-full bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2 rounded-xl transition-colors">
+                                    Elegir Profesional
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preview 3: Paquete Empresarial (Despacho / Corporativo) -->
+                    <div class="group bg-zinc-900 rounded-3xl border border-zinc-800 overflow-hidden hover:border-zinc-600 transition-all duration-500">
+                        <div class="p-4 bg-zinc-950">
+                            <div class="flex items-center gap-2 mb-3 px-1">
+                                <div class="flex gap-1.5"><div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div><div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div></div>
+                                <div class="flex-1 bg-zinc-800 rounded px-3 py-1 text-[10px] text-zinc-400 flex items-center gap-2"><span class="text-green-400">🔒</span>www.tufirma.com</div>
+                            </div>
+                            <div class="rounded-xl overflow-hidden" style="height:200px; background:#0d0d0d; font-family:serif">
+                                <div class="w-full h-full flex flex-col">
+                                    <div class="px-4 py-2.5 flex justify-between items-center border-b border-zinc-800">
+                                        <span class="text-[11px] font-bold text-white tracking-[0.2em] uppercase">Tu Despacho & Asociados</span>
+                                        <div class="flex gap-3 text-[9px] text-zinc-500"><span>Áreas</span><span>Equipo</span><span class="border border-zinc-600 text-zinc-300 px-2 py-0.5 rounded">Consulta</span></div>
+                                    </div>
+                                    <div class="flex-1 flex flex-col justify-between p-4">
+                                        <div>
+                                            <p class="text-zinc-500 text-[9px] uppercase tracking-widest mb-1">Servicios Corporativos · Tu Región</p>
+                                            <h4 class="text-white font-bold text-lg leading-tight mb-3">Soluciones jurídicas<br/>y empresariales.</h4>
+                                            <div class="flex gap-2 text-[9px]">
+                                                <span class="bg-white text-black px-3 py-1 rounded font-semibold">Solicitar Asesoría</span>
+                                                <span class="text-zinc-400 px-2 py-1">Nuestras áreas →</span>
+                                            </div>
+                                        </div>
+                                        <div class="grid grid-cols-3 gap-2 border-t border-zinc-800 pt-3">
+                                            <div><div class="text-white font-bold text-sm">5 Páginas</div><div class="text-zinc-500 text-[8px]">Completas</div></div>
+                                            <div><div class="text-white font-bold text-sm">Correos</div><div class="text-zinc-500 text-[8px]">@tuempresa.com</div></div>
+                                            <div><div class="text-white font-bold text-sm">Corporativo</div><div class="text-zinc-500 text-[8px]">Diseño sobrio</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Muestra: Paquete Empresarial</span>
+                                    <span class="text-zinc-500 text-xs">Hasta 5 páginas</span>
+                                </div>
+                                <h3 class="text-xl font-extrabold text-white mb-2">Presencia Corporativa e Institucional</h3>
+                                <p class="text-zinc-400 text-sm leading-relaxed mb-4">Especial para despachos legales, contables, constructoras o empresas con trayectoria que requieren cuentas de correo oficiales con su dominio y estructura multi-página.</p>
+                                <div class="grid grid-cols-2 gap-2 mb-4">
+                                    <div class="flex items-center gap-1.5 text-xs text-zinc-300"><span class="text-green-400">✓</span> Hasta 5 páginas completas</div>
+                                    <div class="flex items-center gap-1.5 text-xs text-zinc-300"><span class="text-green-400">✓</span> Correos corporativos oficiales</div>
+                                    <div class="flex items-center gap-1.5 text-xs text-zinc-300"><span class="text-green-400">✓</span> Perfiles del equipo de trabajo</div>
+                                    <div class="flex items-center gap-1.5 text-xs text-zinc-300"><span class="text-green-400">✓</span> Formulario empresarial detallado</div>
+                                </div>
+                                
+                                <!-- Comparativa Suscripción -->
+                                <div class="bg-zinc-950 rounded-xl p-3 border border-zinc-800 mb-4">
+                                    <span class="block text-white font-bold text-[11px] uppercase tracking-wider mb-2">Valor de la Suscripción ($500/mes)</span>
+                                    <div class="grid grid-cols-2 gap-3 text-[11px]">
+                                        <div class="text-zinc-500 border-r border-zinc-800 pr-2">
+                                            <span class="block text-red-400 font-bold mb-1">Sin Suscripción</span>
+                                            ❌ Imagen corporativa en riesgo<br>
+                                            ❌ Sin mantenimiento
+                                        </div>
+                                        <div class="text-zinc-300 pl-1">
+                                            <span class="block text-green-400 font-bold mb-1">Con Suscripción</span>
+                                            ✅ Actualizamos tus proyectos<br>
+                                            ✅ Máxima seguridad
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-zinc-800/80 rounded-xl p-4 border border-zinc-700 flex flex-col gap-3 mt-auto">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-[11px] text-zinc-400 uppercase tracking-wider">Inversión Promoción</p>
+                                        <div class="flex items-baseline gap-2">
+                                            <p class="text-lg font-bold text-white">$4,500 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
+                                            <p class="line-through text-xs text-zinc-500">$6,000</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-2 py-1 rounded-lg text-center leading-tight">
+                                        ¡AHORRAS<br>$1,500 MXN!
+                                    </div>
+                                </div>
+                                <button onclick="selectPackage('Empresarial')" class="w-full bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-2 rounded-xl transition-colors">
+                                    Elegir Empresarial
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREVIEW 4: Paquete Tienda Web (E-commerce) -->
+                <div class="mb-8 group bg-zinc-900 rounded-3xl border border-zinc-800 overflow-hidden hover:border-zinc-600 transition-all duration-500">
+                    <div class="grid lg:grid-cols-2 gap-0">
+                        <div class="p-6 flex flex-col justify-between order-2 lg:order-1">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Muestra: Paquete Tienda Web</span>
+                                    <span class="text-zinc-400 text-xs">Ventas en automático</span>
+                                </div>
+                                <h3 class="text-2xl font-extrabold text-white mb-3">Tienda en Línea (E-commerce Completo)</h3>
+                                <p class="text-zinc-400 text-sm leading-relaxed mb-6">Tu propio sitio para vender productos físicos o digitales por internet. Incluye carrito de compras, pasarela de pago para cobrar con tarjeta o transferencia, y panel fácil para que agregues nuevos productos cuando quieras sin saber de programación.</p>
+                                <div class="grid grid-cols-2 gap-2.5 mb-5">
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Catálogo de productos ilimitado</div>
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Pagos en línea (Tarjetas / OXXO)</div>
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Panel de control fácil para el dueño</div>
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Notificación de pedidos a WhatsApp</div>
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Dominio propio .com incluido</div>
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Configuración de costos de envío</div>
+                                </div>
+                                
+                                <!-- Comparativa Suscripción -->
+                                <div class="bg-zinc-950 rounded-xl p-3 border border-zinc-800 mb-5">
+                                    <span class="block text-white font-bold text-[11px] uppercase tracking-wider mb-2">Soporte y Suscripción Especial ($800/mes)</span>
+                                    <div class="grid grid-cols-2 gap-3 text-[11px]">
+                                        <div class="text-zinc-500 border-r border-zinc-800 pr-2">
+                                            <span class="block text-red-400 font-bold mb-1">Sin Suscripción</span>
+                                            ❌ Tienda caída = Cero ventas<br>
+                                            ❌ Fallos en los pagos
+                                        </div>
+                                        <div class="text-zinc-300 pl-1">
+                                            <span class="block text-green-400 font-bold mb-1">Con Suscripción</span>
+                                            ✅ Soporte para tu catálogo<br>
+                                            ✅ Tienda 100% activa siempre
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-zinc-800/80 rounded-2xl p-4 border border-zinc-700 flex flex-col gap-3">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-[11px] text-zinc-400 uppercase tracking-wider">Inversión Promoción</p>
+                                        <div class="flex items-baseline gap-2">
+                                            <p class="text-xl font-bold text-white">$6,750 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
+                                            <p class="line-through text-xs text-zinc-500">$9,000</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-2 py-1.5 rounded-lg text-center leading-tight">
+                                        ¡AHORRAS<br>$2,250 MXN!
+                                    </div>
+                                </div>
+                                <button onclick="selectPackage('Tienda Web')" class="w-full bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2.5 rounded-xl transition-colors">
+                                    Elegir Tienda Web
+                                </button>
+                            </div>
+                        </div>
+                        <div class="relative p-4 bg-zinc-950 order-1 lg:order-2 flex flex-col">
+                            <div class="flex items-center gap-2 mb-3 px-1">
+                                <div class="flex gap-1.5"><div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div><div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div></div>
+                                <div class="flex-1 bg-zinc-800 rounded px-3 py-1 text-[10px] text-zinc-400 flex items-center gap-2"><span class="text-green-400">🔒</span>www.tutienda.com</div>
+                            </div>
+                            <div class="rounded-xl overflow-hidden flex-1" style="min-height:280px; background:#fff; font-family:sans-serif">
+                                <div class="bg-white h-full flex flex-col">
+                                    <div class="px-4 py-2 flex justify-between items-center border-b border-gray-100">
+                                        <span class="font-black text-gray-900 text-sm tracking-tight">TU TIENDA</span>
+                                        <div class="flex gap-3 text-[10px] text-gray-500 items-center"><span>Catálogo</span><span>Ofertas</span><span>🛒 <span class="bg-red-600 text-white text-[8px] rounded-full px-1">1</span></span></div>
+                                    </div>
+                                    <div class="flex flex-1">
+                                        <div class="flex-1 relative overflow-hidden">
+                                            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover" style="max-height:220px" alt="Boutique">
+                                            <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/90"></div>
+                                        </div>
+                                        <div class="w-48 p-4 flex flex-col gap-2">
+                                            <p class="text-gray-400 text-[9px] uppercase tracking-widest">Tus productos</p>
+                                            <h4 class="text-gray-900 font-black text-base leading-tight">Ventas<br/>Directas</h4>
+                                            <p class="text-gray-500 text-[10px] leading-snug">Vende sin comisiones abusivas y recibe tus ganancias directamente.</p>
+                                            <div class="bg-gray-900 text-white text-[10px] font-bold py-1.5 px-3 rounded-lg text-center">Comprar ahora</div>
+                                            <div class="grid grid-cols-2 gap-1.5 mt-1">
+                                                <div class="bg-gray-100 rounded-lg p-2"><img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=100&q=80" class="w-full rounded object-cover" style="height:40px" alt="Producto"></div>
+                                                <div class="bg-gray-100 rounded-lg p-2"><img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=100&q=80" class="w-full rounded object-cover" style="height:40px" alt="Producto"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREVIEW 5: Servicios Rápidos / Urgencias (Ejemplo: Taller / Técnicos) -->
+                <div class="group bg-zinc-900 rounded-3xl border border-zinc-800 overflow-hidden hover:border-zinc-600 transition-all duration-500">
+                    <div class="grid lg:grid-cols-2 gap-0">
+                        <div class="relative p-4 bg-zinc-950 flex flex-col">
+                            <div class="flex items-center gap-2 mb-3 px-1">
+                                <div class="flex gap-1.5"><div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div><div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div></div>
+                                <div class="flex-1 bg-zinc-800 rounded px-3 py-1 text-[10px] text-zinc-400 flex items-center gap-2"><span class="text-green-400">🔒</span>www.tudominio.com</div>
+                            </div>
+                            <div class="rounded-xl overflow-hidden flex-1" style="min-height:260px">
+                                <div class="w-full h-full flex flex-col" style="background:#111; font-family:sans-serif">
+                                    <div class="px-4 py-2.5 flex justify-between items-center border-b border-zinc-800">
+                                        <div class="flex items-center gap-2"><span class="text-orange-400 font-black text-sm">⚙️ TU SERVICIO</span><span class="text-zinc-500 font-light text-xs">EXPRESS</span></div>
+                                        <div class="flex gap-3 text-[9px] text-zinc-500"><span>Servicios</span><span>Ubicación</span><span class="bg-orange-500 text-white px-2 py-0.5 rounded font-semibold">Llamar Ya</span></div>
+                                    </div>
+                                    <div class="flex-1 relative">
+                                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=700&q=80" class="absolute inset-0 w-full h-full object-cover opacity-25" alt="Taller">
+                                        <div class="relative z-10 p-4 flex flex-col h-full justify-between">
+                                            <div>
+                                                <p class="text-zinc-500 text-[9px] uppercase tracking-widest mb-1">Servicios Rápidos · Tu Ciudad</p>
+                                                <h4 class="text-white font-extrabold text-xl leading-tight mb-2">Atención inmediata<br/>y presupuesto claro.</h4>
+                                                <div class="flex gap-2 text-[9px] mb-3">
+                                                    <span class="bg-orange-500 text-white px-3 py-1.5 rounded-lg font-bold">📱 Llamar directo</span>
+                                                    <span class="text-zinc-400 px-2 py-1.5">Ver Ubicación GPS</span>
+                                                </div>
+                                            </div>
+                                            <div class="grid grid-cols-3 gap-2 border-t border-zinc-800 pt-3">
+                                                <div class="bg-zinc-900/80 rounded-lg p-2 text-center"><div class="text-orange-400 font-bold text-sm">Llamada</div><div class="text-zinc-500 text-[8px]">Inmediata</div></div>
+                                                <div class="bg-zinc-900/80 rounded-lg p-2 text-center"><div class="text-orange-400 font-bold text-sm">Google Maps</div><div class="text-zinc-500 text-[8px]">Ruta directa</div></div>
+                                                <div class="bg-zinc-900/80 rounded-lg p-2 text-center"><div class="text-orange-400 font-bold text-sm">WhatsApp</div><div class="text-zinc-500 text-[8px]">Chat rápido</div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-8 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Muestra: Paquete Profesional</span>
+                                    <span class="text-zinc-500 text-xs">Enfoque en llamada y ubicación</span>
+                                </div>
+                                <h3 class="text-2xl font-extrabold text-white mb-3">Para Servicios Locales y Urgencias</h3>
+                                <p class="text-zinc-400 text-sm leading-relaxed mb-6">Un diseño optimizado para negocios donde el cliente busca una solución rápida (talleres mecánicos, cerrajerías, grúas, técnicos o mantenimiento). El botón de llamada y la ubicación en Google Maps son lo primero que ven para que no duden en contactarte.</p>
+                                <div class="space-y-2 mb-5">
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Botón de llamada telefónica instantánea y WhatsApp</div>
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Marcador exacto en Google Maps para que el cliente llegue fácil</div>
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Lista de servicios y garantías visibles de inmediato</div>
+                                    <div class="flex items-center gap-2 text-sm text-zinc-300"><span class="text-green-400">✓</span> Carga ultrarrápida en cualquier celular</div>
+                                </div>
+                                
+                                <!-- Comparativa Suscripción -->
+                                <div class="bg-zinc-950 rounded-xl p-3 border border-zinc-800 mb-5">
+                                    <span class="block text-white font-bold text-[11px] uppercase tracking-wider mb-2">Valor de la Suscripción ($500/mes)</span>
+                                    <div class="grid grid-cols-2 gap-3 text-[11px]">
+                                        <div class="text-zinc-500 border-r border-zinc-800 pr-2">
+                                            <span class="block text-red-400 font-bold mb-1">Sin Suscripción</span>
+                                            ❌ Horarios o mapas viejos<br>
+                                            ❌ Pierdes clientes urgentes
+                                        </div>
+                                        <div class="text-zinc-300 pl-1">
+                                            <span class="block text-green-400 font-bold mb-1">Con Suscripción</span>
+                                            ✅ Información siempre al día<br>
+                                            ✅ Máxima conversión
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-zinc-800/80 rounded-2xl p-4 border border-zinc-700 flex flex-col gap-3">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-[11px] text-zinc-400 uppercase tracking-wider">Inversión Promoción</p>
+                                        <div class="flex items-baseline gap-2">
+                                            <p class="text-xl font-bold text-white">$2,625 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
+                                            <p class="line-through text-xs text-zinc-500">$3,500</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-2 py-1.5 rounded-lg text-center leading-tight">
+                                        ¡AHORRAS<br>$875 MXN!
+                                    </div>
+                                </div>
+                                <button onclick="selectPackage('Profesional')" class="w-full bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2.5 rounded-xl transition-colors">
+                                    Elegir Profesional
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banner inferior de ayuda -->
+                <div class="text-center mt-14">
+                    <p class="text-zinc-400 text-sm mb-4">¿Tienes dudas sobre cuál paquete es el mejor para tu idea?</p>
+                    <a href="#cotizacion" class="inline-flex items-center gap-2 bg-white hover:bg-zinc-100 text-black font-bold px-8 py-4 rounded-xl transition-all">
+                        Cotizar y resolver mis dudas por WhatsApp
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing / Paquetes Section -->
+        <section id="paquetes" class="py-24 bg-zinc-50 border-y border-zinc-100 overflow-hidden relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 id="paquetes-title" class="text-3xl md:text-4xl font-bold text-black mb-4">Soluciones claras, sin letras chiquitas</h2>
+                    <p id="paquetes-desc" class="text-zinc-600 max-w-2xl mx-auto">Selecciona el paquete que mejor se adapte a tu etapa actual y aprovecha el descuento de Septiembre.</p>
+                </div>
+
+                <!-- Scroll horizontal en móviles -->
+                <div class="flex overflow-x-auto hide-scrollbar gap-6 pb-8 snap-x snap-mandatory lg:grid lg:grid-cols-5 lg:overflow-visible lg:snap-none">
                     
-                    <!-- Básico -->
-                    <div class="bg-white border border-zinc-200 rounded-3xl p-6 flex flex-col">
-                        <span class="text-[10px] bg-zinc-100 text-zinc-500 font-bold px-2 py-1 rounded w-max mb-3 uppercase tracking-wider">Para Empezar</span>
-                        <h3 class="text-xl font-bold text-black mb-1">Web Básica</h3>
-                        <p class="text-zinc-500 text-xs mb-4 min-h-[32px]">Tarjeta de presentación digital en 1 sola página (Landing).</p>
-                        <div class="mb-5">
-                            <p class="text-sm text-zinc-400 line-through">De $1,500</p>
-                            <p class="text-3xl font-black text-primary">$1,125 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
+                    <!-- P1: Básica -->
+                    <div class="package-card min-w-[280px] lg:min-w-0 bg-white rounded-3xl p-6 border border-zinc-200 flex flex-col snap-center relative overflow-hidden">
+                        <div id="card-p1-badge" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                            -25% OFF
                         </div>
-                        <ul class="text-sm text-zinc-600 space-y-2 mb-8 flex-1">
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> 1 Página completa</li>
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Enlaces a redes y WA</li>
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Catálogo / Menú visual</li>
+                        <div class="mb-4 pr-10">
+                            <h3 class="text-lg font-bold text-black">Web Básica</h3>
+                            <p class="text-zinc-500 text-xs mt-1">Tarjeta de presentación rápida (Estática).</p>
+                        </div>
+                        <div class="mb-6 flex flex-col">
+                            <span id="card-p1-original" class="text-sm text-zinc-400 line-through font-medium">De $1,500 MXN</span>
+                            <div>
+                                <span id="card-p1-price" class="text-3xl font-extrabold text-red-600">$1,125</span>
+                                <span class="text-zinc-500 text-sm"> MXN</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 mb-8 text-sm flex-1">
+                            <li class="flex items-start gap-2 text-zinc-700">
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>1 Página (Landing page)
+                            </li>
+                            <li class="flex items-start gap-2 text-zinc-700">
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Alojamiento rápido
+                            </li>
+                            <li class="flex items-start gap-2 text-zinc-700">
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Links a redes (TikTok, IG, WA)
+                            </li>
                         </ul>
-                        <button onclick="switchTab('cotizar')" class="w-full border-2 border-primary text-primary font-bold py-3 rounded-xl hover:bg-primary hover:text-white transition-colors text-sm">Elegir Básica</button>
+                        <div class="bg-zinc-50 p-3 rounded-lg border border-zinc-100 mb-6 space-y-2">
+                            <div>
+                                <p class="text-[11px] text-zinc-500 font-medium uppercase tracking-wider">Suscripción</p>
+                                <p class="text-xs text-zinc-800">$250/mes (Modificaciones básicas).</p>
+                            </div>
+                            <div class="border-t border-zinc-200 pt-2">
+                                <p class="text-[11px] text-zinc-500 font-medium uppercase tracking-wider">Google Maps</p>
+                                <p class="text-xs text-zinc-800">+$350 (Opcional, Perfil Básico).</p>
+                            </div>
+                        </div>
+                        <button id="card-p1-btn" onclick="selectPackage('Web Básica')" class="w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
+                            Elegir Básica
+                        </button>
                     </div>
 
-                    <!-- Profesional -->
-                    <div class="bg-white border border-zinc-200 rounded-3xl p-6 flex flex-col relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">-25% OFF</div>
-                        <span class="text-[10px] bg-blue-50 text-blue-600 font-bold px-2 py-1 rounded w-max mb-3 uppercase tracking-wider">Para Consultorios</span>
-                        <h3 class="text-xl font-bold text-black mb-1">Profesional</h3>
-                        <p class="text-zinc-500 text-xs mb-4 min-h-[32px]">Para mostrar servicios a detalle y agendar citas.</p>
-                        <div class="mb-5">
-                            <p class="text-sm text-zinc-400 line-through">De $3,500</p>
-                            <p class="text-3xl font-black text-primary">$2,625 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
+                    <!-- P2: Profesional -->
+                    <div class="package-card min-w-[280px] lg:min-w-0 bg-white rounded-3xl p-6 border border-zinc-200 flex flex-col snap-center relative overflow-hidden">
+                        <div id="card-p2-badge" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                            -25% OFF
                         </div>
-                        <ul class="text-sm text-zinc-600 space-y-2 mb-8 flex-1">
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Hasta 3 páginas</li>
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Dominio propio .com</li>
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Formulario de contacto</li>
+                        <div class="mb-4 pr-10">
+                            <h3 class="text-lg font-bold text-black">Profesional</h3>
+                            <p class="text-zinc-500 text-xs mt-1">Más secciones y mayor alcance.</p>
+                        </div>
+                        <div class="mb-6 flex flex-col">
+                            <span id="card-p2-original" class="text-sm text-zinc-400 line-through font-medium">De $3,500 MXN</span>
+                            <div>
+                                <span id="card-p2-price" class="text-3xl font-extrabold text-red-600">$2,625</span>
+                                <span class="text-zinc-500 text-sm"> MXN</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 mb-8 text-sm flex-1">
+                            <li class="flex items-start gap-2 text-zinc-700">
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Hasta 3 páginas
+                            </li>
+                            <li class="flex items-start gap-2 text-zinc-700">
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Dominio propio .com
+                            </li>
+                            <li class="flex items-start gap-2 text-zinc-700">
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Formulario de contacto
+                            </li>
                         </ul>
-                        <button onclick="switchTab('cotizar')" class="w-full border-2 border-primary text-primary font-bold py-3 rounded-xl hover:bg-primary hover:text-white transition-colors text-sm">Elegir Profesional</button>
+                        <div class="bg-zinc-50 p-3 rounded-lg border border-zinc-100 mb-6 space-y-2">
+                            <div>
+                                <p class="text-[11px] text-zinc-500 font-medium uppercase tracking-wider">Suscripción</p>
+                                <p class="text-xs text-zinc-800">$500/mes (Modificaciones completas).</p>
+                            </div>
+                            <div class="border-t border-zinc-200 pt-2">
+                                <p class="text-[11px] text-zinc-500 font-medium uppercase tracking-wider">Google Maps</p>
+                                <p class="text-xs text-zinc-800">Básico o Avanzado (Requerido).</p>
+                            </div>
+                        </div>
+                        <button id="card-p2-btn" onclick="selectPackage('Profesional')" class="w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
+                            Elegir Profesional
+                        </button>
                     </div>
 
-                    <!-- Empresarial -->
-                    <div class="bg-black border border-black rounded-3xl p-6 flex flex-col relative shadow-xl transform lg:-translate-y-2">
-                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider whitespace-nowrap shadow-sm border border-zinc-200">Recomendado</div>
-                        <span class="text-[10px] bg-zinc-800 text-zinc-300 font-bold px-2 py-1 rounded w-max mb-3 uppercase tracking-wider mt-2">Para Empresas</span>
-                        <h3 class="text-xl font-bold text-white mb-1">Empresarial</h3>
-                        <p class="text-zinc-400 text-xs mb-4 min-h-[32px]">Presencia seria, corporativa y oficial completa.</p>
-                        <div class="mb-5">
-                            <p class="text-sm text-zinc-500 line-through">De $6,000</p>
-                            <p class="text-3xl font-black text-primary">$4,500 <span class="text-xs text-zinc-500 font-normal">MXN</span></p>
+                    <!-- P3: Empresarial (Destacado) -->
+                    <div class="package-card min-w-[280px] lg:min-w-0 bg-black rounded-3xl p-6 border border-black flex flex-col snap-center relative shadow-xl transform lg:-translate-y-4 overflow-hidden">
+                        <div id="card-p3-badge" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider z-10">
+                            -25% OFF
                         </div>
-                        <ul class="text-sm text-zinc-300 space-y-2 mb-8 flex-1">
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-white shrink-0"></i> Hasta 5 páginas</li>
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-white shrink-0"></i> Dominio propio .com</li>
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-white shrink-0"></i> Correos oficiales</li>
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white text-black px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest whitespace-nowrap border border-zinc-200 z-10">
+                            Recomendado
+                        </div>
+                        <div class="mb-4 mt-4 pr-10">
+                            <h3 class="text-lg font-bold text-white">Empresarial</h3>
+                            <p class="text-zinc-400 text-xs mt-1">Presencia completa para negocios serios.</p>
+                        </div>
+                        <div class="mb-6 flex flex-col">
+                            <span id="card-p3-original" class="text-sm text-zinc-500 line-through font-medium">De $6,000 MXN</span>
+                            <div>
+                                <span id="card-p3-price" class="text-3xl font-extrabold text-red-500">$4,500</span>
+                                <span class="text-zinc-400 text-sm"> MXN</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 mb-8 text-sm flex-1">
+                            <li class="flex items-start gap-2 text-zinc-300">
+                                <i data-lucide="check" class="w-4 h-4 text-white shrink-0 mt-0.5"></i>Hasta 5 páginas
+                            </li>
+                            <li class="flex items-start gap-2 text-zinc-300">
+                                <i data-lucide="check" class="w-4 h-4 text-white shrink-0 mt-0.5"></i>Dominio propio .com
+                            </li>
+                            <li class="flex items-start gap-2 text-zinc-300">
+                                <i data-lucide="check" class="w-4 h-4 text-white shrink-0 mt-0.5"></i>Correos corporativos
+                            </li>
                         </ul>
-                        <button onclick="switchTab('cotizar')" class="w-full bg-primary hover:bg-red-600 text-white font-bold py-3 rounded-xl transition-colors text-sm">Elegir Empresarial</button>
+                        <div class="bg-zinc-900 p-3 rounded-lg border border-zinc-800 mb-6 space-y-2">
+                            <div>
+                                <p class="text-[11px] text-zinc-400 font-medium uppercase tracking-wider">Suscripción</p>
+                                <p class="text-xs text-zinc-200">$500/mes (Modificaciones completas).</p>
+                            </div>
+                            <div class="border-t border-zinc-700 pt-2">
+                                <p class="text-[11px] text-zinc-400 font-medium uppercase tracking-wider">Google Maps</p>
+                                <p class="text-xs text-zinc-200">Básico o Avanzado (Requerido).</p>
+                            </div>
+                        </div>
+                        <button id="card-p3-btn" onclick="selectPackage('Empresarial')" class="w-full py-3 bg-red-600 text-white text-center rounded-xl font-bold transition-colors text-sm hover:bg-red-700 mt-auto">
+                            Elegir Empresarial
+                        </button>
                     </div>
 
-                    <!-- Tienda Web -->
-                    <div class="bg-white border border-zinc-200 rounded-3xl p-6 flex flex-col">
-                        <span class="text-[10px] bg-orange-50 text-orange-600 font-bold px-2 py-1 rounded w-max mb-3 uppercase tracking-wider">Para Vender</span>
-                        <h3 class="text-xl font-bold text-black mb-1">Tienda Web</h3>
-                        <p class="text-zinc-500 text-xs mb-4 min-h-[32px]">Vende productos online, cobra y recibe pedidos.</p>
-                        <div class="mb-5">
-                            <p class="text-sm text-zinc-400 line-through">De $9,000</p>
-                            <p class="text-3xl font-black text-primary">$6,750 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
+                    <!-- P4: Tienda en Línea -->
+                    <div class="package-card min-w-[280px] lg:min-w-0 bg-white rounded-3xl p-6 border border-zinc-200 flex flex-col snap-center relative overflow-hidden">
+                        <div id="card-p4-badge" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                            -25% OFF
                         </div>
-                        <ul class="text-sm text-zinc-600 space-y-2 mb-8 flex-1">
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Carrito de compras</li>
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Pagos con tarjeta/OXXO</li>
-                            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Panel de administración</li>
+                        <div class="mb-4 pr-10">
+                            <h3 class="text-lg font-bold text-black">Tienda Web</h3>
+                            <p class="text-zinc-500 text-xs mt-1">Para vender tus productos físicos o digitales.</p>
+                        </div>
+                        <div class="mb-6 flex flex-col">
+                            <span id="card-p4-original" class="text-sm text-zinc-400 line-through font-medium">De $9,000 MXN</span>
+                            <div>
+                                <span id="card-p4-price" class="text-3xl font-extrabold text-red-600">$6,750</span>
+                                <span class="text-zinc-500 text-sm"> MXN</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 mb-8 text-sm flex-1">
+                            <li class="flex items-start gap-2 text-zinc-700">
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Dominio propio .com
+                            </li>
+                            <li class="flex items-start gap-2 text-zinc-700">
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Carrito y pagos
+                            </li>
+                            <li class="flex items-start gap-2 text-zinc-700">
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Panel para administrar
+                            </li>
                         </ul>
-                        <button onclick="switchTab('cotizar')" class="w-full border-2 border-primary text-primary font-bold py-3 rounded-xl hover:bg-primary hover:text-white transition-colors text-sm">Elegir Tienda</button>
+                        <div class="bg-zinc-50 p-3 rounded-lg border border-zinc-100 mb-6 space-y-2">
+                            <div>
+                                <p class="text-[11px] text-zinc-500 font-medium uppercase tracking-wider">Soporte y Susc.</p>
+                                <p class="text-xs text-zinc-800">$800/mes (Especial para tienda).</p>
+                            </div>
+                            <div class="border-t border-zinc-200 pt-2">
+                                <p class="text-[11px] text-zinc-500 font-medium uppercase tracking-wider">Google Maps</p>
+                                <p class="text-xs text-zinc-800">Básico o Avanzado (Requerido).</p>
+                            </div>
+                        </div>
+                        <button id="card-p4-btn" onclick="selectPackage('Tienda Web')" class="w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
+                            Elegir Tienda
+                        </button>
                     </div>
 
-                </div>
-                
-                <div class="mt-8 text-center">
-                    <button onclick="switchTab('dudas')" class="text-sm text-zinc-500 underline underline-offset-4 hover:text-black">¿No sabes cuál elegir? Lee las preguntas frecuentes →</button>
+                    <!-- P5: A Medida -->
+                    <div class="package-card min-w-[280px] lg:min-w-0 bg-white rounded-3xl p-6 border border-zinc-200 flex flex-col snap-center relative overflow-hidden">
+                        <div id="card-p5-badge" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                            -25% OFF
+                        </div>
+                        <div class="mb-4 pr-10">
+                            <h3 class="text-lg font-bold text-black">A Medida</h3>
+                            <p class="text-zinc-500 text-xs mt-1">Sistemas o funciones especiales y complejas.</p>
+                        </div>
+                        <div class="mb-6 flex flex-col">
+                            <span id="card-p5-original" class="text-sm text-zinc-400 line-through font-medium">De $15,000 MXN</span>
+                            <div>
+                                <span class="text-zinc-500 text-sm mr-1">Desde</span>
+                                <span id="card-p5-price" class="text-3xl font-extrabold text-red-600">$11,250</span>
+                                <span class="text-zinc-500 text-sm"> MXN</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 mb-8 text-sm flex-1">
+                            <li class="flex items-start gap-2 text-zinc-700">
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Dominio propio .com
+                            </li>
+                            <li class="flex items-start gap-2 text-zinc-700">
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Funciones únicas
+                            </li>
+                            <li class="flex items-start gap-2 text-zinc-700">
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Base de datos
+                            </li>
+                        </ul>
+                        <div class="bg-zinc-50 p-3 rounded-lg border border-zinc-100 mb-6 space-y-2">
+                            <div>
+                                <p class="text-[11px] text-zinc-500 font-medium uppercase tracking-wider">Mantenimiento</p>
+                                <p class="text-xs text-zinc-800">Costo a cotizar.</p>
+                            </div>
+                            <div class="border-t border-zinc-200 pt-2">
+                                <p class="text-[11px] text-zinc-500 font-medium uppercase tracking-wider">Google Maps</p>
+                                <p class="text-xs text-zinc-800">Básico o Avanzado (Requerido).</p>
+                            </div>
+                        </div>
+                        <button id="card-p5-btn" onclick="selectPackage('A Medida')" class="w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
+                            Cotizar Sistema
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- ==============================================
-             TAB 3: EJEMPLOS
-        =============================================== -->
-        <section id="tab-ejemplos" class="tab-content py-12">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="mb-10 text-center">
-                    <h2 class="text-3xl font-extrabold text-black mb-3">Previsualización de Paquetes.</h2>
-                    <p class="text-zinc-500 max-w-xl mx-auto">Así se verá la presencia online de tu negocio. Diseños rápidos, modernos y optimizados para celulares.</p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    
-                    <!-- Ejemplo 1 -->
-                    <div class="bg-zinc-50 rounded-3xl overflow-hidden border border-zinc-100 group">
-                        <div class="h-48 bg-zinc-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1559508551-44bff1bc97fa?auto=format&fit=crop&w=600&q=80" alt="Barbershop Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-bold text-lg text-black">Barbershop XPN</h3>
-                                <span class="bg-white border border-zinc-200 text-[9px] font-bold px-2 py-1 rounded uppercase tracking-wider">Web Básica</span>
-                            </div>
-                            <p class="text-xs text-zinc-500 mb-4">Diseño en 1 página para negocio local. Catálogo de cortes, ubicación GPS y botón para agendar directo por WhatsApp.</p>
-                        </div>
-                    </div>
-
-                    <!-- Ejemplo 2 -->
-                    <div class="bg-zinc-50 rounded-3xl overflow-hidden border border-zinc-100 group">
-                        <div class="h-48 bg-zinc-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1581594549595-35f6edc7b762?auto=format&fit=crop&w=600&q=80" alt="Pharmacy Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-bold text-lg text-black">Farmacia Medicamin</h3>
-                                <span class="bg-white border border-zinc-200 text-[9px] font-bold px-2 py-1 rounded uppercase tracking-wider">Profesional</span>
-                            </div>
-                            <p class="text-xs text-zinc-500 mb-4">Sitio de 3 páginas con dominio .com. Catálogo detallado de medicamentos, formulario de pedidos y botón de urgencias 24/7.</p>
-                        </div>
-                    </div>
-
-                    <!-- Ejemplo 3 -->
-                    <div class="bg-zinc-50 rounded-3xl overflow-hidden border border-zinc-100 group">
-                        <div class="h-48 bg-zinc-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80" alt="Dental Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-bold text-lg text-black">DentalCare Clinic</h3>
-                                <span class="bg-white border border-zinc-200 text-[9px] font-bold px-2 py-1 rounded uppercase tracking-wider">Empresarial</span>
-                            </div>
-                            <p class="text-xs text-zinc-500 mb-4">Estructura corporativa de 5 páginas. Perfiles de dentistas, lista de tratamientos detallada y correos oficiales (@dentalcare.com).</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="mt-10 text-center">
-                    <button onclick="switchTab('cotizar')" class="text-black font-bold border-b-2 border-black pb-1 hover:text-primary hover:border-primary transition-colors">¿Te parece bien? Cotiza tu proyecto →</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==============================================
-             TAB 4: PROCESO
-        =============================================== -->
-        <section id="tab-proceso" class="tab-content py-12">
+        <!-- Dynamic Form Section to redirect to WhatsApp -->
+        <section id="cotizacion" class="py-24 bg-white border-t border-zinc-100">
             <div class="max-w-3xl mx-auto px-6">
-                <div class="mb-12 text-center">
-                    <h2 class="text-3xl font-extrabold text-black mb-3">Cómo funciona.</h2>
-                    <p class="text-zinc-500">Un proceso rápido y sin fricciones. Tu página lista en 3 a 5 días hábiles.</p>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">Agenda tu proyecto</h2>
+                    <p id="form-desc" class="text-zinc-600">Asegura tu precio con el <strong class="text-red-600">25% de descuento</strong> completando este formulario. Te contactaré directo por WhatsApp.</p>
                 </div>
 
-                <div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-zinc-200 before:to-transparent">
-                    
-                    <!-- Paso 1 -->
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-black text-white font-bold text-sm shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">1</div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-zinc-50 p-5 rounded-2xl border border-zinc-100">
-                            <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider mb-1 block">Día 1</span>
-                            <h4 class="font-bold text-black mb-1">Entrevista e Información</h4>
-                            <p class="text-xs text-zinc-500">Llenas el formulario, me pasas tus textos, fotos y logo por WhatsApp.</p>
-                        </div>
-                    </div>
+                <div class="bg-white rounded-3xl p-8 border border-zinc-200 shadow-xl shadow-zinc-100/50 relative overflow-hidden">
+                    <div id="form-decor-glow" class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
 
-                    <!-- Paso 2 -->
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-zinc-200 text-zinc-500 font-bold text-sm shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">2</div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl border border-zinc-100">
-                            <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider mb-1 block">Días 2 y 3</span>
-                            <h4 class="font-bold text-black mb-1">Diseño y Desarrollo</h4>
-                            <p class="text-xs text-zinc-500">Me encargo de maquetar la web, programar los botones y optimizarla para celular.</p>
-                        </div>
-                    </div>
-
-                    <!-- Paso 3 -->
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-zinc-200 text-zinc-500 font-bold text-sm shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">3</div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl border border-zinc-100">
-                            <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider mb-1 block">Día 4</span>
-                            <h4 class="font-bold text-black mb-1">Revisión Final</h4>
-                            <p class="text-xs text-zinc-500">Te envío un enlace privado para que veas la página y aprobemos detalles finales.</p>
-                        </div>
-                    </div>
-
-                    <!-- Paso 4 -->
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-primary text-white font-bold text-sm shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">4</div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-red-50 p-5 rounded-2xl border border-red-100">
-                            <span class="text-[10px] text-primary font-bold uppercase tracking-wider mb-1 block">Día 5</span>
-                            <h4 class="font-bold text-primary mb-1">Lanzamiento LIVE</h4>
-                            <p class="text-xs text-red-800/70">Conectamos tu dominio .com y tu página queda pública lista para recibir clientes.</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="mt-12 text-center">
-                    <button onclick="switchTab('cotizar')" class="bg-black hover:bg-zinc-800 text-white font-bold px-8 py-4 rounded-xl transition-colors">Listo para empezar →</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==============================================
-             TAB 5: DUDAS / FAQ
-        =============================================== -->
-        <section id="tab-dudas" class="tab-content py-12">
-            <div class="max-w-2xl mx-auto px-6">
-                <div class="mb-10 text-center">
-                    <h2 class="text-3xl font-extrabold text-black mb-3">Respuestas rápidas.</h2>
-                    <p class="text-zinc-500">Todo transparente. Si tienes otra duda, mándame WhatsApp.</p>
-                </div>
-
-                <div class="space-y-3">
-                    
-                    <details class="bg-zinc-50 border border-zinc-200 rounded-2xl group overflow-hidden" open>
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-black">
-                            <span>¿Qué incluye la Suscripción y por qué es importante?</span>
-                            <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="w-5 h-5 text-zinc-400"></i></span>
-                        </summary>
-                        <div class="p-5 pt-0 text-zinc-600 text-sm leading-relaxed border-t border-zinc-200/50 mt-2 pt-4">
-                            Como soy el único que mantiene tu página, la suscripción mensual ($250 a $800 según el paquete) garantiza que **yo me encargaré personalmente de hacer todas las actualizaciones que necesites** (cambios de texto, subir fotos nuevas, actualizar horarios o precios). Además, cubre el alojamiento rápido, la seguridad de la página para que nunca se caiga y el soporte directo conmigo por WhatsApp. Sin la suscripción, corres el riesgo de que la página quede desactualizada.
-                        </div>
-                    </details>
-
-                    <details class="bg-zinc-50 border border-zinc-200 rounded-2xl group overflow-hidden">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-black">
-                            <span>¿Qué incluye el dominio .com?</span>
-                            <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="w-5 h-5 text-zinc-400"></i></span>
-                        </summary>
-                        <div class="p-5 pt-0 text-zinc-600 text-sm leading-relaxed border-t border-zinc-200/50 mt-2 pt-4">
-                            Incluye el registro por 1 año de tu nombre (ejemplo: www.tunegocio.com), sujeto a disponibilidad. A partir del segundo año, la renovación se cobra por separado. Si eliges el paquete Básico y quieres un .com, tiene un costo extra; de lo contrario, uso un subdominio gratuito.
-                        </div>
-                    </details>
-
-                    <details class="bg-zinc-50 border border-zinc-200 rounded-2xl group overflow-hidden">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-black">
-                            <span>¿Incluye posicionamiento SEO en Google?</span>
-                            <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="w-5 h-5 text-zinc-400"></i></span>
-                        </summary>
-                        <div class="p-5 pt-0 text-zinc-600 text-sm leading-relaxed border-t border-zinc-200/50 mt-2 pt-4">
-                            Todos los paquetes incluyen **SEO Básico técnico** (estructura correcta rápida para que Google te lea). Sin embargo, aparecer en el #1 lugar requiere tiempo y una estrategia de SEO mensual avanzada o anuncios pagados.
-                        </div>
-                    </details>
-
-                    <details class="bg-zinc-50 border border-zinc-200 rounded-2xl group overflow-hidden">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-black">
-                            <span>¿Cómo funciona la integración con Google Maps?</span>
-                            <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="w-5 h-5 text-zinc-400"></i></span>
-                        </summary>
-                        <div class="p-5 pt-0 text-zinc-600 text-sm leading-relaxed border-t border-zinc-200/50 mt-2 pt-4">
-                            Incrusto el mapa de tu negocio directamente en tu página web. Si aún no tienes un Perfil de Google Negocios (para aparecer en Maps), te ayudo a crearlo por un costo de $350 (Básico) o avanzado dependiendo del paquete.
-                        </div>
-                    </details>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ==============================================
-             TAB 6: COTIZAR
-        =============================================== -->
-        <section id="tab-cotizar" class="tab-content py-12">
-            <div class="max-w-xl mx-auto px-6">
-                <div class="mb-10 text-center">
-                    <h2 class="text-3xl font-extrabold text-black mb-3">Cotiza y Agenda.</h2>
-                    <p class="text-zinc-500 text-sm">Asegura tu <span class="font-bold text-primary">25% de descuento</span> en septiembre. Responde estas 4 preguntas y hablemos por WhatsApp.</p>
-                </div>
-
-                <div class="bg-white rounded-3xl p-6 md:p-8 border border-zinc-200 shadow-xl shadow-zinc-100/50">
-                    <form id="wa-form" class="space-y-5">
+                    <form id="wa-form" class="space-y-6 relative z-10">
                         
-                        <div>
-                            <label class="block text-sm font-bold text-black mb-1.5">1. ¿Qué tipo de negocio tienes?</label>
-                            <input type="text" id="f_business" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors" placeholder="Ej. Barbería, Consultorio, Constructora...">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="f_name" class="block text-sm font-semibold text-zinc-800 mb-2">Tu Nombre</label>
+                                <input type="text" id="f_name" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors" placeholder="¿Cómo te llamas?">
+                            </div>
+                            
+                            <div>
+                                <label for="f_clients" class="block text-sm font-semibold text-zinc-800 mb-2">¿Es tu primera vez conmigo?</label>
+                                <select id="f_clients" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors">
+                                    <option value="Primera vez (Nuevo cliente)">Sí, es mi primera vez</option>
+                                    <option value="Ya he comprado antes">No, ya he trabajado contigo antes</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-bold text-black mb-1.5">2. ¿Qué paquete te interesa?</label>
-                            <select id="f_package" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors">
-                                <option value="" disabled selected>Selecciona una opción</option>
-                                <option value="Básica ($1,125 MXN)">Web Básica - $1,125 MXN</option>
-                                <option value="Profesional ($2,625 MXN)">Profesional - $2,625 MXN</option>
-                                <option value="Empresarial ($4,500 MXN)">Empresarial - $4,500 MXN</option>
-                                <option value="Tienda Web ($6,750 MXN)">Tienda Web - $6,750 MXN</option>
-                                <option value="No estoy seguro">Aún no estoy seguro</option>
+                            <label for="f_package" class="block text-sm font-semibold text-zinc-800 mb-2">Paquete que te interesa</label>
+                            <select id="f_package" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors font-medium">
+                                <!-- Options populated dynamically by JS according to promo status -->
                             </select>
                         </div>
 
-                        <div>
-                            <label class="block text-sm font-bold text-black mb-1.5">3. ¿Quieres dominio .com propio?</label>
-                            <select id="f_domain" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors">
-                                <option value="" disabled selected>Selecciona una opción</option>
-                                <option value="Sí, quiero dominio .com">Sí, quiero dominio .com</option>
-                                <option value="No, está bien con Vercel/subdominio gratis">No, un subdominio gratis está bien</option>
+                        <!-- Sección de Google Business Profile Dinámica -->
+                        <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+                            <label for="f_google" class="block text-sm font-semibold text-zinc-800 mb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                Perfil en Google Maps (Google Business Profile)
+                            </label>
+                            <select id="f_google" class="w-full bg-white border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black transition-colors mb-2">
+                                <!-- Options will be generated by JS -->
                             </select>
+                            <div id="google-desc" class="text-xs text-zinc-600 leading-relaxed mt-3">
+                                <!-- Helper text will be updated by JS -->
+                            </div>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-bold text-black mb-1.5">4. Tu nombre y detalles adicionales</label>
-                            <textarea id="f_details" rows="3" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-sm resize-none focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors" placeholder="Me llamo... Me gustaría que la web tuviera..."></textarea>
+                            <label for="f_details" class="block text-sm font-semibold text-zinc-800 mb-2">Detalles / Personalización</label>
+                            <textarea id="f_details" rows="3" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors resize-none" placeholder="¿De qué trata tu negocio? ¿Qué colores te gustan? ¿Alguna función en especial?"></textarea>
                         </div>
 
-                        <button type="submit" class="w-full bg-[#22c55e] hover:bg-green-600 text-white font-bold text-base px-6 py-4 rounded-xl shadow-lg shadow-green-500/20 transition-all flex items-center justify-center gap-2 mt-4">
-                            <i data-lucide="send" class="w-5 h-5"></i>
-                            Enviar a WhatsApp
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="f_maint" class="block text-sm font-semibold text-zinc-800 mb-2">Suscripción por modificaciones futuras</label>
+                                <select id="f_maint" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors">
+                                    <option value="Sí ($500/mes)">Sí, me interesa</option>
+                                    <option value="No por ahora">No, yo la administraré</option>
+                                </select>
+                                <p class="text-[11px] text-zinc-500 mt-2">* Remodelación completa de página: Costo extra de $250.</p>
+                            </div>
+                            <div>
+                                <label for="f_budget" class="block text-sm font-semibold text-zinc-800 mb-2">Tu presupuesto ideal</label>
+                                <input type="text" id="f_budget" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors" placeholder="Ej. $4,000 MXN">
+                            </div>
+                        </div>
+
+                        <!-- SUMMARY / ESTIMACIÓN TOTAL BLOCK -->
+                        <div class="bg-black text-white p-6 rounded-2xl mt-4 hidden shadow-xl" id="summary-block">
+                            <h3 id="sum-title" class="text-lg font-bold mb-3 border-b border-zinc-800 pb-2">Resumen de Inversión (Septiembre)</h3>
+                            <div class="space-y-2 text-sm text-zinc-300">
+                                <div class="flex justify-between items-center">
+                                    <span id="sum-pkg-name">Paquete Web</span>
+                                    <div class="text-right">
+                                        <span id="sum-pkg-original" class="text-xs text-zinc-500 line-through block mr-1">$0</span>
+                                        <span id="sum-pkg-price" class="font-bold text-red-400">$0</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between" id="sum-google-row">
+                                    <span id="sum-google-name">Google Maps Básico</span>
+                                    <span id="sum-google-price" class="font-medium text-white">+$0</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-zinc-800 flex justify-between items-end">
+                                <div>
+                                    <p class="text-[11px] text-zinc-400 uppercase tracking-widest">Inversión Inicial</p>
+                                    <p class="text-3xl font-extrabold text-white leading-none mt-1" id="sum-total">$0 <span class="text-sm font-normal text-zinc-400">MXN</span></p>
+                                    <p class="text-xs text-green-400 mt-1 font-medium" id="sum-savings">Ahorras $0</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-[11px] text-zinc-400 uppercase tracking-widest">Suscripción</p>
+                                    <p class="text-sm font-medium text-zinc-300 mt-1" id="sum-monthly">$0 / mes</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="form-submit-btn" class="w-full py-4 mt-6 bg-red-600 hover:bg-red-700 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-600/20">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                            Enviar cotización a WhatsApp
                         </button>
                     </form>
                 </div>
             </div>
         </section>
 
+        <!-- Direct Contact Section -->
+        <section id="contacto" class="py-12 bg-zinc-50 border-t border-zinc-200">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <p class="text-zinc-600 mb-6 text-sm font-medium">¿Prefieres un correo tradicional?</p>
+                <a href="mailto:anubisorg01@gmail.com" class="inline-flex px-8 py-3 bg-white border border-zinc-200 hover:border-black text-black rounded-xl font-bold transition-all items-center justify-center gap-3">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    anubisorg01@gmail.com
+                </a>
+            </div>
+        </section>
     </main>
 
+    <!-- Footer -->
+    <footer class="bg-black py-12 text-white">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center gap-4 text-center">
+            <div class="logo-av text-white mb-2">A<span class="text-zinc-500">V</span></div>
+            <p class="text-zinc-400 text-sm">
+                &copy; <span id="current-year"></span> AV My Web Studio. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
     <script>
-        // Inicializar Iconos Lucide
-        lucide.createIcons();
+        // Fecha límite exacta: 15 de septiembre a las 11:59:59 PM (Hora Centro de México GMT-6)
+        const PROMO_END_DATE = new Date('2026-09-15T23:59:59-06:00');
 
-        // Lógica de Tabs
-        function switchTab(tabId) {
-            // Ocultar todas las tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            // Mostrar la tab seleccionada
-            document.getElementById('tab-' + tabId).classList.add('active');
-
-            // Actualizar botones bottom nav (Mobile)
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                if (btn.dataset.target === tabId) {
-                    btn.classList.add('active');
-                    btn.querySelector('.nav-icon')?.classList.replace('text-zinc-400', 'text-black');
-                } else {
-                    btn.classList.remove('active');
-                    btn.querySelector('.nav-icon')?.classList.replace('text-black', 'text-zinc-400');
-                }
-            });
-
-            // Actualizar botones top nav (Desktop)
-            document.querySelectorAll('.nav-btn-desktop').forEach(btn => {
-                if (btn.dataset.target === tabId) {
-                    btn.classList.add('text-black', 'font-bold');
-                    btn.classList.remove('text-zinc-500', 'font-medium');
-                } else {
-                    btn.classList.remove('text-black', 'font-bold');
-                    btn.classList.add('text-zinc-500', 'font-medium');
-                }
-            });
-
-            // Scroll to top automatically when switching tabs
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        function isPromoActive() {
+            return new Date() <= PROMO_END_DATE;
         }
 
-        // Contador de Oferta
-        function updateTimer() {
-            const endDate = new Date('2026-09-15T23:59:59-06:00');
-            const now = new Date();
-            const diff = endDate - now;
+        const f_package = document.getElementById('f_package');
+        const f_maint = document.getElementById('f_maint');
+        const f_google = document.getElementById('f_google');
+        const googleDesc = document.getElementById('google-desc');
 
-            if (diff > 0) {
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((diff / 1000 / 60) % 60);
-                const seconds = Math.floor((diff / 1000) % 60);
+        const txtBasico = "<strong>Plan Básico ($350):</strong> Crear o reclamar el perfil, poner el nombre correcto del negocio, categoría exacta, horario de atención, número de teléfono, enlace a WhatsApp/redes, y dirección exacta con el marcador GPS bien ubicado.";
+        const txtAvanzado = "<strong>Plan Avanzado ($750):</strong> Todo lo del plan Básico, MÁS la subida de una buena galería de fotos inicial y redacción de una descripción atractiva con palabras clave locales.";
 
-                document.getElementById('t-days').innerText = String(days).padStart(2, '0');
-                document.getElementById('t-hours').innerText = String(hours).padStart(2, '0');
-                document.getElementById('t-minutes').innerText = String(minutes).padStart(2, '0');
-                document.getElementById('t-seconds').innerText = String(seconds).padStart(2, '0');
+        let previousPromoState = null;
+
+        // Función que actualiza la apariencia de toda la página entre modo Promoción y modo Normal
+        function updateUIForPromoState() {
+            const active = isPromoActive();
+
+            if (previousPromoState === active) return; // Solo actualiza si hubo cambio de estado
+            previousPromoState = active;
+
+            const promoContainer = document.getElementById('promo-container');
+            const navLink = document.getElementById('nav-paquetes-link');
+            const mobileLink = document.getElementById('mobile-paquetes-link');
+            const heroBtn = document.getElementById('hero-cta-btn');
+            const formDesc = document.getElementById('form-desc');
+            const formGlow = document.getElementById('form-decor-glow');
+            const formSubmitBtn = document.getElementById('form-submit-btn');
+            const paquetesDesc = document.getElementById('paquetes-desc');
+            const sumTitle = document.getElementById('sum-title');
+
+            if (active) {
+                // Modo PROMOCIÓN ACTIVA
+                if (promoContainer) promoContainer.classList.remove('hidden');
+                if (navLink) navLink.textContent = "Promoción Septiembre";
+                if (mobileLink) mobileLink.textContent = "Promoción Septiembre";
+                if (paquetesDesc) paquetesDesc.textContent = "Selecciona el paquete que mejor se adapte a tu etapa actual y aprovecha el descuento de Septiembre.";
+                if (formDesc) formDesc.innerHTML = 'Asegura tu precio con el <strong class="text-red-600">25% de descuento</strong> completando este formulario. Te contactaré directo por WhatsApp.';
+                if (formGlow) formGlow.classList.remove('hidden');
+                if (sumTitle) sumTitle.textContent = "Resumen de Inversión (Septiembre)";
+
+                if (heroBtn) {
+                    heroBtn.textContent = "Ver Promoción 25% OFF";
+                    heroBtn.className = "w-full sm:w-auto px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-xl font-medium transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-600/20";
+                }
+                if (formSubmitBtn) {
+                    formSubmitBtn.className = "w-full py-4 mt-6 bg-red-600 hover:bg-red-700 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-600/20";
+                }
+
+                // Badges y precios en tarjetas
+                ['p1', 'p2', 'p3', 'p4', 'p5'].forEach(id => {
+                    const badge = document.getElementById(`card-${id}-badge`);
+                    const orig = document.getElementById(`card-${id}-original`);
+                    if (badge) badge.classList.remove('hidden');
+                    if (orig) orig.classList.remove('hidden');
+                });
+
+                document.getElementById('card-p1-price').textContent = "$1,125";
+                document.getElementById('card-p1-price').className = "text-3xl font-extrabold text-red-600";
+                document.getElementById('card-p1-btn').className = "w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto";
+
+                document.getElementById('card-p2-price').textContent = "$2,625";
+                document.getElementById('card-p2-price').className = "text-3xl font-extrabold text-red-600";
+                document.getElementById('card-p2-btn').className = "w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto";
+
+                document.getElementById('card-p3-price').textContent = "$4,500";
+                document.getElementById('card-p3-price').className = "text-3xl font-extrabold text-red-500";
+                document.getElementById('card-p3-btn').className = "w-full py-3 bg-red-600 text-white text-center rounded-xl font-bold transition-colors text-sm hover:bg-red-700 mt-auto";
+
+                document.getElementById('card-p4-price').textContent = "$6,750";
+                document.getElementById('card-p4-price').className = "text-3xl font-extrabold text-red-600";
+                document.getElementById('card-p4-btn').className = "w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto";
+
+                document.getElementById('card-p5-price').textContent = "$11,250";
+                document.getElementById('card-p5-price').className = "text-3xl font-extrabold text-red-600";
+                document.getElementById('card-p5-btn').className = "w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto";
+
+                // Opciones del formulario con promo
+                f_package.innerHTML = `
+                    <option value="Web Básica ($1,125)">Web Básica - Promo $1,125 MXN (Normal $1,500)</option>
+                    <option value="Profesional ($2,625)">Profesional - Promo $2,625 MXN (Normal $3,500)</option>
+                    <option value="Empresarial ($4,500)" selected>Empresarial - Promo $4,500 MXN (Normal $6,000)</option>
+                    <option value="Tienda Web ($6,750)">Tienda Web - Promo $6,750 MXN (Normal $9,000)</option>
+                    <option value="Sistema A Medida">Sistema a Medida (25% OFF en cotización)</option>
+                    <option value="No estoy seguro">Aún no estoy seguro</option>
+                `;
             } else {
-                document.getElementById('promo-banner').innerHTML = '<span class="bg-black text-white px-4 py-2 rounded-full text-sm font-bold">Oferta Finalizada</span>';
+                // Modo NORMAL AUTOMÁTICO (Después del 15 de septiembre 11:59 PM)
+                if (promoContainer) promoContainer.classList.add('hidden');
+                if (navLink) navLink.textContent = "Planes y Precios";
+                if (mobileLink) mobileLink.textContent = "Planes y Precios";
+                if (paquetesDesc) paquetesDesc.textContent = "Selecciona el paquete que mejor se adapte a tu etapa actual.";
+                if (formDesc) formDesc.textContent = "Completa este formulario súper rápido y te contactaré directo por WhatsApp con la respuesta exacta para iniciar.";
+                if (formGlow) formGlow.classList.add('hidden');
+                if (sumTitle) sumTitle.textContent = "Resumen de tu Cotización";
+
+                if (heroBtn) {
+                    heroBtn.textContent = "Ver Precios";
+                    heroBtn.className = "w-full sm:w-auto px-8 py-4 bg-black hover:bg-zinc-800 text-white rounded-xl font-medium transition-all flex items-center justify-center gap-2";
+                }
+                if (formSubmitBtn) {
+                    formSubmitBtn.className = "w-full py-4 mt-6 bg-black hover:bg-zinc-800 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2";
+                }
+
+                // Ocultar badges y precios tachados
+                ['p1', 'p2', 'p3', 'p4', 'p5'].forEach(id => {
+                    const badge = document.getElementById(`card-${id}-badge`);
+                    const orig = document.getElementById(`card-${id}-original`);
+                    if (badge) badge.classList.add('hidden');
+                    if (orig) orig.classList.add('hidden');
+                });
+
+                document.getElementById('card-p1-price').textContent = "$1,500";
+                document.getElementById('card-p1-price').className = "text-3xl font-extrabold text-black";
+                document.getElementById('card-p1-btn').className = "w-full py-3 bg-white border-2 border-black hover:bg-black hover:text-white text-black text-center rounded-xl font-bold transition-colors text-sm mt-auto";
+
+                document.getElementById('card-p2-price').textContent = "$3,500";
+                document.getElementById('card-p2-price').className = "text-3xl font-extrabold text-black";
+                document.getElementById('card-p2-btn').className = "w-full py-3 bg-white border-2 border-black hover:bg-black hover:text-white text-black text-center rounded-xl font-bold transition-colors text-sm mt-auto";
+
+                document.getElementById('card-p3-price').textContent = "$6,000";
+                document.getElementById('card-p3-price').className = "text-3xl font-extrabold text-white";
+                document.getElementById('card-p3-btn').className = "w-full py-3 bg-white text-black text-center rounded-xl font-bold transition-colors text-sm hover:bg-zinc-200 mt-auto";
+
+                document.getElementById('card-p4-price').textContent = "$9,000";
+                document.getElementById('card-p4-price').className = "text-3xl font-extrabold text-black";
+                document.getElementById('card-p4-btn').className = "w-full py-3 bg-white border-2 border-black hover:bg-black hover:text-white text-black text-center rounded-xl font-bold transition-colors text-sm mt-auto";
+
+                document.getElementById('card-p5-price').textContent = "$15k";
+                document.getElementById('card-p5-price').className = "text-3xl font-extrabold text-black";
+                document.getElementById('card-p5-btn').className = "w-full py-3 bg-white border-2 border-black hover:bg-black hover:text-white text-black text-center rounded-xl font-bold transition-colors text-sm mt-auto";
+
+                // Opciones del formulario modo normal
+                f_package.innerHTML = `
+                    <option value="Web Básica ($1,500)">Web Básica ($1,500 MXN)</option>
+                    <option value="Profesional ($3,500)">Profesional ($3,500 MXN)</option>
+                    <option value="Empresarial ($6,000)" selected>Empresarial ($6,000 MXN) - Recomendado</option>
+                    <option value="Tienda Web ($9,000)">Tienda Web ($9,000 MXN)</option>
+                    <option value="Sistema A Medida">Sistema a Medida (Cotizar)</option>
+                    <option value="No estoy seguro">Aún no estoy seguro</option>
+                `;
+            }
+
+            updateFormOptions();
+        }
+
+        // Lógica del Contador Regresivo Minimalista
+        function updateCountdown() {
+            const now = new Date();
+            const diff = PROMO_END_DATE - now;
+
+            if (diff <= 0) {
+                // La promoción ya expiró
+                updateUIForPromoState();
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            const elDays = document.getElementById('timer-days');
+            const elHours = document.getElementById('timer-hours');
+            const elMinutes = document.getElementById('timer-minutes');
+            const elSeconds = document.getElementById('timer-seconds');
+
+            if (elDays) elDays.textContent = String(days).padStart(2, '0');
+            if (elHours) elHours.textContent = String(hours).padStart(2, '0');
+            if (elMinutes) elMinutes.textContent = String(minutes).padStart(2, '0');
+            if (elSeconds) elSeconds.textContent = String(seconds).padStart(2, '0');
+        }
+
+        // Iniciar reloj y revisión
+        updateUIForPromoState();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Lógica de cálculo en el formulario
+        function calculateTotal() {
+            const active = isPromoActive();
+            const pkgText = f_package.value;
+            const googleText = f_google.value;
+            const maintText = f_maint.value;
+            const sumBlock = document.getElementById('summary-block');
+            
+            let pkgPrice = 0;
+            let originalPkgPrice = 0;
+            let isCustom = false;
+
+            if (active) {
+                // Precios de promoción
+                if (pkgText.includes('$1,125')) { pkgPrice = 1125; originalPkgPrice = 1500; }
+                else if (pkgText.includes('$2,625')) { pkgPrice = 2625; originalPkgPrice = 3500; }
+                else if (pkgText.includes('$4,500')) { pkgPrice = 4500; originalPkgPrice = 6000; }
+                else if (pkgText.includes('$6,750')) { pkgPrice = 6750; originalPkgPrice = 9000; }
+                else isCustom = true;
+            } else {
+                // Precios normales
+                if (pkgText.includes('$1,500')) { pkgPrice = 1500; }
+                else if (pkgText.includes('$3,500')) { pkgPrice = 3500; }
+                else if (pkgText.includes('$6,000')) { pkgPrice = 6000; }
+                else if (pkgText.includes('$9,000')) { pkgPrice = 9000; }
+                else isCustom = true;
+            }
+
+            let googlePrice = 0;
+            if (googleText && googleText.includes('$350')) googlePrice = 350;
+            else if (googleText && googleText.includes('$750')) googlePrice = 750;
+
+            let monthly = "$0";
+            if (maintText && maintText.includes('$250')) monthly = "$250";
+            else if (maintText && maintText.includes('$500')) monthly = "$500";
+            
+            if (isCustom) {
+                sumBlock.classList.add('hidden');
+            } else {
+                sumBlock.classList.remove('hidden');
+                
+                document.getElementById('sum-pkg-name').textContent = pkgText.split('-')[0].split('(')[0].trim();
+                
+                const origEl = document.getElementById('sum-pkg-original');
+                const savingsEl = document.getElementById('sum-savings');
+                const pkgPriceEl = document.getElementById('sum-pkg-price');
+
+                if (active) {
+                    origEl.classList.remove('hidden');
+                    savingsEl.classList.remove('hidden');
+                    origEl.textContent = `$${originalPkgPrice.toLocaleString()}`;
+                    pkgPriceEl.textContent = `$${pkgPrice.toLocaleString()}`;
+                    pkgPriceEl.className = "font-bold text-red-400";
+                    const savings = originalPkgPrice - pkgPrice;
+                    savingsEl.textContent = `Ahorras $${savings.toLocaleString()} (Promo 25% OFF)`;
+                } else {
+                    origEl.classList.add('hidden');
+                    savingsEl.classList.add('hidden');
+                    pkgPriceEl.textContent = `$${pkgPrice.toLocaleString()}`;
+                    pkgPriceEl.className = "font-bold text-white";
+                }
+
+                const gRow = document.getElementById('sum-google-row');
+                if (googlePrice > 0) {
+                    gRow.classList.remove('hidden');
+                    document.getElementById('sum-google-name').textContent = googlePrice === 750 ? "Google Maps Avanzado" : "Google Maps Básico";
+                    document.getElementById('sum-google-price').textContent = `+$${googlePrice.toLocaleString()}`;
+                } else {
+                    gRow.classList.add('hidden');
+                }
+
+                const initialTotal = pkgPrice + googlePrice;
+                document.getElementById('sum-total').innerHTML = `$${initialTotal.toLocaleString()} <span class="text-sm font-normal text-zinc-400">MXN</span>`;
+                document.getElementById('sum-monthly').textContent = monthly + " / mes";
             }
         }
-        setInterval(updateTimer, 1000);
-        updateTimer();
 
-        // Lógica del Formulario a WhatsApp
+        function updateFormOptions() {
+            const isBasic = f_package.value.includes('Básica') || f_package.value.includes('No estoy seguro');
+            
+            // Actualizar Mantenimiento
+            if (isBasic) {
+                f_maint.options[0].text = "Sí, $250/mes (Modificaciones básicas)";
+                f_maint.options[0].value = "Sí ($250/mes)";
+            } else {
+                f_maint.options[0].text = "Sí, $500/mes (Modificaciones completas)";
+                f_maint.options[0].value = "Sí ($500/mes)";
+            }
+
+            // Actualizar Google Business Profile
+            const prevGoogle = f_google.value;
+            f_google.innerHTML = '';
+            if (isBasic) {
+                f_google.add(new Option('No lo necesito (Opcional en tu paquete)', 'No lo necesito'));
+                f_google.add(new Option('Plan Básico (+ $350 único)', 'Google Básico ($350)'));
+                googleDesc.innerHTML = "";
+            } else {
+                f_google.add(new Option('Plan Básico (+ $350 único)', 'Google Básico ($350)'));
+                f_google.add(new Option('Plan Avanzado (+ $750 único) - Recomendado', 'Google Avanzado ($750)'));
+                googleDesc.innerHTML = txtBasico;
+            }
+
+            if (prevGoogle && [...f_google.options].some(o => o.value === prevGoogle)) {
+                f_google.value = prevGoogle;
+            }
+
+            calculateTotal();
+        }
+
+        f_google.addEventListener('change', () => {
+            if (f_google.value.includes('Básico')) {
+                googleDesc.innerHTML = txtBasico;
+            } else if (f_google.value.includes('Avanzado')) {
+                googleDesc.innerHTML = txtAvanzado;
+            } else {
+                googleDesc.innerHTML = "";
+            }
+            calculateTotal();
+        });
+
+        f_maint.addEventListener('change', calculateTotal);
+        f_package.addEventListener('change', updateFormOptions);
+
+        // WhatsApp redirection logic
+        function selectPackage(pkgName) {
+            const form = document.getElementById('wa-form');
+            const active = isPromoActive();
+            
+            for (let i = 0; i < f_package.options.length; i++) {
+                if (f_package.options[i].text.includes(pkgName)) {
+                    f_package.selectedIndex = i;
+                    updateFormOptions();
+                    break;
+                }
+            }
+            
+            form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            const activeBorder = active ? '#dc2626' : '#000000';
+            form.parentElement.style.transition = 'all 0.5s';
+            form.parentElement.style.borderColor = activeBorder;
+            form.parentElement.style.boxShadow = `0 0 0 2px ${activeBorder}`;
+            setTimeout(() => {
+                form.parentElement.style.borderColor = '#e4e4e7';
+                form.parentElement.style.boxShadow = 'none';
+            }, 1000);
+        }
+
         document.getElementById('wa-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const business = document.getElementById('f_business').value;
-            const packageType = document.getElementById('f_package').value;
-            const domain = document.getElementById('f_domain').value;
+            const active = isPromoActive();
+            const name = document.getElementById('f_name').value;
+            const history = document.getElementById('f_clients').value;
+            const pkg = document.getElementById('f_package').value;
             const details = document.getElementById('f_details').value;
+            const maint = document.getElementById('f_maint').value;
+            const google = document.getElementById('f_google').value;
+            const budget = document.getElementById('f_budget').value || "No especificado";
 
-            const text = `🚀 *NUEVA COTIZACIÓN WEB (Promo 25%)* 🚀\n\n` +
-                         `*Tipo de negocio:* ${business}\n` +
-                         `*Paquete interesado:* ${packageType}\n` +
-                         `*Dominio:* ${domain}\n` +
-                         `*Detalles:* ${details}\n\n` +
-                         `_Vengo de la página web._`;
+            let initialTotal = 0;
+            let originalTotal = 0;
+            let isCustom = false;
+            
+            if (active) {
+                if (pkg.includes('$1,125')) { initialTotal += 1125; originalTotal += 1500; }
+                else if (pkg.includes('$2,625')) { initialTotal += 2625; originalTotal += 3500; }
+                else if (pkg.includes('$4,500')) { initialTotal += 4500; originalTotal += 6000; }
+                else if (pkg.includes('$6,750')) { initialTotal += 6750; originalTotal += 9000; }
+                else isCustom = true;
+            } else {
+                if (pkg.includes('$1,500')) { initialTotal += 1500; }
+                else if (pkg.includes('$3,500')) { initialTotal += 3500; }
+                else if (pkg.includes('$6,000')) { initialTotal += 6000; }
+                else if (pkg.includes('$9,000')) { initialTotal += 9000; }
+                else isCustom = true;
+            }
 
-            const encodedText = encodeURIComponent(text);
-            const waNumber = '525645890610'; // Número de usuario proveído en el contexto
-            window.open(`https://wa.me/${waNumber}?text=${encodedText}`, '_blank');
+            if (google.includes('$350')) initialTotal += 350;
+            else if (google.includes('$750')) initialTotal += 750;
+
+            const phone = "525645890610";
+            
+            let message = "";
+            if (active) {
+                message = `*¡Hola! Me gustaría cotizar un proyecto web con AV My Web Studio (Promo 25% OFF)*\n\n`;
+            } else {
+                message = `*¡Hola! Me gustaría cotizar un proyecto web con AV My Web Studio*\n\n`;
+            }
+            
+            message += `👤 *Mi nombre:* ${name}\n`;
+            message += `🤝 *Historial:* ${history}\n`;
+            message += `📦 *Paquete interesado:* ${pkg}\n`;
+            message += `📍 *Google Maps:* ${google}\n`;
+            message += `🛠️ *Mantenimiento:* ${maint}\n`;
+            message += `💰 *Presupuesto max:* ${budget}\n\n`;
+            
+            if (!isCustom) {
+                if (active) {
+                    message += `💸 *Inversión Inicial Promoción:* $${initialTotal.toLocaleString()} MXN (Ahorro de $${(originalTotal - (initialTotal - (google.includes('$350')?350:(google.includes('$750')?750:0)))).toLocaleString()} MXN)\n\n`;
+                } else {
+                    message += `💸 *Inversión Inicial Estimada:* $${initialTotal.toLocaleString()} MXN\n\n`;
+                }
+            } else {
+                message += `💸 *Inversión Inicial Estimada:* A Cotizar\n\n`;
+            }
+            
+            message += `📝 *Detalles y personalización:*\n${details}\n\n`;
+            message += `Quedo a la espera de tu respuesta.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
         });
 
+        // Set current year in footer
+        const yearEl = document.getElementById('current-year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
     </script>
+    <script src="./js/app.js"></script>
 </body>
 </html>
