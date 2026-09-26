@@ -1076,6 +1076,159 @@
         const yearEl = document.getElementById('current-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
     </script>
-    <script src="./js/app.js"></script>
+    <script src="./js/app.js">
+        // --- Modales Legales ---
+        function openModal(modalId) {
+            const backdrop = document.getElementById('modal-backdrop');
+            const modal = document.getElementById(`modal-${modalId}`);
+            const content = document.getElementById(`${modalId}-content`);
+            
+            backdrop.classList.remove('hidden');
+            modal.classList.remove('hidden');
+            
+            // Forzar reflow
+            void modal.offsetWidth;
+            
+            backdrop.classList.remove('opacity-0');
+            content.classList.remove('scale-95', 'opacity-0');
+            document.body.style.overflow = 'hidden'; // Prevenir scroll
+        }
+
+        function closeModal(modalId) {
+            const backdrop = document.getElementById('modal-backdrop');
+            const modal = document.getElementById(`modal-${modalId}`);
+            const content = document.getElementById(`${modalId}-content`);
+            
+            backdrop.classList.add('opacity-0');
+            content.classList.add('scale-95', 'opacity-0');
+            document.body.style.overflow = '';
+            
+            setTimeout(() => {
+                backdrop.classList.add('hidden');
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Cerrar modal al hacer clic en el fondo
+        document.getElementById('modal-privacidad').addEventListener('click', function(e) {
+            if (e.target === this) closeModal('privacidad');
+        });
+        document.getElementById('modal-terminos').addEventListener('click', function(e) {
+            if (e.target === this) closeModal('terminos');
+        });
+
+        // --- Banner de Cookies ---
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            const banner = document.getElementById('cookie-banner');
+            if (!consent) {
+                banner.classList.remove('hidden');
+                // Timeout para la animación de entrada
+                setTimeout(() => {
+                    banner.classList.remove('translate-y-full');
+                }, 100);
+            } else if (consent === 'accepted') {
+                // Aquí inicializarías Google Analytics / Pixel
+                console.log("Cookies aceptadas - Inicializar rastreadores");
+            }
+        }
+
+        function hideCookieBanner() {
+            const banner = document.getElementById('cookie-banner');
+            banner.classList.add('translate-y-full');
+            setTimeout(() => {
+                banner.classList.add('hidden');
+            }, 500);
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            hideCookieBanner();
+            // Inicializar rastreadores
+            console.log("Cookies aceptadas - Inicializando rastreadores");
+        }
+
+        function rejectCookies() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            hideCookieBanner();
+            console.log("Cookies rechazadas - Solo se usarán esenciales");
+        }
+
+        // Chequear cookies al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            checkCookieConsent();
+        });
+</script>
+
+    <!-- Legal Modals -->
+    <div id="modal-backdrop" class="fixed inset-0 z-[100] hidden bg-black/60 backdrop-blur-sm transition-opacity opacity-0"></div>
+
+    <!-- Aviso de Privacidad Modal -->
+    <div id="modal-privacidad" class="fixed inset-0 z-[101] hidden items-center justify-center p-4 sm:p-6 pointer-events-none">
+        <div class="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl pointer-events-auto transform scale-95 opacity-0 transition-all duration-300" id="privacidad-content">
+            <div class="p-6 sm:p-8 border-b border-zinc-100 flex justify-between items-center">
+                <h3 class="text-2xl font-extrabold text-black">Aviso de Privacidad</h3>
+                <button onclick="closeModal('privacidad')" class="text-zinc-400 hover:text-black bg-zinc-100 hover:bg-zinc-200 p-2 rounded-full transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="p-6 sm:p-8 overflow-y-auto text-zinc-600 text-sm space-y-4">
+                <p><strong>Última actualización:</strong> Septiembre 2026</p>
+                <p>En cumplimiento con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), <strong>AV My Web Studio</strong> le informa que es responsable de recabar sus datos personales, del uso que se le dé a los mismos y de su protección.</p>
+                <h4 class="text-black font-bold text-base mt-6">1. Fines de la información</h4>
+                <p>Los datos personales (nombre, número de teléfono y detalles del proyecto) recabados a través de nuestro botón de contacto por WhatsApp serán utilizados única y exclusivamente para proveer los servicios y productos que ha solicitado, informarle sobre cambios en los mismos y evaluar la calidad del servicio que le brindamos.</p>
+                <h4 class="text-black font-bold text-base mt-6">2. Transferencia de datos</h4>
+                <p>Le informamos que sus datos personales no serán transferidos ni tratados por personas distintas a esta agencia. No vendemos, alquilamos ni compartimos su información con terceros.</p>
+                <h4 class="text-black font-bold text-base mt-6">3. Derechos ARCO</h4>
+                <p>Usted tiene derecho de Acceder, Rectificar y Cancelar sus datos personales, así como de Oponerse al tratamiento de los mismos o revocar el consentimiento que para tal fin nos haya otorgado, a través de los mismos medios de contacto publicados en este sitio web (WhatsApp).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Términos y Condiciones Modal -->
+    <div id="modal-terminos" class="fixed inset-0 z-[101] hidden items-center justify-center p-4 sm:p-6 pointer-events-none">
+        <div class="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl pointer-events-auto transform scale-95 opacity-0 transition-all duration-300" id="terminos-content">
+            <div class="p-6 sm:p-8 border-b border-zinc-100 flex justify-between items-center">
+                <h3 class="text-2xl font-extrabold text-black">Términos y Condiciones</h3>
+                <button onclick="closeModal('terminos')" class="text-zinc-400 hover:text-black bg-zinc-100 hover:bg-zinc-200 p-2 rounded-full transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="p-6 sm:p-8 overflow-y-auto text-zinc-600 text-sm space-y-4">
+                <p>Al contratar los servicios de <strong>AV My Web Studio</strong>, el cliente acepta los siguientes términos y condiciones comerciales para garantizar la calidad y eficiencia del proyecto:</p>
+                
+                <h4 class="text-black font-bold text-base mt-6">1. Pagos Estructurados</h4>
+                <p>Todo proyecto requiere un <strong>anticipo del 50%</strong> del valor total para iniciar. Este anticipo asegura su lugar en la agenda y no es reembolsable. El <strong>50% restante</strong> deberá liquidarse contra entrega, previo a la migración de la página al dominio final del cliente.</p>
+                
+                <h4 class="text-black font-bold text-base mt-6">2. Tiempos de Entrega y Materiales</h4>
+                <p>Los tiempos de desarrollo estimados comienzan a correr <strong>únicamente a partir de que el cliente ha entregado el 100% de la información</strong> requerida (textos, fotografías, logotipos, accesos). Si hay demoras en la entrega de este material por parte del cliente, el proyecto se pausará.</p>
+                
+                <h4 class="text-black font-bold text-base mt-6">3. Límite de Revisiones</h4>
+                <p>Para mantener la agilidad del proyecto, se incluyen <strong>dos (2) rondas de revisiones y ajustes</strong> sobre la propuesta inicial. Cualquier cambio estructural, adición de nuevas páginas o rondas de revisión adicionales posteriores a estas dos serán cotizadas de forma independiente por hora de desarrollo.</p>
+                
+                <h4 class="text-black font-bold text-base mt-6">4. Renovaciones Anuales</h4>
+                <p>El costo de los paquetes de diseño web es un pago único por el desarrollo. Sin embargo, los servicios de infraestructura como el <strong>Dominio (ej. .com) y el Hosting (Alojamiento web) tienen un costo de renovación anual</strong> que será informado claramente al cliente y dependerá de las tarifas vigentes de los proveedores de nube.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-sm bg-zinc-900 border border-zinc-800 text-white p-6 sm:rounded-2xl shadow-2xl z-[90] transform translate-y-full transition-transform duration-500 hidden">
+        <div class="flex items-start gap-4">
+            <div class="bg-zinc-800 p-2 rounded-full text-zinc-300">
+                <i data-lucide="cookie" class="w-5 h-5"></i>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm mb-1">Tu Privacidad</h4>
+                <p class="text-xs text-zinc-400 leading-relaxed mb-4">Utilizamos cookies propias y de terceros (como Google Analytics/Meta) para analizar el tráfico de nuestra web y personalizar tu experiencia. Al hacer clic en "Aceptar", permites su uso.</p>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <button onclick="acceptCookies()" class="w-full text-xs font-bold bg-white text-black py-2 px-4 rounded-lg hover:bg-zinc-200 transition-colors">Aceptar todas</button>
+                    <button onclick="rejectCookies()" class="w-full text-xs font-medium bg-zinc-800 text-zinc-300 py-2 px-4 rounded-lg hover:bg-zinc-700 transition-colors">Solo esenciales</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
