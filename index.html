@@ -79,7 +79,7 @@
             
             <nav class="hidden md:flex items-center gap-8">
                 <a href="#vista-previa" class="text-sm font-medium text-zinc-600 hover:text-black transition-colors">Vista Previa</a>
-                <a href="#paquetes" id="nav-paquetes-link" class="text-sm font-medium text-zinc-600 hover:text-black transition-colors">Promoción Septiembre</a>
+                <a href="#paquetes" id="nav-paquetes-link" class="text-sm font-medium text-zinc-600 hover:text-black transition-colors">Planes y Precios</a>
                 <a href="#cotizacion" class="text-sm font-medium bg-black hover:bg-zinc-800 text-white px-5 py-2.5 rounded-full transition-all">Cotizar por WhatsApp</a>
             </nav>
 
@@ -92,7 +92,7 @@
         <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-zinc-200 shadow-xl">
             <div class="flex flex-col p-6 gap-4">
                 <a href="#vista-previa" class="text-base font-medium text-zinc-600 hover:text-black mobile-link">Vista Previa</a>
-                <a href="#paquetes" id="mobile-paquetes-link" class="text-base font-medium text-zinc-600 hover:text-black mobile-link">Promoción Septiembre</a>
+                <a href="#paquetes" id="mobile-paquetes-link" class="text-base font-medium text-zinc-600 hover:text-black mobile-link">Planes y Precios</a>
                 <a href="#cotizacion" class="text-base font-medium text-black mobile-link mt-2">Cotizar por WhatsApp</a>
             </div>
         </div>
@@ -104,44 +104,6 @@
             <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-100 via-white to-white pointer-events-none"></div>
             <div class="max-w-7xl mx-auto px-6 relative z-10 text-center animate-fade-in-up">
                 
-                <!-- Minimalist Countdown & Promo Container -->
-                <div id="promo-container" class="inline-flex flex-col items-center mb-6">
-                    <div class="inline-flex flex-col sm:flex-row items-center gap-2 px-6 py-2.5 rounded-2xl sm:rounded-full bg-red-50 text-red-600 text-sm font-bold mb-3 border border-red-200 shadow-sm">
-                        <span class="flex items-center gap-1.5">
-                            <span class="relative flex h-2 w-2">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                            </span>
-                            <span>OFERTA LIMITADA</span>
-                        </span>
-                        <span class="hidden sm:block text-red-300">•</span>
-                        <span>25% OFF en todos los paquetes</span>
-                    </div>
-
-                    <!-- Contador Minimalista -->
-                    <div class="flex items-center justify-center gap-2 sm:gap-3 bg-zinc-50 border border-zinc-200/90 px-4 py-2.5 rounded-2xl shadow-sm">
-                        <div class="text-center min-w-[48px] sm:min-w-[56px]">
-                            <span id="timer-days" class="text-xl sm:text-2xl font-extrabold text-black font-mono tracking-tight">00</span>
-                            <span class="block text-[9px] sm:text-[10px] text-zinc-400 font-bold uppercase tracking-widest mt-0.5">Días</span>
-                        </div>
-                        <span class="text-zinc-300 font-bold text-base sm:text-lg -mt-3">:</span>
-                        <div class="text-center min-w-[48px] sm:min-w-[56px]">
-                            <span id="timer-hours" class="text-xl sm:text-2xl font-extrabold text-black font-mono tracking-tight">00</span>
-                            <span class="block text-[9px] sm:text-[10px] text-zinc-400 font-bold uppercase tracking-widest mt-0.5">Horas</span>
-                        </div>
-                        <span class="text-zinc-300 font-bold text-base sm:text-lg -mt-3">:</span>
-                        <div class="text-center min-w-[48px] sm:min-w-[56px]">
-                            <span id="timer-minutes" class="text-xl sm:text-2xl font-extrabold text-black font-mono tracking-tight">00</span>
-                            <span class="block text-[9px] sm:text-[10px] text-zinc-400 font-bold uppercase tracking-widest mt-0.5">Min</span>
-                        </div>
-                        <span class="text-zinc-300 font-bold text-base sm:text-lg -mt-3">:</span>
-                        <div class="text-center min-w-[48px] sm:min-w-[56px]">
-                            <span id="timer-seconds" class="text-xl sm:text-2xl font-extrabold text-red-600 font-mono tracking-tight">00</span>
-                            <span class="block text-[9px] sm:text-[10px] text-zinc-400 font-bold uppercase tracking-widest mt-0.5">Seg</span>
-                        </div>
-                    </div>
-                    <p class="text-[11px] text-zinc-500 mt-2 font-medium">Finaliza el 15 de septiembre a las 11:59 PM</p>
-                </div>
 
                 <h1 class="text-5xl md:text-7xl font-extrabold text-black tracking-tight mb-6 leading-tight">
                     Tu negocio necesita <br/>
@@ -151,8 +113,8 @@
                     Diseño limpio, profesional y directo. Construyo páginas web que transmiten confianza y te ayudan a vender más.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#paquetes" id="hero-cta-btn" class="w-full sm:w-auto px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-xl font-medium transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-600/20">
-                        Ver Promoción 25% OFF
+                    <a href="#paquetes" id="hero-cta-btn" class="w-full sm:w-auto px-8 py-4 bg-black hover:bg-zinc-800 text-white rounded-xl font-medium transition-all flex items-center justify-center gap-2">
+                        Ver Planes
                     </a>
                     <a href="#cotizacion" class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-zinc-50 border border-zinc-200 text-black rounded-xl font-medium transition-all flex items-center justify-center gap-2">
                         Hablar ahora
@@ -230,12 +192,10 @@
                                     <div>
                                         <p class="text-[11px] text-zinc-400 uppercase tracking-wider">Inversión Promoción</p>
                                         <div class="flex items-baseline gap-2">
-                                            <p class="text-xl font-bold text-white">$1,125 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
-                                            <p class="line-through text-xs text-zinc-500">$1,500</p>
+                                            <p class="text-xl font-bold text-white">$1,500 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
                                         </div>
                                     </div>
                                     <div class="bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-2 py-1.5 rounded-lg text-center leading-tight">
-                                        ¡AHORRAS<br>$375 MXN!
                                     </div>
                                 </div>
                                 <button onclick="selectPackage('Web Básica')" class="w-full bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2.5 rounded-xl transition-colors">
@@ -304,12 +264,10 @@
                                     <div>
                                         <p class="text-[11px] text-zinc-400 uppercase tracking-wider">Inversión Promoción</p>
                                         <div class="flex items-baseline gap-2">
-                                            <p class="text-lg font-bold text-white">$2,625 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
-                                            <p class="line-through text-xs text-zinc-500">$3,500</p>
+                                            <p class="text-lg font-bold text-white">$3,500 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
                                         </div>
                                     </div>
                                     <div class="bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-2 py-1 rounded-lg text-center leading-tight">
-                                        ¡AHORRAS<br>$875 MXN!
                                     </div>
                                 </div>
                                 <button onclick="selectPackage('Profesional')" class="w-full bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2 rounded-xl transition-colors">
@@ -373,12 +331,10 @@
                                     <div>
                                         <p class="text-[11px] text-zinc-400 uppercase tracking-wider">Inversión Promoción</p>
                                         <div class="flex items-baseline gap-2">
-                                            <p class="text-lg font-bold text-white">$4,500 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
-                                            <p class="line-through text-xs text-zinc-500">$6,000</p>
+                                            <p class="text-lg font-bold text-white">$6,000 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
                                         </div>
                                     </div>
                                     <div class="bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-2 py-1 rounded-lg text-center leading-tight">
-                                        ¡AHORRAS<br>$1,500 MXN!
                                     </div>
                                 </div>
                                 <button onclick="selectPackage('Empresarial')" class="w-full bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-2 rounded-xl transition-colors">
@@ -417,12 +373,10 @@
                                     <div>
                                         <p class="text-[11px] text-zinc-400 uppercase tracking-wider">Inversión Promoción</p>
                                         <div class="flex items-baseline gap-2">
-                                            <p class="text-xl font-bold text-white">$6,750 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
-                                            <p class="line-through text-xs text-zinc-500">$9,000</p>
+                                            <p class="text-xl font-bold text-white">$9,000 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
                                         </div>
                                     </div>
                                     <div class="bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-2 py-1.5 rounded-lg text-center leading-tight">
-                                        ¡AHORRAS<br>$2,250 MXN!
                                     </div>
                                 </div>
                                 <button onclick="selectPackage('Tienda Web')" class="w-full bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2.5 rounded-xl transition-colors">
@@ -521,12 +475,10 @@
                                     <div>
                                         <p class="text-[11px] text-zinc-400 uppercase tracking-wider">Inversión Promoción</p>
                                         <div class="flex items-baseline gap-2">
-                                            <p class="text-xl font-bold text-white">$2,625 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
-                                            <p class="line-through text-xs text-zinc-500">$3,500</p>
+                                            <p class="text-xl font-bold text-white">$3,500 <span class="text-xs text-zinc-400 font-normal">MXN</span></p>
                                         </div>
                                     </div>
                                     <div class="bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-2 py-1.5 rounded-lg text-center leading-tight">
-                                        ¡AHORRAS<br>$875 MXN!
                                     </div>
                                 </div>
                                 <button onclick="selectPackage('Profesional')" class="w-full bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2.5 rounded-xl transition-colors">
@@ -553,7 +505,7 @@
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 id="paquetes-title" class="text-3xl md:text-4xl font-bold text-black mb-4">Soluciones claras, sin letras chiquitas</h2>
-                    <p id="paquetes-desc" class="text-zinc-600 max-w-2xl mx-auto">Selecciona el paquete que mejor se adapte a tu etapa actual y aprovecha el descuento de Septiembre.</p>
+                    <p id="paquetes-desc" class="text-zinc-600 max-w-2xl mx-auto">Selecciona el paquete que mejor se adapte a tu negocio.</p>
                 </div>
 
                 <!-- Scroll horizontal en móviles -->
@@ -561,17 +513,13 @@
                     
                     <!-- P1: Básica -->
                     <div class="package-card min-w-[280px] lg:min-w-0 bg-white rounded-3xl p-6 border border-zinc-200 flex flex-col snap-center relative overflow-hidden">
-                        <div id="card-p1-badge" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
-                            -25% OFF
-                        </div>
                         <div class="mb-4 pr-10">
                             <h3 class="text-lg font-bold text-black">Web Básica</h3>
                             <p class="text-zinc-500 text-xs mt-1">Tarjeta de presentación rápida (Estática).</p>
                         </div>
                         <div class="mb-6 flex flex-col">
-                            <span id="card-p1-original" class="text-sm text-zinc-400 line-through font-medium">De $1,500 MXN</span>
                             <div>
-                                <span id="card-p1-price" class="text-3xl font-extrabold text-red-600">$1,125</span>
+                                <span id="card-p1-price" class="text-3xl font-extrabold text-black">$1,500</span>
                                 <span class="text-zinc-500 text-sm"> MXN</span>
                             </div>
                         </div>
@@ -596,24 +544,20 @@
                                 <p class="text-xs text-zinc-800">+$350 (Opcional, Perfil Básico).</p>
                             </div>
                         </div>
-                        <button id="card-p1-btn" onclick="selectPackage('Web Básica')" class="w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
+                        <button id="card-p1-btn" onclick="selectPackage('Web Básica')" class="w-full py-3 bg-white border-2 border-black hover:bg-black hover:text-white text-black text-center rounded-xl font-bold transition-colors text-sm mt-auto">
                             Elegir Básica
                         </button>
                     </div>
 
                     <!-- P2: Profesional -->
                     <div class="package-card min-w-[280px] lg:min-w-0 bg-white rounded-3xl p-6 border border-zinc-200 flex flex-col snap-center relative overflow-hidden">
-                        <div id="card-p2-badge" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
-                            -25% OFF
-                        </div>
                         <div class="mb-4 pr-10">
                             <h3 class="text-lg font-bold text-black">Profesional</h3>
                             <p class="text-zinc-500 text-xs mt-1">Más secciones y mayor alcance.</p>
                         </div>
                         <div class="mb-6 flex flex-col">
-                            <span id="card-p2-original" class="text-sm text-zinc-400 line-through font-medium">De $3,500 MXN</span>
                             <div>
-                                <span id="card-p2-price" class="text-3xl font-extrabold text-red-600">$2,625</span>
+                                <span id="card-p2-price" class="text-3xl font-extrabold text-black">$3,500</span>
                                 <span class="text-zinc-500 text-sm"> MXN</span>
                             </div>
                         </div>
@@ -638,16 +582,13 @@
                                 <p class="text-xs text-zinc-800">Básico o Avanzado (Requerido).</p>
                             </div>
                         </div>
-                        <button id="card-p2-btn" onclick="selectPackage('Profesional')" class="w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
+                        <button id="card-p2-btn" onclick="selectPackage('Profesional')" class="w-full py-3 bg-white border-2 border-black hover:bg-black hover:text-white text-black text-center rounded-xl font-bold transition-colors text-sm mt-auto">
                             Elegir Profesional
                         </button>
                     </div>
 
                     <!-- P3: Empresarial (Destacado) -->
                     <div class="package-card min-w-[280px] lg:min-w-0 bg-black rounded-3xl p-6 border border-black flex flex-col snap-center relative shadow-xl transform lg:-translate-y-4 overflow-hidden">
-                        <div id="card-p3-badge" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider z-10">
-                            -25% OFF
-                        </div>
                         <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white text-black px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest whitespace-nowrap border border-zinc-200 z-10">
                             Recomendado
                         </div>
@@ -656,9 +597,8 @@
                             <p class="text-zinc-400 text-xs mt-1">Presencia completa para negocios serios.</p>
                         </div>
                         <div class="mb-6 flex flex-col">
-                            <span id="card-p3-original" class="text-sm text-zinc-500 line-through font-medium">De $6,000 MXN</span>
                             <div>
-                                <span id="card-p3-price" class="text-3xl font-extrabold text-red-500">$4,500</span>
+                                <span id="card-p3-price" class="text-3xl font-extrabold text-white">$4,500</span>
                                 <span class="text-zinc-400 text-sm"> MXN</span>
                             </div>
                         </div>
@@ -683,24 +623,20 @@
                                 <p class="text-xs text-zinc-200">Básico o Avanzado (Requerido).</p>
                             </div>
                         </div>
-                        <button id="card-p3-btn" onclick="selectPackage('Empresarial')" class="w-full py-3 bg-red-600 text-white text-center rounded-xl font-bold transition-colors text-sm hover:bg-red-700 mt-auto">
+                        <button id="card-p3-btn" onclick="selectPackage('Empresarial')" class="w-full py-3 bg-white text-black text-center rounded-xl font-bold transition-colors text-sm hover:bg-zinc-100 mt-auto">
                             Elegir Empresarial
                         </button>
                     </div>
 
                     <!-- P4: Tienda en Línea -->
                     <div class="package-card min-w-[280px] lg:min-w-0 bg-white rounded-3xl p-6 border border-zinc-200 flex flex-col snap-center relative overflow-hidden">
-                        <div id="card-p4-badge" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
-                            -25% OFF
-                        </div>
                         <div class="mb-4 pr-10">
                             <h3 class="text-lg font-bold text-black">Tienda Web</h3>
                             <p class="text-zinc-500 text-xs mt-1">Para vender tus productos físicos o digitales.</p>
                         </div>
                         <div class="mb-6 flex flex-col">
-                            <span id="card-p4-original" class="text-sm text-zinc-400 line-through font-medium">De $9,000 MXN</span>
                             <div>
-                                <span id="card-p4-price" class="text-3xl font-extrabold text-red-600">$6,750</span>
+                                <span id="card-p4-price" class="text-3xl font-extrabold text-black">$9,000</span>
                                 <span class="text-zinc-500 text-sm"> MXN</span>
                             </div>
                         </div>
@@ -725,25 +661,21 @@
                                 <p class="text-xs text-zinc-800">Básico o Avanzado (Requerido).</p>
                             </div>
                         </div>
-                        <button id="card-p4-btn" onclick="selectPackage('Tienda Web')" class="w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
+                        <button id="card-p4-btn" onclick="selectPackage('Tienda Web')" class="w-full py-3 bg-white border-2 border-black hover:bg-black hover:text-white text-black text-center rounded-xl font-bold transition-colors text-sm mt-auto">
                             Elegir Tienda
                         </button>
                     </div>
 
                     <!-- P5: A Medida -->
                     <div class="package-card min-w-[280px] lg:min-w-0 bg-white rounded-3xl p-6 border border-zinc-200 flex flex-col snap-center relative overflow-hidden">
-                        <div id="card-p5-badge" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
-                            -25% OFF
-                        </div>
                         <div class="mb-4 pr-10">
                             <h3 class="text-lg font-bold text-black">A Medida</h3>
                             <p class="text-zinc-500 text-xs mt-1">Sistemas o funciones especiales y complejas.</p>
                         </div>
                         <div class="mb-6 flex flex-col">
-                            <span id="card-p5-original" class="text-sm text-zinc-400 line-through font-medium">De $15,000 MXN</span>
                             <div>
                                 <span class="text-zinc-500 text-sm mr-1">Desde</span>
-                                <span id="card-p5-price" class="text-3xl font-extrabold text-red-600">$11,250</span>
+                                <span id="card-p5-price" class="text-3xl font-extrabold text-black">$15,000</span>
                                 <span class="text-zinc-500 text-sm"> MXN</span>
                             </div>
                         </div>
@@ -768,7 +700,7 @@
                                 <p class="text-xs text-zinc-800">Básico o Avanzado (Requerido).</p>
                             </div>
                         </div>
-                        <button id="card-p5-btn" onclick="selectPackage('A Medida')" class="w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
+                        <button id="card-p5-btn" onclick="selectPackage('A Medida')" class="w-full py-3 bg-white border-2 border-black hover:bg-black hover:text-white text-black text-center rounded-xl font-bold transition-colors text-sm mt-auto">
                             Cotizar Sistema
                         </button>
                     </div>
@@ -851,7 +783,6 @@
                         <div>
                             <label for="f_package" class="block text-sm font-semibold text-zinc-800 mb-2">Paquete que te interesa</label>
                             <select id="f_package" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors font-medium">
-                                <!-- Options populated dynamically by JS according to promo status -->
                             </select>
                         </div>
 
@@ -891,12 +822,11 @@
 
                         <!-- SUMMARY / ESTIMACIÓN TOTAL BLOCK -->
                         <div class="bg-black text-white p-6 rounded-2xl mt-4 hidden shadow-xl" id="summary-block">
-                            <h3 id="sum-title" class="text-lg font-bold mb-3 border-b border-zinc-800 pb-2">Resumen de Inversión (Septiembre)</h3>
+                            <h3 id="sum-title" class="text-lg font-bold mb-3 border-b border-zinc-800 pb-2">Resumen de tu Cotización</h3>
                             <div class="space-y-2 text-sm text-zinc-300">
                                 <div class="flex justify-between items-center">
                                     <span id="sum-pkg-name">Paquete Web</span>
                                     <div class="text-right">
-                                        <span id="sum-pkg-original" class="text-xs text-zinc-500 line-through block mr-1">$0</span>
                                         <span id="sum-pkg-price" class="font-bold text-red-400">$0</span>
                                     </div>
                                 </div>
@@ -909,7 +839,6 @@
                                 <div>
                                     <p class="text-[11px] text-zinc-400 uppercase tracking-widest">Inversión Inicial</p>
                                     <p class="text-3xl font-extrabold text-white leading-none mt-1" id="sum-total">$0 <span class="text-sm font-normal text-zinc-400">MXN</span></p>
-                                    <p class="text-xs text-green-400 mt-1 font-medium" id="sum-savings">Ahorras $0</p>
                                 </div>
                                 <div class="text-right">
                                     <p class="text-[11px] text-zinc-400 uppercase tracking-widest">Suscripción</p>
@@ -950,12 +879,7 @@
     </footer>
 
     <script>
-        // Fecha límite exacta: 15 de septiembre a las 11:59:59 PM (Hora Centro de México GMT-6)
-        const PROMO_END_DATE = new Date('2026-09-15T23:59:59-06:00');
 
-        function isPromoActive() {
-            return new Date() <= PROMO_END_DATE;
-        }
 
         const f_package = document.getElementById('f_package');
         const f_maint = document.getElementById('f_maint');
@@ -965,194 +889,23 @@
         const txtBasico = "<strong>Plan Básico ($350):</strong> Crear o reclamar el perfil, poner el nombre correcto del negocio, categoría exacta, horario de atención, número de teléfono, enlace a WhatsApp/redes, y dirección exacta con el marcador GPS bien ubicado.";
         const txtAvanzado = "<strong>Plan Avanzado ($750):</strong> Todo lo del plan Básico, MÁS la subida de una buena galería de fotos inicial y redacción de una descripción atractiva con palabras clave locales.";
 
-        let previousPromoState = null;
 
-        // Función que actualiza la apariencia de toda la página entre modo Promoción y modo Normal
-        function updateUIForPromoState() {
-            const active = isPromoActive();
 
-            if (previousPromoState === active) return; // Solo actualiza si hubo cambio de estado
-            previousPromoState = active;
 
-            const promoContainer = document.getElementById('promo-container');
-            const navLink = document.getElementById('nav-paquetes-link');
-            const mobileLink = document.getElementById('mobile-paquetes-link');
-            const heroBtn = document.getElementById('hero-cta-btn');
-            const formDesc = document.getElementById('form-desc');
-            const formGlow = document.getElementById('form-decor-glow');
-            const formSubmitBtn = document.getElementById('form-submit-btn');
-            const paquetesDesc = document.getElementById('paquetes-desc');
-            const sumTitle = document.getElementById('sum-title');
-
-            if (active) {
-                // Modo PROMOCIÓN ACTIVA
-                if (promoContainer) promoContainer.classList.remove('hidden');
-                if (navLink) navLink.textContent = "Promoción Septiembre";
-                if (mobileLink) mobileLink.textContent = "Promoción Septiembre";
-                if (paquetesDesc) paquetesDesc.textContent = "Selecciona el paquete que mejor se adapte a tu etapa actual y aprovecha el descuento de Septiembre.";
-                if (formDesc) formDesc.innerHTML = 'Asegura tu precio con el <strong class="text-red-600">25% de descuento</strong> completando este formulario. Te contactaré directo por WhatsApp.';
-                if (formGlow) formGlow.classList.remove('hidden');
-                if (sumTitle) sumTitle.textContent = "Resumen de Inversión (Septiembre)";
-
-                if (heroBtn) {
-                    heroBtn.textContent = "Ver Promoción 25% OFF";
-                    heroBtn.className = "w-full sm:w-auto px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-xl font-medium transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-600/20";
-                }
-                if (formSubmitBtn) {
-                    formSubmitBtn.className = "w-full py-4 mt-6 bg-red-600 hover:bg-red-700 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-600/20";
-                }
-
-                // Badges y precios en tarjetas
-                ['p1', 'p2', 'p3', 'p4', 'p5'].forEach(id => {
-                    const badge = document.getElementById(`card-${id}-badge`);
-                    const orig = document.getElementById(`card-${id}-original`);
-                    if (badge) badge.classList.remove('hidden');
-                    if (orig) orig.classList.remove('hidden');
-                });
-
-                document.getElementById('card-p1-price').textContent = "$1,125";
-                document.getElementById('card-p1-price').className = "text-3xl font-extrabold text-red-600";
-                document.getElementById('card-p1-btn').className = "w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto";
-
-                document.getElementById('card-p2-price').textContent = "$2,625";
-                document.getElementById('card-p2-price').className = "text-3xl font-extrabold text-red-600";
-                document.getElementById('card-p2-btn').className = "w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto";
-
-                document.getElementById('card-p3-price').textContent = "$4,500";
-                document.getElementById('card-p3-price').className = "text-3xl font-extrabold text-red-500";
-                document.getElementById('card-p3-btn').className = "w-full py-3 bg-red-600 text-white text-center rounded-xl font-bold transition-colors text-sm hover:bg-red-700 mt-auto";
-
-                document.getElementById('card-p4-price').textContent = "$6,750";
-                document.getElementById('card-p4-price').className = "text-3xl font-extrabold text-red-600";
-                document.getElementById('card-p4-btn').className = "w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto";
-
-                document.getElementById('card-p5-price').textContent = "$11,250";
-                document.getElementById('card-p5-price').className = "text-3xl font-extrabold text-red-600";
-                document.getElementById('card-p5-btn').className = "w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto";
-
-                // Opciones del formulario con promo
-                f_package.innerHTML = `
-                    <option value="Web Básica ($1,125)">Web Básica - Promo $1,125 MXN (Normal $1,500)</option>
-                    <option value="Profesional ($2,625)">Profesional - Promo $2,625 MXN (Normal $3,500)</option>
-                    <option value="Empresarial ($4,500)" selected>Empresarial - Promo $4,500 MXN (Normal $6,000)</option>
-                    <option value="Tienda Web ($6,750)">Tienda Web - Promo $6,750 MXN (Normal $9,000)</option>
-                    <option value="Sistema A Medida">Sistema a Medida (25% OFF en cotización)</option>
-                    <option value="No estoy seguro">Aún no estoy seguro</option>
-                `;
-            } else {
-                // Modo NORMAL AUTOMÁTICO (Después del 15 de septiembre 11:59 PM)
-                if (promoContainer) promoContainer.classList.add('hidden');
-                if (navLink) navLink.textContent = "Planes y Precios";
-                if (mobileLink) mobileLink.textContent = "Planes y Precios";
-                if (paquetesDesc) paquetesDesc.textContent = "Selecciona el paquete que mejor se adapte a tu etapa actual.";
-                if (formDesc) formDesc.textContent = "Completa este formulario súper rápido y te contactaré directo por WhatsApp con la respuesta exacta para iniciar.";
-                if (formGlow) formGlow.classList.add('hidden');
-                if (sumTitle) sumTitle.textContent = "Resumen de tu Cotización";
-
-                if (heroBtn) {
-                    heroBtn.textContent = "Ver Precios";
-                    heroBtn.className = "w-full sm:w-auto px-8 py-4 bg-black hover:bg-zinc-800 text-white rounded-xl font-medium transition-all flex items-center justify-center gap-2";
-                }
-                if (formSubmitBtn) {
-                    formSubmitBtn.className = "w-full py-4 mt-6 bg-black hover:bg-zinc-800 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2";
-                }
-
-                // Ocultar badges y precios tachados
-                ['p1', 'p2', 'p3', 'p4', 'p5'].forEach(id => {
-                    const badge = document.getElementById(`card-${id}-badge`);
-                    const orig = document.getElementById(`card-${id}-original`);
-                    if (badge) badge.classList.add('hidden');
-                    if (orig) orig.classList.add('hidden');
-                });
-
-                document.getElementById('card-p1-price').textContent = "$1,500";
-                document.getElementById('card-p1-price').className = "text-3xl font-extrabold text-black";
-                document.getElementById('card-p1-btn').className = "w-full py-3 bg-white border-2 border-black hover:bg-black hover:text-white text-black text-center rounded-xl font-bold transition-colors text-sm mt-auto";
-
-                document.getElementById('card-p2-price').textContent = "$3,500";
-                document.getElementById('card-p2-price').className = "text-3xl font-extrabold text-black";
-                document.getElementById('card-p2-btn').className = "w-full py-3 bg-white border-2 border-black hover:bg-black hover:text-white text-black text-center rounded-xl font-bold transition-colors text-sm mt-auto";
-
-                document.getElementById('card-p3-price').textContent = "$6,000";
-                document.getElementById('card-p3-price').className = "text-3xl font-extrabold text-white";
-                document.getElementById('card-p3-btn').className = "w-full py-3 bg-white text-black text-center rounded-xl font-bold transition-colors text-sm hover:bg-zinc-200 mt-auto";
-
-                document.getElementById('card-p4-price').textContent = "$9,000";
-                document.getElementById('card-p4-price').className = "text-3xl font-extrabold text-black";
-                document.getElementById('card-p4-btn').className = "w-full py-3 bg-white border-2 border-black hover:bg-black hover:text-white text-black text-center rounded-xl font-bold transition-colors text-sm mt-auto";
-
-                document.getElementById('card-p5-price').textContent = "$15k";
-                document.getElementById('card-p5-price').className = "text-3xl font-extrabold text-black";
-                document.getElementById('card-p5-btn').className = "w-full py-3 bg-white border-2 border-black hover:bg-black hover:text-white text-black text-center rounded-xl font-bold transition-colors text-sm mt-auto";
-
-                // Opciones del formulario modo normal
-                f_package.innerHTML = `
-                    <option value="Web Básica ($1,500)">Web Básica ($1,500 MXN)</option>
-                    <option value="Profesional ($3,500)">Profesional ($3,500 MXN)</option>
-                    <option value="Empresarial ($6,000)" selected>Empresarial ($6,000 MXN) - Recomendado</option>
-                    <option value="Tienda Web ($9,000)">Tienda Web ($9,000 MXN)</option>
-                    <option value="Sistema A Medida">Sistema a Medida (Cotizar)</option>
-                    <option value="No estoy seguro">Aún no estoy seguro</option>
-                `;
-            }
-
-            updateFormOptions();
-        }
-
-        // Lógica del Contador Regresivo Minimalista
-        function updateCountdown() {
-            const now = new Date();
-            const diff = PROMO_END_DATE - now;
-
-            if (diff <= 0) {
-                // La promoción ya expiró
-                updateUIForPromoState();
-                return;
-            }
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / (1000 * 60)) % 60);
-            const seconds = Math.floor((diff / 1000) % 60);
-
-            const elDays = document.getElementById('timer-days');
-            const elHours = document.getElementById('timer-hours');
-            const elMinutes = document.getElementById('timer-minutes');
-            const elSeconds = document.getElementById('timer-seconds');
-
-            if (elDays) elDays.textContent = String(days).padStart(2, '0');
-            if (elHours) elHours.textContent = String(hours).padStart(2, '0');
-            if (elMinutes) elMinutes.textContent = String(minutes).padStart(2, '0');
-            if (elSeconds) elSeconds.textContent = String(seconds).padStart(2, '0');
-        }
-
-        // Iniciar reloj y revisión
-        updateUIForPromoState();
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
 
         // Lógica de cálculo en el formulario
         function calculateTotal() {
-            const active = isPromoActive();
             const pkgText = f_package.value;
             const googleText = f_google.value;
             const maintText = f_maint.value;
             const sumBlock = document.getElementById('summary-block');
             
             let pkgPrice = 0;
-            let originalPkgPrice = 0;
             let isCustom = false;
 
-            if (active) {
-                // Precios de promoción
-                if (pkgText.includes('$1,125')) { pkgPrice = 1125; originalPkgPrice = 1500; }
-                else if (pkgText.includes('$2,625')) { pkgPrice = 2625; originalPkgPrice = 3500; }
-                else if (pkgText.includes('$4,500')) { pkgPrice = 4500; originalPkgPrice = 6000; }
-                else if (pkgText.includes('$6,750')) { pkgPrice = 6750; originalPkgPrice = 9000; }
-                else isCustom = true;
-            } else {
+            
                 // Precios normales
-                if (pkgText.includes('$1,500')) { pkgPrice = 1500; }
+                if (pkgText.includes('$1,500')) { pkgPrice = 1500; 
                 else if (pkgText.includes('$3,500')) { pkgPrice = 3500; }
                 else if (pkgText.includes('$6,000')) { pkgPrice = 6000; }
                 else if (pkgText.includes('$9,000')) { pkgPrice = 9000; }
@@ -1174,22 +927,11 @@
                 
                 document.getElementById('sum-pkg-name').textContent = pkgText.split('-')[0].split('(')[0].trim();
                 
-                const origEl = document.getElementById('sum-pkg-original');
-                const savingsEl = document.getElementById('sum-savings');
                 const pkgPriceEl = document.getElementById('sum-pkg-price');
 
-                if (active) {
-                    origEl.classList.remove('hidden');
-                    savingsEl.classList.remove('hidden');
-                    origEl.textContent = `$${originalPkgPrice.toLocaleString()}`;
-                    pkgPriceEl.textContent = `$${pkgPrice.toLocaleString()}`;
-                    pkgPriceEl.className = "font-bold text-red-400";
-                    const savings = originalPkgPrice - pkgPrice;
-                    savingsEl.textContent = `Ahorras $${savings.toLocaleString()} (Promo 25% OFF)`;
-                } else {
+                
                     origEl.classList.add('hidden');
-                    savingsEl.classList.add('hidden');
-                    pkgPriceEl.textContent = `$${pkgPrice.toLocaleString()}`;
+                    pkgPriceEl.textContent = `$${pkgPrice.toLocaleString()`;
                     pkgPriceEl.className = "font-bold text-white";
                 }
 
@@ -1257,8 +999,6 @@
         // WhatsApp redirection logic
         function selectPackage(pkgName) {
             const form = document.getElementById('wa-form');
-            const active = isPromoActive();
-            
             for (let i = 0; i < f_package.options.length; i++) {
                 if (f_package.options[i].text.includes(pkgName)) {
                     f_package.selectedIndex = i;
@@ -1281,8 +1021,6 @@
 
         document.getElementById('wa-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const active = isPromoActive();
             const name = document.getElementById('f_name').value;
             const history = document.getElementById('f_clients').value;
             const pkg = document.getElementById('f_package').value;
@@ -1292,17 +1030,10 @@
             const budget = document.getElementById('f_budget').value || "No especificado";
 
             let initialTotal = 0;
-            let originalTotal = 0;
             let isCustom = false;
             
-            if (active) {
-                if (pkg.includes('$1,125')) { initialTotal += 1125; originalTotal += 1500; }
-                else if (pkg.includes('$2,625')) { initialTotal += 2625; originalTotal += 3500; }
-                else if (pkg.includes('$4,500')) { initialTotal += 4500; originalTotal += 6000; }
-                else if (pkg.includes('$6,750')) { initialTotal += 6750; originalTotal += 9000; }
-                else isCustom = true;
-            } else {
-                if (pkg.includes('$1,500')) { initialTotal += 1500; }
+            
+                if (pkg.includes('$1,500')) { initialTotal += 1500; 
                 else if (pkg.includes('$3,500')) { initialTotal += 3500; }
                 else if (pkg.includes('$6,000')) { initialTotal += 6000; }
                 else if (pkg.includes('$9,000')) { initialTotal += 9000; }
@@ -1315,11 +1046,9 @@
             const phone = "525645890610";
             
             let message = "";
-            if (active) {
-                message = `*¡Hola! Me gustaría cotizar un proyecto web con AV My Web Studio (Promo 25% OFF)*\n\n`;
-            } else {
+            
                 message = `*¡Hola! Me gustaría cotizar un proyecto web con AV My Web Studio*\n\n`;
-            }
+            
             
             message += `👤 *Mi nombre:* ${name}\n`;
             message += `🤝 *Historial:* ${history}\n`;
@@ -1329,10 +1058,8 @@
             message += `💰 *Presupuesto max:* ${budget}\n\n`;
             
             if (!isCustom) {
-                if (active) {
-                    message += `💸 *Inversión Inicial Promoción:* $${initialTotal.toLocaleString()} MXN (Ahorro de $${(originalTotal - (initialTotal - (google.includes('$350')?350:(google.includes('$750')?750:0)))).toLocaleString()} MXN)\n\n`;
-                } else {
-                    message += `💸 *Inversión Inicial Estimada:* $${initialTotal.toLocaleString()} MXN\n\n`;
+                
+                    message += `💸 *Inversión Inicial Estimada:* $${initialTotal.toLocaleString() MXN\n\n`;
                 }
             } else {
                 message += `💸 *Inversión Inicial Estimada:* A Cotizar\n\n`;
