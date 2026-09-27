@@ -822,52 +822,54 @@
         <!-- Dynamic Form Section to redirect to WhatsApp -->
         
         <!-- FAQ / Dudas -->
-        <section id="dudas" class="py-24 bg-white border-t border-zinc-100">
+        <section id="dudas" class="py-24 bg-zinc-950 relative overflow-hidden">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
             <div class="container mx-auto px-6 max-w-3xl">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-extrabold text-black mb-4">Preguntas Frecuentes</h2>
-                    <p class="text-xl text-zinc-500">Todo transparente. Si tienes otra duda, mándame WhatsApp.</p>
+                    <h2 class="text-4xl font-extrabold text-white mb-4 relative z-10">Preguntas Frecuentes</h2>
+                    <p class="text-xl text-zinc-400 relative z-10">Todo transparente. Si tienes otra duda, mándame WhatsApp.</p>
                 </div>
 
-                <div class="space-y-4">
-                    <details class="bg-zinc-50 border border-zinc-200 rounded-2xl group overflow-hidden" open>
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-black text-lg">
+                <div class="space-y-4 relative z-10">
+                    <details class="bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl group overflow-hidden" open>
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-white text-lg">
                             <span>¿Qué incluye la Suscripción y por qué es importante?</span>
                             <span class="transition group-open:rotate-180 text-zinc-400">▼</span>
                         </summary>
-                        <div class="p-6 pt-0 text-zinc-600 leading-relaxed border-t border-zinc-200/50 mt-2 pt-4">
+                        <div class="p-6 pt-0 text-zinc-300 leading-relaxed border-t border-white/10 mt-2 pt-4">
                             Como soy el único que mantiene tu página, la suscripción mensual ($250 a $800 según el paquete) garantiza que <strong>yo me encargaré personalmente de tus actualizaciones con reglas y tiempos claros</strong>: Plan Básico incluye 5 cambios mensuales y Plan Profesional incluye 10 cambios mensuales (cambios de texto, subir fotos nuevas, actualizar horarios o precios). Además, todas las solicitudes tienen un SLA garantizado con <strong>Tiempo de respuesta de 24 a 48 horas en días hábiles</strong>. Cubre también el alojamiento rápido, la seguridad de la página para que nunca se caiga y el soporte directo conmigo por WhatsApp. Sin la suscripción, corres el riesgo de que la página quede desactualizada o vulnerable a fallos técnicos.
                         </div>
                     </details>
 
                     
-                    <details class="bg-zinc-50 border border-zinc-200 rounded-2xl group overflow-hidden">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-black text-lg">
+                    <details class="bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl group overflow-hidden">
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-white text-lg">
                             <span>¿Puedo ver un diseño o demostración antes de pagar?</span>
                             <span class="transition group-open:rotate-180 text-zinc-400"><i data-lucide="chevron-down"></i></span>
                         </summary>
-                        <div class="p-6 pt-0 text-zinc-600 leading-relaxed border-t border-zinc-200/50 mt-2 pt-4">
+                        <div class="p-6 pt-0 text-zinc-300 leading-relaxed border-t border-white/10 mt-2 pt-4">
                             ¡Totalmente! Te ofrecemos una <strong>demostración o boceto inicial gratuito</strong> sin ningún compromiso. Solo envíanos información básica de tu negocio por WhatsApp y te armaremos una vista previa. Si te gusta el diseño, procedemos al trato y eliges tu plan.<br><br>
-                            <span class="text-xs font-mono bg-zinc-200 px-2 py-1 rounded text-zinc-700">Nota: Esta demostración inicial gratuita NO cuenta como una de tus "rondas de cambios" estipuladas en tu plan. Las rondas empiezan a contar hasta después de contratar.</span>
+                            <span class="text-xs font-mono bg-white/10 px-2 py-1 rounded text-zinc-400">Nota: Esta demostración inicial gratuita NO cuenta como una de tus "rondas de cambios" estipuladas en tu plan. Las rondas empiezan a contar hasta después de contratar.</span>
                         </div>
                     </details>
 
-                    <details class="bg-zinc-50 border border-zinc-200 rounded-2xl group overflow-hidden">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-black text-lg">
+                    <details class="bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl group overflow-hidden">
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-white text-lg">
                             <span>¿Qué incluye el dominio .com?</span>
                             <span class="transition group-open:rotate-180 text-zinc-400">▼</span>
                         </summary>
-                        <div class="p-6 pt-0 text-zinc-600 leading-relaxed border-t border-zinc-200/50 mt-2 pt-4">
+                        <div class="p-6 pt-0 text-zinc-300 leading-relaxed border-t border-white/10 mt-2 pt-4">
                             Incluye el registro por 1 año de tu nombre (ejemplo: www.tunegocio.com), sujeto a disponibilidad. Si no está disponible, sugerimos .com.mx o .mx. A partir del segundo año, la renovación se cobra por separado. Si eliges el paquete Básico y quieres un .com, tiene un costo extra; de lo contrario, uso un subdominio gratuito.
                         </div>
                     </details>
 
-                    <details class="bg-zinc-50 border border-zinc-200 rounded-2xl group overflow-hidden">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-black text-lg">
+                    <details class="bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl group overflow-hidden">
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-white text-lg">
                             <span>¿Incluye posicionamiento SEO en Google?</span>
                             <span class="transition group-open:rotate-180 text-zinc-400">▼</span>
                         </summary>
-                        <div class="p-6 pt-0 text-zinc-600 leading-relaxed border-t border-zinc-200/50 mt-2 pt-4">
+                        <div class="p-6 pt-0 text-zinc-300 leading-relaxed border-t border-white/10 mt-2 pt-4">
                             Todos los paquetes incluyen <strong>SEO Básico técnico</strong> (estructura correcta rápida para que Google te lea). Sin embargo, aparecer en el #1 lugar requiere tiempo y una estrategia de SEO mensual avanzada o anuncios pagados.
                         </div>
                     </details>
