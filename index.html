@@ -203,9 +203,9 @@
                                     </div>
                                     
                                 </div>
-                                <button onclick="selectPackage('Web Básica')" class="w-full bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2.5 rounded-xl transition-colors">
-                                    Elegir Básica
-                                </button>
+                                <a href="paquete-basico.html" class="w-full block text-center bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2.5 rounded-xl transition-colors">
+                                    Ver detalles completos
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -272,9 +272,9 @@
                                     </div>
                                     
                                 </div>
-                                <button onclick="selectPackage('Profesional')" class="w-full bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2 rounded-xl transition-colors">
-                                    Elegir Profesional
-                                </button>
+                                <a href="paquete-profesional.html" class="w-full block text-center bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2 rounded-xl transition-colors">
+                                    Ver detalles completos
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -336,9 +336,9 @@
                                     </div>
                                     
                                 </div>
-                                <button onclick="selectPackage('Empresarial')" class="w-full bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-2 rounded-xl transition-colors">
-                                    Elegir Empresarial
-                                </button>
+                                <a href="paquete-empresarial.html" class="w-full block text-center bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-2 rounded-xl transition-colors">
+                                    Ver detalles completos
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -375,9 +375,9 @@
                                     </div>
                                     
                                 </div>
-                                <button onclick="selectPackage('Tienda Web')" class="w-full bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2.5 rounded-xl transition-colors">
-                                    Elegir Tienda Web
-                                </button>
+                                <a href="paquete-tienda.html" class="w-full block text-center bg-white hover:bg-zinc-200 text-black text-sm font-bold py-2.5 rounded-xl transition-colors">
+                                    Ver detalles completos
+                                </a>
                             </div>
                         </div>
                         <div class="relative p-4 bg-zinc-950 order-1 lg:order-2 flex flex-col">
@@ -617,9 +617,9 @@
                                 <p class="text-xs text-zinc-800">+$350 (Opcional, Perfil Básico).</p>
                             </div>
                         </div>
-                        <button id="card-p1-btn" onclick="selectPackage('Web Básica')" class="w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
-                            Elegir Básica
-                        </button>
+                        <a href="paquete-basico.html" class="w-full block py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
+                            Ver detalles completos
+                        </a>
                     </div>
 
                     <!-- P2: Profesional -->
@@ -661,9 +661,9 @@
                                 <p class="text-xs text-zinc-800">Básico o Avanzado (Requerido).</p>
                             </div>
                         </div>
-                        <button id="card-p2-btn" onclick="selectPackage('Profesional')" class="w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
-                            Elegir Profesional
-                        </button>
+                        <a href="paquete-profesional.html" class="w-full block py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
+                            Ver detalles completos
+                        </a>
                     </div>
 
                     <!-- P3: Empresarial (Destacado) -->
@@ -704,9 +704,9 @@
                                 <p class="text-xs text-zinc-200">Básico o Avanzado (Requerido).</p>
                             </div>
                         </div>
-                        <button id="card-p3-btn" onclick="selectPackage('Empresarial')" class="w-full py-3 bg-red-600 text-white text-center rounded-xl font-bold transition-colors text-sm hover:bg-red-700 mt-auto">
-                            Elegir Empresarial
-                        </button>
+                        <a href="paquete-empresarial.html" class="w-full block py-3 bg-red-600 text-white text-center rounded-xl font-bold transition-colors text-sm hover:bg-red-700 mt-auto">
+                            Ver detalles completos
+                        </a>
                     </div>
 
                     <!-- P4: Tienda en Línea -->
@@ -744,9 +744,9 @@
                                 <p class="text-xs text-zinc-800">Básico o Avanzado (Requerido).</p>
                             </div>
                         </div>
-                        <button id="card-p4-btn" onclick="selectPackage('Tienda Web')" class="w-full py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
-                            Elegir Tienda
-                        </button>
+                        <a href="paquete-tienda.html" class="w-full block py-3 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 text-center rounded-xl font-bold transition-colors text-sm mt-auto">
+                            Ver detalles completos
+                        </a>
                     </div>
 
                     <!-- P5: A Medida -->
@@ -1316,6 +1316,35 @@
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
         });
+
+        
+        // --- URL Parsing for Auto-Select ---
+        function checkUrlForPackage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const plan = urlParams.get('plan');
+            if (plan) {
+                // Wait for a tiny bit to ensure the select is populated if there are dynamic things
+                setTimeout(() => {
+                    for (let i = 0; i < f_package.options.length; i++) {
+                        if (f_package.options[i].text.includes(plan)) {
+                            f_package.selectedIndex = i;
+                            updateFormOptions();
+                            
+                            // Scroll to cotizacion exactly
+                            const cotiEl = document.getElementById('cotizacion');
+                            if (cotiEl) {
+                                cotiEl.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            break;
+                        }
+                    }
+                }, 100);
+            }
+        }
+        
+        // Execute URL check on load
+        window.addEventListener('DOMContentLoaded', checkUrlForPackage);
+
 
         // --- Modal Management ---
         let modalCloseTimer = null;
