@@ -484,6 +484,80 @@
             </div>
         </section>
 
+
+        <!-- ===== LANZAMIENTO OCTUBRE ===== -->
+        <section id="lanzamiento" class="py-20 bg-black text-white relative overflow-hidden">
+            <!-- Fondo decorativo -->
+            <div class="absolute inset-0 pointer-events-none">
+                <div class="absolute top-0 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+
+                <!-- Etiqueta superior -->
+                <div class="inline-flex items-center gap-2 bg-red-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-6">
+                    <span class="w-2 h-2 rounded-full bg-white animate-pulse inline-block"></span>
+                    Lanzamiento Especial &mdash; Octubre 2026
+                </div>
+
+                <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                    Tu página web profesional<br class="hidden md:block"/> con un beneficio único.
+                </h2>
+                <p class="text-zinc-400 text-lg mb-10 max-w-2xl mx-auto">
+                    Por tiempo limitado, esta oferta estará disponible hasta el <strong class="text-white">16 de octubre de 2026</strong> a las 11:59 PM. Una vez que el contador llegue a cero, los precios regresan a su tarifa normal.
+                </p>
+
+                <!-- Beneficios -->
+                <div class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-12">
+                    <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 text-left">
+                        <div class="text-red-500 text-3xl font-extrabold mb-1">20% OFF</div>
+                        <div class="text-white font-semibold text-base mb-1">Inversión inicial</div>
+                        <p class="text-zinc-400 text-sm">Descuento directo sobre el costo de desarrollo de cualquier paquete. Sin condiciones ocultas.</p>
+                    </div>
+                    <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 text-left">
+                        <div class="text-green-400 text-3xl font-extrabold mb-1">1 mes gratis</div>
+                        <div class="text-white font-semibold text-base mb-1">Suscripción Básica incluida</div>
+                        <p class="text-zinc-400 text-sm">Primer mes del Plan de Mantenimiento Básico (hasta 5 modificaciones: textos, fotos o colores) sin costo adicional.</p>
+                    </div>
+                </div>
+
+                <!-- Countdown -->
+                <div class="mb-10">
+                    <p class="text-zinc-500 text-sm mb-4 uppercase tracking-widest font-semibold">La oferta termina en</p>
+                    <div class="flex justify-center gap-4" id="countdown-promo">
+                        <div class="flex flex-col items-center">
+                            <span id="cd-days" class="text-5xl font-extrabold tabular-nums text-white">--</span>
+                            <span class="text-zinc-500 text-xs mt-1 uppercase tracking-widest">Días</span>
+                        </div>
+                        <div class="text-4xl font-extrabold text-zinc-600 self-start mt-1">:</div>
+                        <div class="flex flex-col items-center">
+                            <span id="cd-hours" class="text-5xl font-extrabold tabular-nums text-white">--</span>
+                            <span class="text-zinc-500 text-xs mt-1 uppercase tracking-widest">Horas</span>
+                        </div>
+                        <div class="text-4xl font-extrabold text-zinc-600 self-start mt-1">:</div>
+                        <div class="flex flex-col items-center">
+                            <span id="cd-mins" class="text-5xl font-extrabold tabular-nums text-white">--</span>
+                            <span class="text-zinc-500 text-xs mt-1 uppercase tracking-widest">Minutos</span>
+                        </div>
+                        <div class="text-4xl font-extrabold text-zinc-600 self-start mt-1">:</div>
+                        <div class="flex flex-col items-center">
+                            <span id="cd-secs" class="text-5xl font-extrabold tabular-nums text-white">--</span>
+                            <span class="text-zinc-500 text-xs mt-1 uppercase tracking-widest">Segundos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <a href="#cotizacion" class="inline-flex items-center gap-2 bg-white text-black font-bold text-base px-8 py-4 rounded-2xl hover:bg-zinc-200 transition-colors shadow-xl">
+                    Quiero mi 20% de descuento
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+                <p class="text-zinc-600 text-xs mt-4">* El 20% de descuento aplica sobre la inversión inicial del paquete elegido. El mes de suscripción básica es adicional al contrato de desarrollo.</p>
+            </div>
+        </section>
+        <!-- ===== FIN LANZAMIENTO OCTUBRE ===== -->
+
         <!-- Pricing / Paquetes Section -->
         <section id="paquetes" class="py-24 bg-zinc-50 border-y border-zinc-100 overflow-hidden relative">
             <div class="max-w-7xl mx-auto px-6">
@@ -1293,6 +1367,49 @@
                 closeModal('terminos');
             }
         });
+
+
+        // ===== COUNTDOWN LANZAMIENTO OCTUBRE =====
+        (function() {
+            // Fecha límite: 16 de octubre 2026 a las 23:59:59 hora centro de México (GMT-6)
+            const PROMO_DEADLINE = new Date('2026-10-16T23:59:59-06:00');
+
+            function padTwo(n) { return String(n).padStart(2, '0'); }
+
+            function updateCountdown() {
+                const now = new Date();
+                const diff = PROMO_DEADLINE - now;
+
+                const section = document.getElementById('lanzamiento');
+                if (!section) return;
+
+                if (diff <= 0) {
+                    // Oferta expirada: ocultar sección completa
+                    section.style.display = 'none';
+                    clearInterval(cdInterval);
+                    return;
+                }
+
+                const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const mins  = Math.floor((diff / (1000 * 60)) % 60);
+                const secs  = Math.floor((diff / 1000) % 60);
+
+                const dEl = document.getElementById('cd-days');
+                const hEl = document.getElementById('cd-hours');
+                const mEl = document.getElementById('cd-mins');
+                const sEl = document.getElementById('cd-secs');
+
+                if (dEl) dEl.textContent = padTwo(days);
+                if (hEl) hEl.textContent = padTwo(hours);
+                if (mEl) mEl.textContent = padTwo(mins);
+                if (sEl) sEl.textContent = padTwo(secs);
+            }
+
+            updateCountdown();
+            const cdInterval = setInterval(updateCountdown, 1000);
+        })();
+        // ===== FIN COUNTDOWN =====
 
         // Set current year in footer
         const yearEl = document.getElementById('current-year');
