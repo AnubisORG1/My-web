@@ -510,7 +510,7 @@
                     }
                 }
 
-                const initialTotal = pkgPrice + googlePrice;
+                const initialTotal = pkgPrice + googlePrice + 500;
                 const totalEl = document.getElementById('sum-total');
                 if (totalEl) totalEl.innerHTML = `$${initialTotal.toLocaleString()} <span class="text-sm font-normal text-zinc-400">MXN</span>`;
                 const monthlyEl = document.getElementById('sum-monthly');
