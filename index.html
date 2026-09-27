@@ -132,7 +132,7 @@
         </section>
 
         <!-- Previsualización de Paquetes Section -->
-        <section id="vista-previa" class="py-24 bg-zinc-950 border-t border-zinc-800">
+        <section id="vista-previa" class="py-24 bg-zinc-950 border-t border-white/10">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <span class="inline-block bg-white/10 text-zinc-300 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-5 border border-white/10">Previsualización de Paquetes</span>
@@ -301,7 +301,7 @@
                                                 <span class="text-zinc-400 px-2 py-1">Nuestras áreas →</span>
                                             </div>
                                         </div>
-                                        <div class="grid grid-cols-3 gap-2 border-t border-zinc-800 pt-3">
+                                        <div class="grid grid-cols-3 gap-2 border-t border-white/10 pt-3">
                                             <div><div class="text-white font-bold text-sm">5 Páginas</div><div class="text-zinc-500 text-[8px]">Completas</div></div>
                                             <div><div class="text-white font-bold text-sm">Correos</div><div class="text-zinc-500 text-[8px]">@tuempresa.com</div></div>
                                             <div><div class="text-white font-bold text-sm">Corporativo</div><div class="text-zinc-500 text-[8px]">Diseño sobrio</div></div>
@@ -438,7 +438,7 @@
                                                     <span class="text-zinc-400 px-2 py-1.5">Ver Ubicación GPS</span>
                                                 </div>
                                             </div>
-                                            <div class="grid grid-cols-3 gap-2 border-t border-zinc-800 pt-3">
+                                            <div class="grid grid-cols-3 gap-2 border-t border-white/10 pt-3">
                                                 <div class="bg-zinc-900/80 rounded-lg p-2 text-center"><div class="text-orange-400 font-bold text-sm">Llamada</div><div class="text-zinc-500 text-[8px]">Inmediata</div></div>
                                                 <div class="bg-zinc-900/80 rounded-lg p-2 text-center"><div class="text-orange-400 font-bold text-sm">Google Maps</div><div class="text-zinc-500 text-[8px]">Ruta directa</div></div>
                                                 <div class="bg-zinc-900/80 rounded-lg p-2 text-center"><div class="text-orange-400 font-bold text-sm">WhatsApp</div><div class="text-zinc-500 text-[8px]">Chat rápido</div></div>
@@ -877,28 +877,31 @@
             </div>
         </section>
 
-        <section id="cotizacion" class="py-24 bg-white border-t border-zinc-100">
+        <section id="cotizacion" class="py-32 bg-zinc-950 relative overflow-hidden">
+            <!-- Apple Glass Gradients -->
+            <div class="absolute top-1/4 left-0 w-96 h-96 bg-red-600/30 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-1/4 right-0 w-96 h-96 bg-orange-600/20 rounded-full blur-[120px] pointer-events-none"></div>
             <div class="max-w-3xl mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">Agenda tu proyecto</h2>
-                    <p id="form-desc" class="text-zinc-600">Cuéntame sobre tu proyecto completando este formulario. Te contactaré directo por WhatsApp.</p>
+                    <h2 class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight relative z-10">Agenda tu proyecto</h2>
+                    <p id="form-desc" class="text-lg text-zinc-400 relative z-10">Cuéntame sobre tu proyecto completando este formulario. Te contactaré directo por WhatsApp.</p>
                 </div>
 
-                <div class="bg-white rounded-3xl p-8 border border-zinc-200 shadow-xl shadow-zinc-100/50 relative overflow-hidden">
-                    <div id="form-decor-glow" class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+                <div class="bg-white/5 backdrop-blur-3xl rounded-[2.5rem] p-8 md:p-12 border border-white/10 shadow-2xl relative overflow-hidden z-10">
+                    
 
                     <form id="wa-form" class="space-y-6 relative z-10" novalidate>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="f_name" class="block text-sm font-semibold text-zinc-800 mb-2">Tu Nombre <span class="text-red-500">*</span></label>
-                                <input type="text" id="f_name" required aria-describedby="f_name_error" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors" placeholder="¿Cómo te llamas?">
+                                <label for="f_name" class="block text-sm font-medium text-zinc-300 mb-2">Tu Nombre <span class="text-red-500">*</span></label>
+                                <input type="text" id="f_name" required aria-describedby="f_name_error" class="w-full bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/5 transition-all" placeholder="¿Cómo te llamas?">
                                 <p id="f_name_error" class="hidden text-xs text-red-600 font-medium mt-1.5 flex items-center gap-1"><span aria-hidden="true">⚠️</span> Por favor ingresa tu nombre.</p>
                             </div>
                             
                             <div>
-                                <label for="f_clients" class="block text-sm font-semibold text-zinc-800 mb-2">¿Es tu primera vez conmigo?</label>
-                                <select id="f_clients" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors">
+                                <label for="f_clients" class="block text-sm font-medium text-zinc-300 mb-2">¿Es tu primera vez conmigo?</label>
+                                <select id="f_clients" required class="w-full bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/5 transition-all">
                                     <option value="Primera vez (Nuevo cliente)">Sí, es mi primera vez</option>
                                     <option value="Ya he comprado antes">No, ya he trabajado contigo antes</option>
                                 </select>
@@ -906,8 +909,8 @@
                         </div>
 
                         <div>
-                            <label for="f_package" class="block text-sm font-semibold text-zinc-800 mb-2">Paquete que te interesa <span class="text-red-500">*</span></label>
-                            <select id="f_package" required aria-describedby="f_package_error" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors font-medium">
+                            <label for="f_package" class="block text-sm font-medium text-zinc-300 mb-2">Paquete que te interesa <span class="text-red-500">*</span></label>
+                            <select id="f_package" required aria-describedby="f_package_error" class="w-full bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/5 transition-all font-medium">
                                 <option value="" disabled selected>-- Selecciona un paquete --</option>
                                 <option value="Web Básica ($1,200)">Web Básica ($1,200 MXN)</option>
                                 <option value="Profesional ($2,800)">Profesional ($2,800 MXN)</option>
@@ -920,12 +923,12 @@
                         </div>
 
                         <!-- Sección de Google Business Profile Dinámica -->
-                        <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+                        <div class="bg-blue-900/20 backdrop-blur-md p-5 rounded-2xl border border-blue-500/30">
                             <label for="f_google" class="block text-sm font-semibold text-zinc-800 mb-2 flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <svg class="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                                 Perfil en Google Maps (Google Business Profile)
                             </label>
-                            <select id="f_google" class="w-full bg-white border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black transition-colors mb-2">
+                            <select id="f_google" class="w-full bg-black/30 border border-blue-500/30 rounded-2xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-blue-400 transition-all mb-2">
                                 <!-- Options will be generated by JS -->
                             </select>
                             <div id="google-desc" class="text-xs text-zinc-600 leading-relaxed mt-3">
@@ -934,28 +937,28 @@
                         </div>
 
                         <div>
-                            <label for="f_details" class="block text-sm font-semibold text-zinc-800 mb-2">Detalles / Personalización</label>
-                            <textarea id="f_details" rows="3" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors resize-none" placeholder="¿De qué trata tu negocio? ¿Qué colores te gustan? ¿Alguna función en especial?"></textarea>
+                            <label for="f_details" class="block text-sm font-medium text-zinc-300 mb-2">Detalles / Personalización</label>
+                            <textarea id="f_details" rows="3" required class="w-full bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/5 transition-all resize-none" placeholder="¿De qué trata tu negocio? ¿Qué colores te gustan? ¿Alguna función en especial?"></textarea>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="f_maint" class="block text-sm font-semibold text-zinc-800 mb-2">Suscripción por modificaciones futuras</label>
-                                <select id="f_maint" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors">
+                                <label for="f_maint" class="block text-sm font-medium text-zinc-300 mb-2">Suscripción por modificaciones futuras</label>
+                                <select id="f_maint" class="w-full bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/5 transition-all">
                                     <option value="Sí ($500/mes)">Sí, me interesa</option>
                                     <option value="No por ahora">No, yo la administraré</option>
                                 </select>
                                 <p class="text-[11px] text-zinc-500 mt-2">* Plan Básico: 5 cambios/mes. Plan Profesional: 10 cambios/mes. SLA: Tiempo de respuesta de 24 a 48 horas en días hábiles.</p>
                             </div>
                             <div>
-                                <label for="f_budget" class="block text-sm font-semibold text-zinc-800 mb-2">Tu presupuesto ideal</label>
-                                <input type="text" id="f_budget" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors" placeholder="Ej. $4,000 MXN">
+                                <label for="f_budget" class="block text-sm font-medium text-zinc-300 mb-2">Tu presupuesto ideal</label>
+                                <input type="text" id="f_budget" class="w-full bg-black/20 border border-white/10 rounded-2xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/5 transition-all" placeholder="Ej. $4,000 MXN">
                             </div>
                         </div>
 
                         <!-- SUMMARY / ESTIMACIÓN TOTAL BLOCK -->
-                        <div class="bg-black text-white p-6 rounded-2xl mt-4 hidden shadow-xl" id="summary-block">
-                            <h3 id="sum-title" class="text-lg font-bold mb-3 border-b border-zinc-800 pb-2">Resumen de tu Cotización</h3>
+                        <div class="bg-white/10 backdrop-blur-2xl border border-white/20 text-white p-6 rounded-3xl mt-6 hidden shadow-2xl" id="summary-block">
+                            <h3 id="sum-title" class="text-lg font-bold mb-3 border-b border-white/10 pb-2">Resumen de tu Cotización</h3>
                             <div class="space-y-2 text-sm text-zinc-300">
                                 <div class="flex justify-between items-center">
                                     <span id="sum-pkg-name">Paquete Web</span>
@@ -968,7 +971,7 @@
                                     <span id="sum-google-price" class="font-medium text-white">+$0</span>
                                 </div>
                             </div>
-                            <div class="mt-4 pt-3 border-t border-zinc-800 flex justify-between items-end">
+                            <div class="mt-4 pt-3 border-t border-white/10 flex justify-between items-end">
                                 <div>
                                     <p class="text-[11px] text-zinc-400 uppercase tracking-widest">Inversión Inicial</p>
                                     <p class="text-3xl font-extrabold text-white leading-none mt-1" id="sum-total">$0 <span class="text-sm font-normal text-zinc-400">MXN</span></p>
@@ -981,7 +984,7 @@
                         </div>
 
                         <!-- Form Error Alert Banner -->
-                        <div id="form-error-alert" class="hidden p-3.5 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm font-semibold flex items-center gap-2 shadow-sm">
+                        <div id="form-error-alert" class="hidden p-4 bg-red-900/30 backdrop-blur-md border border-red-500/30 rounded-2xl text-red-200 text-sm font-semibold flex items-center gap-2 shadow-sm">
                             <svg class="w-5 h-5 text-red-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
                             </svg>
@@ -992,10 +995,10 @@
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
                             Enviar cotización a WhatsApp
                         </button>
-                        <p class="text-xs text-zinc-500 text-center mt-3 flex items-center justify-center gap-1.5">
+                        <p class="text-xs text-zinc-400 text-center mt-4 flex items-center justify-center gap-1.5">
                             <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
                             <span>Datos protegidos bajo LFPDPPP.</span>
-                            <button type="button" onclick="openModal('privacidad')" class="text-zinc-600 underline hover:text-black transition-colors ml-1">Ver Aviso de Privacidad</button>
+                            <button type="button" onclick="openModal('privacidad')" class="text-zinc-300 underline hover:text-white transition-colors ml-1">Ver Aviso de Privacidad</button>
                         </p>
                     </form>
                 </div>
