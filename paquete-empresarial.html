@@ -664,8 +664,8 @@
             const google = document.getElementById('f_google') ? document.getElementById('f_google').value : '';
             const budget = (document.getElementById('f_budget') && document.getElementById('f_budget').value) ? document.getElementById('f_budget').value : "No especificado";
 
-            let initialTotal = 0;
-            let originalTotal = 0;
+            let initialTotal = 500;
+            let originalTotal = 500;
             let isCustom = false;
             
             if (active) {
@@ -697,6 +697,7 @@
             message += `👤 *Mi nombre:* ${nameVal}\n`;
             message += `🤝 *Historial:* ${history}\n`;
             message += `📦 *Paquete interesado:* ${pkgVal}\n`;
+            message += `🌐 *Dominio:* .com Requerido (+$500)\n`;
             message += `📍 *Google Maps:* ${google}\n`;
             message += `🛠️ *Mantenimiento:* ${maint}\n`;
             message += `💰 *Presupuesto max:* ${budget}\n\n`;

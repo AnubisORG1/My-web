@@ -606,7 +606,7 @@
                                 <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>1 Página (Landing page)
                             </li>
                             <li class="flex items-start gap-2 text-zinc-700">
-                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Alojamiento rápido
+                                <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Hosting Seguro
                             </li>
                             <li class="flex items-start gap-2 text-zinc-700">
                                 <i data-lucide="check" class="w-4 h-4 text-black shrink-0 mt-0.5"></i>Links a redes (TikTok, IG, WA)
@@ -847,7 +847,7 @@
                             <span class="transition group-open:rotate-180 text-zinc-400">▼</span>
                         </summary>
                         <div class="p-6 pt-0 text-zinc-300 leading-relaxed border-t border-white/10 mt-2 pt-4">
-                            Como soy el único que mantiene tu página, la suscripción mensual ($250 a $800 según el paquete) garantiza que <strong>yo me encargaré personalmente de tus actualizaciones con reglas y tiempos claros</strong>: Plan Básico incluye 5 cambios mensuales y Plan Profesional incluye 10 cambios mensuales (cambios de texto, subir fotos nuevas, actualizar horarios o precios). Además, todas las solicitudes tienen un SLA garantizado con <strong>Tiempo de respuesta de 24 a 48 horas en días hábiles</strong>. Cubre también el alojamiento rápido, la seguridad de la página para que nunca se caiga y el soporte directo conmigo por WhatsApp. Sin la suscripción, corres el riesgo de que la página quede desactualizada o vulnerable a fallos técnicos.
+                            Como soy el único que mantiene tu página, la suscripción mensual ($250 a $800 según el paquete) garantiza que <strong>yo me encargaré personalmente de tus actualizaciones con reglas y tiempos claros</strong>: Plan Básico incluye 5 cambios mensuales y Plan Profesional incluye 10 cambios mensuales (cambios de texto, subir fotos nuevas, actualizar horarios o precios). Además, todas las solicitudes tienen un SLA garantizado con <strong>Tiempo de respuesta de 24 a 48 horas en días hábiles</strong>. Cubre también el hosting seguro, la seguridad de la página para que nunca se caiga y el soporte directo conmigo por WhatsApp. Sin la suscripción, corres el riesgo de que la página quede desactualizada o vulnerable a fallos técnicos.
                         </div>
                     </details>
 
@@ -869,7 +869,7 @@
                             <span class="transition group-open:rotate-180 text-zinc-400">▼</span>
                         </summary>
                         <div class="p-6 pt-0 text-zinc-300 leading-relaxed border-t border-white/10 mt-2 pt-4">
-                            Incluye el registro por 1 año de tu nombre (ejemplo: www.tunegocio.com), sujeto a disponibilidad. Si no está disponible, sugerimos .com.mx o .mx. A partir del segundo año, la renovación se cobra por separado. Si eliges el paquete Básico y quieres un .com, tiene un costo extra; de lo contrario, uso un subdominio gratuito.
+                            Incluye el registro por 1 año de tu nombre (ejemplo: www.tunegocio.com), sujeto a disponibilidad. Si no está disponible, sugerimos .com.mx o .mx. A partir del segundo año, la renovación se cobra por separado. Todos los paquetes incluyen el desarrollo web, pero la compra del Dominio (.com) es estrictamente requerida y tiene un costo extra fijo de $500 MXN que se cobra junto al paquete.
                         </div>
                     </details>
 
@@ -975,7 +975,11 @@
                                                 <span id="sum-pkg-price" class="font-bold text-red-400">$0</span>
                                     </div>
                                 </div>
-                                <div class="flex justify-between" id="sum-google-row">
+                                <div class="flex justify-between" id="sum-domain-row">
+                                      <span id="sum-domain-name">Dominio .com (Requerido)</span>
+                                      <span id="sum-domain-price" class="font-medium text-white">+$500</span>
+                                  </div>
+                                  <div class="flex justify-between" id="sum-google-row">
                                     <span id="sum-google-name">Google Maps Básico</span>
                                     <span id="sum-google-price" class="font-medium text-white">+$0</span>
                                 </div>
@@ -1293,8 +1297,8 @@
             const google = document.getElementById('f_google') ? document.getElementById('f_google').value : '';
             const budget = (document.getElementById('f_budget') && document.getElementById('f_budget').value) ? document.getElementById('f_budget').value : "No especificado";
 
-            let initialTotal = 0;
-            let originalTotal = 0;
+            let initialTotal = 500;
+            let originalTotal = 500;
             let isCustom = false;
             
             if (active) {
@@ -1326,6 +1330,7 @@
             message += `👤 *Mi nombre:* ${nameVal}\n`;
             message += `🤝 *Historial:* ${history}\n`;
             message += `📦 *Paquete interesado:* ${pkgVal}\n`;
+            message += `🌐 *Dominio:* .com Requerido (+$500)\n`;
             message += `📍 *Google Maps:* ${google}\n`;
             message += `🛠️ *Mantenimiento:* ${maint}\n`;
             message += `💰 *Presupuesto max:* ${budget}\n\n`;
