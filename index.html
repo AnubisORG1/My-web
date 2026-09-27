@@ -588,7 +588,7 @@
                         <div class="mb-6 flex flex-col">
                             
                             <div>
-                                <span id="card-p1-price" class="text-3xl font-extrabold text-black">$1,500</span>
+                                <div class="flex flex-col"><span class="line-through text-zinc-400 text-lg">$1,500</span><span id="card-p1-price" class="text-3xl font-extrabold text-red-600">$1,200</span></div>
                                 <span class="text-zinc-500 text-sm"> MXN</span>
                             </div>
                         </div>
@@ -632,7 +632,7 @@
                         <div class="mb-6 flex flex-col">
                             
                             <div>
-                                <span id="card-p2-price" class="text-3xl font-extrabold text-black">$3,500</span>
+                                <div class="flex flex-col"><span class="line-through text-zinc-400 text-lg">$3,500</span><span id="card-p2-price" class="text-3xl font-extrabold text-red-600">$2,800</span></div>
                                 <span class="text-zinc-500 text-sm"> MXN</span>
                             </div>
                         </div>
@@ -679,7 +679,7 @@
                         <div class="mb-6 flex flex-col">
                             
                             <div>
-                                <span id="card-p3-price" class="text-3xl font-extrabold text-white">$4,500</span>
+                                <div class="flex flex-col"><span class="line-through text-red-300 text-lg">$4,500</span><span id="card-p3-price" class="text-3xl font-extrabold text-white">$3,600</span></div>
                                 <span class="text-zinc-400 text-sm"> MXN</span>
                             </div>
                         </div>
@@ -719,7 +719,7 @@
                         <div class="mb-6 flex flex-col">
                             
                             <div>
-                                <span id="card-p4-price" class="text-3xl font-extrabold text-black">$9,000</span>
+                                <div class="flex flex-col"><span class="line-through text-zinc-400 text-lg">$9,000</span><span id="card-p4-price" class="text-3xl font-extrabold text-red-600">$7,200</span></div>
                                 <span class="text-zinc-500 text-sm"> MXN</span>
                             </div>
                         </div>
@@ -760,7 +760,7 @@
                             
                             <div>
                                 <span class="text-zinc-500 text-sm mr-1">Desde</span>
-                                <span id="card-p5-price" class="text-3xl font-extrabold text-black">$15,000</span>
+                                <div class="flex flex-col"><span class="line-through text-zinc-400 text-lg">$15,000</span><span id="card-p5-price" class="text-3xl font-extrabold text-red-600">$12,000</span></div>
                                 <span class="text-zinc-500 text-sm"> MXN</span>
                             </div>
                         </div>
@@ -895,10 +895,10 @@
                             <label for="f_package" class="block text-sm font-semibold text-zinc-800 mb-2">Paquete que te interesa <span class="text-red-500">*</span></label>
                             <select id="f_package" required aria-describedby="f_package_error" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-black focus:bg-white transition-colors font-medium">
                                 <option value="" disabled selected>-- Selecciona un paquete --</option>
-                                <option value="Web Básica ($1,500)">Web Básica ($1,500 MXN)</option>
-                                <option value="Profesional ($3,500)">Profesional ($3,500 MXN)</option>
-                                <option value="Empresarial ($6,000)">Empresarial ($6,000 MXN) - Recomendado</option>
-                                <option value="Tienda Web ($9,000)">Tienda Web ($9,000 MXN)</option>
+                                <option value="Web Básica ($1,200)">Web Básica ($1,200 MXN)</option>
+                                <option value="Profesional ($2,800)">Profesional ($2,800 MXN)</option>
+                                <option value="Empresarial ($4,800)">Empresarial ($4,800 MXN) - Recomendado</option>
+                                <option value="Tienda Web ($7,200)">Tienda Web ($7,200 MXN)</option>
                                 <option value="Sistema A Medida">Sistema a Medida (Cotizar)</option>
                                 <option value="No estoy seguro">Aún no estoy seguro</option>
                             </select>
@@ -1022,7 +1022,11 @@
         // Fecha límite exacta: 15 de septiembre a las 11:59:59 PM (Hora Centro de México GMT-6)
         const PROMO_END_DATE = new Date('2026-09-15T23:59:59-06:00');
 
-        function isPromoActive() { return false; }
+                function isPromoActive() {
+            const now = new Date();
+            const deadline = new Date('2026-10-16T23:59:59-06:00');
+            return now <= deadline;
+        }
 
         const f_package = document.getElementById('f_package');
         const f_maint = document.getElementById('f_maint');
@@ -1048,7 +1052,12 @@
             let pkgPrice = 0;
             let isCustom = false;
 
-            if (pkgText.includes('$1,500')) pkgPrice = 1500;
+            if (pkgText.includes('$1,200')) pkgPrice = 1200;
+            else if (pkgText.includes('$2,800')) pkgPrice = 2800;
+            else if (pkgText.includes('$4,800')) pkgPrice = 4800;
+            else if (pkgText.includes('$7,200')) pkgPrice = 7200;
+            // Fallbacks just in case
+            else if (pkgText.includes('$1,500')) pkgPrice = 1500;
             else if (pkgText.includes('$3,500')) pkgPrice = 3500;
             else if (pkgText.includes('$6,000')) pkgPrice = 6000;
             else if (pkgText.includes('$9,000')) pkgPrice = 9000;
@@ -1263,10 +1272,10 @@
             let isCustom = false;
             
             if (active) {
-                if (pkgVal.includes('$1,500')) { initialTotal += 1125; originalTotal += 1500; }
-                else if (pkgVal.includes('$3,500')) { initialTotal += 2625; originalTotal += 3500; }
-                else if (pkgVal.includes('$4,500')) { initialTotal += 4500; originalTotal += 6000; }
-                else if (pkgVal.includes('$9,000')) { initialTotal += 6750; originalTotal += 9000; }
+                if (pkgVal.includes('$1,200')) { initialTotal += 1200; originalTotal += 1500; }
+                else if (pkgVal.includes('$2,800')) { initialTotal += 2800; originalTotal += 3500; }
+                else if (pkgVal.includes('$4,800')) { initialTotal += 4800; originalTotal += 6000; }
+                else if (pkgVal.includes('$7,200')) { initialTotal += 7200; originalTotal += 9000; }
                 else isCustom = true;
             } else {
                 if (pkgVal.includes('$1,500')) { initialTotal += 1500; }
