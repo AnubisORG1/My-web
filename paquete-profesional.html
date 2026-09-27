@@ -136,123 +136,99 @@
                         <p class="text-xs text-zinc-400 mt-3">* Al contratar serás redirigido a la pantalla principal para cotizar y contactar por WhatsApp.</p>
                     </div>
 
+                    
                     <div class="lg:w-1/2 w-full relative">
-                        <!-- Glowing blobs for Liquid Glass effect -->
-                        <div class="absolute -inset-4 bg-gradient-to-tr from-red-500 via-pink-500 to-orange-400 opacity-30 blur-2xl rounded-full animate-pulse pointer-events-none mix-blend-multiply"></div>
-                        <div class="absolute -inset-4 bg-gradient-to-bl from-blue-400 via-purple-500 to-red-400 opacity-20 blur-3xl rounded-full pointer-events-none" style="animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite reverse;"></div>
+                        <!-- Optimized glowing background (No pulse, lower blur for better performance) -->
+                        <div class="absolute -inset-2 bg-gradient-to-br from-red-500/20 via-pink-500/20 to-orange-400/20 blur-xl rounded-full pointer-events-none transform-gpu"></div>
                         
-                        <!-- Liquid Glass Container -->
-                        <div class="relative p-3 rounded-3xl bg-white/30 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] group z-10 transition-transform duration-500 hover:scale-[1.01]">
+                        <!-- Main Screen Viewer -->
+                        <div class="relative p-2 rounded-3xl bg-zinc-900/60 backdrop-blur-md border border-white/10 shadow-2xl z-10 mb-4 transition-transform duration-300">
                             
-                            <!-- Navegador mock glass -->
-                            <div class="flex items-center gap-2 mb-3 px-2 pt-1">
+                            <!-- Browser Chrome -->
+                            <div class="flex items-center gap-2 mb-2 px-2 pt-1">
                                 <div class="flex gap-1.5">
-                                    <div class="w-3 h-3 rounded-full bg-red-400 border border-white/20 shadow-sm"></div>
-                                    <div class="w-3 h-3 rounded-full bg-yellow-400 border border-white/20 shadow-sm"></div>
-                                    <div class="w-3 h-3 rounded-full bg-green-400 border border-white/20 shadow-sm"></div>
+                                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
                                 </div>
-                                <div class="flex-1 bg-white/40 backdrop-blur-md border border-white/50 shadow-sm rounded-md px-3 py-1 text-[11px] text-zinc-700 flex items-center gap-2 font-mono">
-                                    <i data-lucide="lock" class="w-3 h-3 text-green-600"></i> www.tu-negocio.com
+                                <div class="flex-1 bg-black/40 border border-white/5 rounded px-3 py-1 text-[10px] text-zinc-400 flex items-center gap-2 font-mono">
+                                    <i data-lucide="lock" class="w-3 h-3 text-green-500"></i> www.tu-negocio.com
                                 </div>
                             </div>
 
-                            <!-- Carousel inner -->
-                            <div class="relative rounded-xl overflow-hidden shadow-inner bg-black/5">
-                                <div id="carousel-pro" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth h-full relative z-0">
-
-            <div class="snap-center shrink-0 w-full h-full relative bg-zinc-50" style="aspect-ratio: 16/10;">
-                <img src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover opacity-20" alt="Fondo Medico">
-                <div class="relative z-10 p-5 h-full flex flex-col justify-between">
-                    <div class="flex justify-between items-center w-full bg-white shadow-sm p-2 rounded-lg">
-                        <span class="text-blue-600 font-bold text-sm flex items-center gap-1"><i data-lucide="activity" class="w-4 h-4"></i> MediCare</span>
-                        <div class="flex gap-2 text-zinc-500 text-[9px] font-semibold">
-                            <span>Especialidades</span><span>Pacientes</span>
-                        </div>
-                    </div>
-                    <div class="bg-white/80 backdrop-blur-md p-4 rounded-xl border border-white shadow-lg mt-4">
-                        <span class="text-blue-600 text-[8px] font-bold uppercase tracking-widest mb-1 block">Atención Especializada</span>
-                        <h3 class="text-zinc-900 font-bold text-xl mb-2 leading-tight">Salud y bienestar<br>para tu familia.</h3>
-                        <p class="text-zinc-500 text-[10px] mb-3">Agenda tu consulta presencial o por videollamada con nuestros especialistas.</p>
-                        <div class="flex gap-2">
-                            <button class="bg-blue-600 text-white px-3 py-2 rounded text-[10px] font-bold flex-1 shadow-md shadow-blue-600/30">Portal de Pacientes</button>
-                            <button class="bg-zinc-100 text-zinc-600 px-3 py-2 rounded text-[10px] font-bold border border-zinc-200">Doctores</button>
-                        </div>
-                    </div>
-                    <div class="flex justify-around items-center bg-white shadow-sm rounded-lg p-2 mt-auto">
-                        <div class="text-center"><i data-lucide="phone" class="w-4 h-4 text-blue-600 mx-auto"></i><span class="text-[7px] text-zinc-500 block font-bold mt-1">Llamar</span></div>
-                        <div class="w-px h-6 bg-zinc-200"></div>
-                        <div class="text-center"><i data-lucide="map" class="w-4 h-4 text-blue-600 mx-auto"></i><span class="text-[7px] text-zinc-500 block font-bold mt-1">Ubicación</span></div>
-                        <div class="w-px h-6 bg-zinc-200"></div>
-                        <div class="text-center"><i data-lucide="calendar" class="w-4 h-4 text-blue-600 mx-auto"></i><span class="text-[7px] text-zinc-500 block font-bold mt-1">Citas</span></div>
-                    </div>
-                </div>
-            </div>
-            
-
-            <div class="snap-center shrink-0 w-full h-full relative" style="aspect-ratio: 16/10;">
-                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover brightness-[0.4]" alt="Fondo Abogados">
-                <div class="relative z-10 p-5 h-full flex flex-col justify-between border-8 border-white/5 m-2">
-                    <div class="text-center pt-2">
-                        <span class="text-white font-serif text-lg tracking-widest uppercase border-b border-amber-600/50 pb-1 inline-block">Mendoza & Asoc.</span>
-                    </div>
-                    <div>
-                        <h3 class="text-white font-serif text-2xl mb-2">Defensa y<br>Estrategia Legal.</h3>
-                        <p class="text-zinc-300 text-[10px] font-light leading-relaxed mb-4 max-w-[80%]">Más de 20 años de experiencia protegiendo el patrimonio de empresas y particulares.</p>
-                        <button class="border border-amber-600 text-amber-500 px-4 py-2 text-[10px] uppercase tracking-widest hover:bg-amber-600 hover:text-white transition-colors">Solicitar Asesoría</button>
-                    </div>
-                </div>
-            </div>
-            
-
-            <div class="snap-center shrink-0 w-full h-full relative bg-black" style="aspect-ratio: 16/10;">
-                <div class="absolute inset-0 bg-gradient-to-br from-violet-600 via-fuchsia-600 to-orange-600 opacity-40"></div>
-                <div class="relative z-10 p-6 h-full flex flex-col justify-between">
-                    <div class="flex justify-between items-center w-full">
-                        <div class="w-6 h-6 rounded bg-white text-black flex items-center justify-center font-black text-xs">A.</div>
-                        <span class="text-white font-bold text-[10px] px-2 py-1 border border-white/20 rounded-full">Proyectos</span>
-                    </div>
-                    <div>
-                        <h3 class="text-white font-black text-4xl tracking-tighter leading-none mb-3">Creamos<br>el futuro.</h3>
-                        <div class="flex gap-2">
-                            <span class="text-[9px] bg-white/20 text-white px-2 py-1 rounded-full">Branding</span>
-                            <span class="text-[9px] bg-white/20 text-white px-2 py-1 rounded-full">Marketing</span>
-                            <span class="text-[9px] bg-white/20 text-white px-2 py-1 rounded-full">UX/UI</span>
-                        </div>
-                    </div>
-                    <button class="w-full bg-white text-black py-3 rounded-xl text-xs font-black flex items-center justify-between px-4 hover:scale-105 transition-transform">
-                        Ver Portafolio <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </button>
-                </div>
-            </div>
-            
-</div>
-
-                                <!-- Glass Navigation Arrows -->
-                                <button onclick="scrollCarousel('pro', -1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/40 backdrop-blur-md border border-white/60 flex items-center justify-center text-black/70 hover:bg-white/80 hover:text-black transition-all opacity-0 group-hover:opacity-100 shadow-lg z-20 focus:outline-none">
-                                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
-                                </button>
-                                <button onclick="scrollCarousel('pro', 1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/40 backdrop-blur-md border border-white/60 flex items-center justify-center text-black/70 hover:bg-white/80 hover:text-black transition-all opacity-0 group-hover:opacity-100 shadow-lg z-20 focus:outline-none">
-                                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
-                                </button>
-                                
-                                <!-- Indicators -->
-                                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20 px-3 py-1.5 rounded-full bg-black/20 backdrop-blur-md">
-                                    <div class="indicator-pro w-4 h-2 rounded-full bg-white shadow-md transition-all duration-300"></div><div class="indicator-pro w-2 h-2 rounded-full bg-white/50 shadow-md transition-all duration-300"></div><div class="indicator-pro w-2 h-2 rounded-full bg-white/50 shadow-md transition-all duration-300"></div>
+                            <!-- Screen Content -->
+                            <div class="relative rounded-xl overflow-hidden bg-black w-full" style="aspect-ratio: 16/10;">
+                                <img id="viewer-img" src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&w=600&q=70" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-50">
+                                <div id="viewer-content" class="absolute inset-0 w-full h-full transition-opacity duration-500">
+                                    <div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-blue-600 font-bold text-sm bg-white p-2 rounded-lg">MediCare</span><div class="bg-white/80 p-4 rounded-xl mt-4"><h3 class="text-zinc-900 font-bold text-xl mb-2">Salud y bienestar.</h3><button class="bg-blue-600 text-white px-3 py-2 rounded text-[10px] font-bold w-full">Portal Pacientes</button></div></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                                <div class="flex-1 bg-zinc-800 rounded-md px-3 py-1.5 text-[11px] text-zinc-400 flex items-center gap-2">
-                                    <i data-lucide="lock" class="w-3 h-3 text-green-400"></i> www.tu-negocio.com
-                                </div>
+                        
+                        <!-- Interactive Liquid Glass Control Bar -->
+                        <div class="relative p-2 rounded-2xl bg-black/80 backdrop-blur-xl border border-white/10 shadow-xl z-10 flex flex-col gap-2">
+                            <div class="px-2 flex items-center gap-2 text-white/50 text-[10px] uppercase tracking-widest font-bold">
+                                <i data-lucide="layout" class="w-3 h-3"></i> 8 Estilos y Vistas de Clientes:
                             </div>
-                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=85" class="w-full h-auto rounded-xl object-cover" style="aspect-ratio: 16/10;" alt="Previsualización Paquete Profesional">
+                            <div class="flex overflow-x-auto gap-2 pb-1 scrollbar-hide snap-x" id="template-bar">
+                                <button onclick="changeTemplate('s1')" id="btn-s1" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white text-black border border-white/20">Consultorio Clínico</button><button onclick="changeTemplate('s2')" id="btn-s2" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Despacho Legal</button><button onclick="changeTemplate('s3')" id="btn-s3" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Agencia Creativa</button><button onclick="changeTemplate('s4')" id="btn-s4" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Firma Arquitectura</button><button onclick="changeTemplate('s5')" id="btn-s5" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Agencia Seguros</button><button onclick="changeTemplate('s6')" id="btn-s6" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Consultoría IT</button><button onclick="changeTemplate('s7')" id="btn-s7" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Despacho Contable</button><button onclick="changeTemplate('s8')" id="btn-s8" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Boutique Creativa</button>
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Template Viewer Script -->
+        <script>
+            const templates = [
+{ id: 's1', name: 'Consultorio Clínico', img: 'https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-blue-600 font-bold text-sm bg-white p-2 rounded-lg">MediCare</span><div class="bg-white/80 p-4 rounded-xl mt-4"><h3 class="text-zinc-900 font-bold text-xl mb-2">Salud y bienestar.</h3><button class="bg-blue-600 text-white px-3 py-2 rounded text-[10px] font-bold w-full">Portal Pacientes</button></div></div>` },
+{ id: 's2', name: 'Despacho Legal', img: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between border-4 border-white/10 m-2"><div class="text-center"><span class="text-white font-serif text-sm tracking-widest uppercase border-b border-amber-600/50 pb-1">Mendoza & Asoc.</span></div><div class="mt-auto text-center"><h3 class="text-white font-serif text-xl mb-4">Defensa y Estrategia.</h3><button class="border border-amber-600 text-amber-500 px-4 py-2 text-[10px] uppercase">Asesoría</button></div></div>` },
+{ id: 's3', name: 'Agencia Creativa', img: 'https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-6 h-full flex flex-col justify-between"><div class="w-6 h-6 rounded bg-white text-black flex items-center justify-center font-black text-xs">A.</div><div><h3 class="text-white font-black text-3xl tracking-tighter leading-none mb-3">Creamos<br>el futuro.</h3><button class="bg-white text-black py-2 rounded-xl text-xs font-black px-4">Ver Portafolio</button></div></div>` },
+{ id: 's4', name: 'Firma Arquitectura', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-white font-light text-xs tracking-[0.3em] uppercase">Vectra</span><div class="mt-auto"><h3 class="text-white font-light text-2xl mb-4">Espacios que<br>inspiran.</h3><button class="border border-white text-white px-4 py-2 text-[9px] uppercase tracking-widest">Proyectos</button></div></div>` },
+{ id: 's5', name: 'Agencia Seguros', img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-emerald-500 font-bold text-lg">SafeGuard</span><div class="bg-white/95 p-4 rounded-lg mt-auto border-t-4 border-emerald-500"><h3 class="text-zinc-900 font-bold text-lg mb-2">Protege lo que más importa.</h3><button class="bg-emerald-500 text-white px-4 py-2 rounded text-[10px] font-bold w-full">Cotizar Seguro</button></div></div>` },
+{ id: 's6', name: 'Consultoría IT', img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-cyan-400 font-mono text-sm border border-cyan-400 p-1 w-fit">/TECH.SYS</span><div class="mt-auto"><h3 class="text-white font-mono text-xl mb-3">Soporte y Redes.</h3><button class="bg-cyan-500 text-black font-mono px-4 py-2 text-[10px] w-full">Contactar</button></div></div>` },
+{ id: 's7', name: 'Despacho Contable', img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-blue-900 font-bold text-lg bg-white/80 p-1">FinanzasPro</span><div class="bg-blue-900 p-4 mt-auto"><h3 class="text-white font-bold text-xl mb-2">Claridad en tus números.</h3><button class="bg-white text-blue-900 px-4 py-2 text-[10px] font-bold w-full">Asesoría</button></div></div>` },
+{ id: 's8', name: 'Boutique Creativa', img: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-pink-500 font-serif italic text-2xl">Maison</span><div class="mt-auto text-center"><button class="bg-white text-black rounded-full px-6 py-2 text-[10px] font-bold uppercase tracking-widest">Descubrir</button></div></div>` }
+];
+            
+            function changeTemplate(id) {
+                const tpl = templates.find(t => t.id === id);
+                if(!tpl) return;
+                
+                // Update Image and Content with fade
+                const imgEl = document.getElementById('viewer-img');
+                const contentEl = document.getElementById('viewer-content');
+                
+                imgEl.style.opacity = 0;
+                contentEl.style.opacity = 0;
+                
+                setTimeout(() => {
+                    imgEl.src = tpl.img;
+                    contentEl.innerHTML = tpl.html;
+                    
+                    // Re-init lucide icons for newly injected HTML
+                    if(window.lucide) window.lucide.createIcons();
+                    
+                    imgEl.style.opacity = 0.5;
+                    contentEl.style.opacity = 1;
+                }, 250);
+                
+                // Update buttons
+                document.querySelectorAll('.template-btn').forEach(btn => {
+                    btn.classList.remove('bg-white', 'text-black');
+                    btn.classList.add('bg-white/10', 'text-white');
+                });
+                const activeBtn = document.getElementById('btn-' + id);
+                if(activeBtn) {
+                    activeBtn.classList.remove('bg-white/10', 'text-white');
+                    activeBtn.classList.add('bg-white', 'text-black');
+                    activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            }
+        </script>
+
 
         <!-- Technical Features -->
         <section class="py-16 bg-zinc-50 border-t border-zinc-200">

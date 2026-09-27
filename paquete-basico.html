@@ -136,120 +136,115 @@
                         <p class="text-xs text-zinc-400 mt-3">* Al contratar serás redirigido a la pantalla principal para cotizar y contactar por WhatsApp.</p>
                     </div>
 
+                    
                     <div class="lg:w-1/2 w-full relative">
-                        <!-- Glowing blobs for Liquid Glass effect -->
-                        <div class="absolute -inset-4 bg-gradient-to-tr from-red-500 via-pink-500 to-orange-400 opacity-30 blur-2xl rounded-full animate-pulse pointer-events-none mix-blend-multiply"></div>
-                        <div class="absolute -inset-4 bg-gradient-to-bl from-blue-400 via-purple-500 to-red-400 opacity-20 blur-3xl rounded-full pointer-events-none" style="animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite reverse;"></div>
+                        <!-- Optimized glowing background (No pulse, lower blur for better performance) -->
+                        <div class="absolute -inset-2 bg-gradient-to-br from-red-500/20 via-pink-500/20 to-orange-400/20 blur-xl rounded-full pointer-events-none transform-gpu"></div>
                         
-                        <!-- Liquid Glass Container -->
-                        <div class="relative p-3 rounded-3xl bg-white/30 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] group z-10 transition-transform duration-500 hover:scale-[1.01]">
+                        <!-- Main Screen Viewer -->
+                        <div class="relative p-2 rounded-3xl bg-zinc-900/60 backdrop-blur-md border border-white/10 shadow-2xl z-10 mb-4 transition-transform duration-300">
                             
-                            <!-- Navegador mock glass -->
-                            <div class="flex items-center gap-2 mb-3 px-2 pt-1">
+                            <!-- Browser Chrome -->
+                            <div class="flex items-center gap-2 mb-2 px-2 pt-1">
                                 <div class="flex gap-1.5">
-                                    <div class="w-3 h-3 rounded-full bg-red-400 border border-white/20 shadow-sm"></div>
-                                    <div class="w-3 h-3 rounded-full bg-yellow-400 border border-white/20 shadow-sm"></div>
-                                    <div class="w-3 h-3 rounded-full bg-green-400 border border-white/20 shadow-sm"></div>
+                                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
                                 </div>
-                                <div class="flex-1 bg-white/40 backdrop-blur-md border border-white/50 shadow-sm rounded-md px-3 py-1 text-[11px] text-zinc-700 flex items-center gap-2 font-mono">
-                                    <i data-lucide="lock" class="w-3 h-3 text-green-600"></i> www.tu-negocio.com
+                                <div class="flex-1 bg-black/40 border border-white/5 rounded px-3 py-1 text-[10px] text-zinc-400 flex items-center gap-2 font-mono">
+                                    <i data-lucide="lock" class="w-3 h-3 text-green-500"></i> www.tu-negocio.com
                                 </div>
                             </div>
 
-                            <!-- Carousel inner -->
-                            <div class="relative rounded-xl overflow-hidden shadow-inner bg-black/5">
-                                <div id="carousel-basico" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth h-full relative z-0">
-
-            <div class="snap-center shrink-0 w-full h-full relative" style="aspect-ratio: 16/10;">
-                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover brightness-50" alt="Fondo Cafe">
+                            <!-- Screen Content -->
+                            <div class="relative rounded-xl overflow-hidden bg-black w-full" style="aspect-ratio: 16/10;">
+                                <img id="viewer-img" src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=70" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-50">
+                                <div id="viewer-content" class="absolute inset-0 w-full h-full transition-opacity duration-500">
+                                    
                 <div class="relative z-10 p-5 h-full flex flex-col justify-between">
                     <div class="flex justify-between items-center w-full">
                         <span class="text-white font-serif italic text-lg">Café Noir</span>
-                        <div class="flex gap-3 text-white/80 text-[9px] uppercase tracking-widest">
-                            <span>Origen</span><span>Menú</span><span>Visítanos</span>
+                        <div class="flex gap-2 text-white/80 text-[8px] uppercase tracking-widest">
+                            <span>Origen</span><span>Menú</span>
                         </div>
                     </div>
                     <div class="text-center">
-                        <h3 class="text-white font-serif text-3xl mb-2">El arte del café,<br>en tu taza.</h3>
-                        <p class="text-white/70 text-[10px] mb-4">Granos seleccionados de Veracruz.</p>
-                        <button class="bg-white text-black px-5 py-2 rounded-full text-xs font-bold hover:bg-zinc-200 transition-colors">Ver Menú Digital</button>
+                        <h3 class="text-white font-serif text-2xl mb-1">El arte del café,<br>en tu taza.</h3>
+                        <button class="bg-white text-black px-4 py-1.5 rounded-full text-[10px] font-bold mt-2">Menú Digital</button>
                     </div>
                     <div class="flex gap-2">
-                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-2 rounded-lg flex-1 text-center"><i data-lucide="map-pin" class="w-3 h-3 text-white mx-auto mb-1"></i><span class="text-white text-[8px] block">Centro Histórico</span></div>
-                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-2 rounded-lg flex-1 text-center"><i data-lucide="clock" class="w-3 h-3 text-white mx-auto mb-1"></i><span class="text-white text-[8px] block">7am - 9pm</span></div>
+                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-2 rounded-lg flex-1 text-center"><span class="text-white text-[8px] block">Centro Histórico</span></div>
                     </div>
                 </div>
-            </div>
             
-
-            <div class="snap-center shrink-0 w-full h-full relative" style="aspect-ratio: 16/10;">
-                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover brightness-[0.3]" alt="Fondo Taller">
-                <div class="relative z-10 p-5 h-full flex flex-col justify-between">
-                    <div class="flex justify-between items-center w-full border-b border-white/10 pb-2">
-                        <span class="text-yellow-500 font-black tracking-tighter text-xl uppercase">RACING<span class="text-white">PRO</span></span>
-                        <div class="bg-yellow-500 text-black text-[9px] font-bold px-2 py-1 rounded">URGENCIAS 24/7</div>
-                    </div>
-                    <div>
-                        <div class="w-8 h-1 bg-yellow-500 mb-3"></div>
-                        <h3 class="text-white font-black text-2xl uppercase leading-none mb-2">Expertos en<br>Motores.</h3>
-                        <p class="text-zinc-400 text-[10px] mb-4">Afinación, Frenos y Diagnóstico por Computadora.</p>
-                        <button class="bg-yellow-500 text-black px-4 py-2 text-xs font-black uppercase hover:bg-yellow-400 transition-colors flex items-center gap-2">
-                            <i data-lucide="wrench" class="w-3 h-3"></i> Cotizar Servicio
-                        </button>
-                    </div>
-                    <div class="flex gap-2">
-                        <div class="bg-zinc-900 border border-zinc-700 p-2 text-center w-full"><span class="text-white text-[9px] font-bold block">Ubicación GPS</span></div>
-                        <div class="bg-green-600 p-2 text-center w-full"><span class="text-white text-[9px] font-bold block">WhatsApp</span></div>
-                    </div>
-                </div>
-            </div>
-            
-
-            <div class="snap-center shrink-0 w-full h-full relative" style="aspect-ratio: 16/10;">
-                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover brightness-75" alt="Fondo Spa">
-                <div class="relative z-10 p-5 h-full flex flex-col justify-between bg-gradient-to-t from-pink-900/60 to-transparent">
-                    <div class="flex justify-between items-center w-full">
-                        <span class="text-white font-light tracking-widest text-sm uppercase">Lumière</span>
-                        <i data-lucide="menu" class="w-5 h-5 text-white"></i>
-                    </div>
-                    <div class="text-center mt-auto mb-4">
-                        <h3 class="text-white font-light text-2xl mb-1">Tu momento de<br>relajación absoluta.</h3>
-                        <p class="text-white/80 text-[10px] font-light">Skin Care • Masajes • Beauty</p>
-                    </div>
-                    <button class="w-full bg-pink-100 text-pink-900 py-3 rounded text-xs font-semibold tracking-widest uppercase hover:bg-white transition-colors">
-                        Agendar Cita
-                    </button>
-                </div>
-            </div>
-            
-</div>
-
-                                <!-- Glass Navigation Arrows -->
-                                <button onclick="scrollCarousel('basico', -1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/40 backdrop-blur-md border border-white/60 flex items-center justify-center text-black/70 hover:bg-white/80 hover:text-black transition-all opacity-0 group-hover:opacity-100 shadow-lg z-20 focus:outline-none">
-                                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
-                                </button>
-                                <button onclick="scrollCarousel('basico', 1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/40 backdrop-blur-md border border-white/60 flex items-center justify-center text-black/70 hover:bg-white/80 hover:text-black transition-all opacity-0 group-hover:opacity-100 shadow-lg z-20 focus:outline-none">
-                                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
-                                </button>
-                                
-                                <!-- Indicators -->
-                                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20 px-3 py-1.5 rounded-full bg-black/20 backdrop-blur-md">
-                                    <div class="indicator-basico w-4 h-2 rounded-full bg-white shadow-md transition-all duration-300"></div><div class="indicator-basico w-2 h-2 rounded-full bg-white/50 shadow-md transition-all duration-300"></div><div class="indicator-basico w-2 h-2 rounded-full bg-white/50 shadow-md transition-all duration-300"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                                <div class="flex-1 bg-zinc-800 rounded-md px-3 py-1.5 text-[11px] text-zinc-400 flex items-center gap-2">
-                                    <i data-lucide="lock" class="w-3 h-3 text-green-400"></i> www.tu-negocio.com
-                                </div>
+                        
+                        <!-- Interactive Liquid Glass Control Bar -->
+                        <div class="relative p-2 rounded-2xl bg-black/80 backdrop-blur-xl border border-white/10 shadow-xl z-10 flex flex-col gap-2">
+                            <div class="px-2 flex items-center gap-2 text-white/50 text-[10px] uppercase tracking-widest font-bold">
+                                <i data-lucide="layout" class="w-3 h-3"></i> 8 Estilos y Vistas de Clientes:
                             </div>
-                            <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=900&q=85" class="w-full h-auto rounded-xl object-cover" style="aspect-ratio: 16/10;" alt="Previsualización Paquete Web Básica">
+                            <div class="flex overflow-x-auto gap-2 pb-1 scrollbar-hide snap-x" id="template-bar">
+                                <button onclick="changeTemplate('s1')" id="btn-s1" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white text-black border border-white/20">Café Minimalista</button><button onclick="changeTemplate('s2')" id="btn-s2" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Taller Urbano</button><button onclick="changeTemplate('s3')" id="btn-s3" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Spa Elegante</button><button onclick="changeTemplate('s4')" id="btn-s4" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Gym Neón</button><button onclick="changeTemplate('s5')" id="btn-s5" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Barbería Clásica</button><button onclick="changeTemplate('s6')" id="btn-s6" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Taquería Local</button><button onclick="changeTemplate('s7')" id="btn-s7" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Odontología</button><button onclick="changeTemplate('s8')" id="btn-s8" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Estudio Foto</button>
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Template Viewer Script -->
+        <script>
+            const templates = [
+{ id: 's1', name: 'Café Minimalista', img: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=70', html: `                 <div class="relative z-10 p-5 h-full flex flex-col justify-between">                     <div class="flex justify-between items-center w-full">                         <span class="text-white font-serif italic text-lg">Café Noir</span>                         <div class="flex gap-2 text-white/80 text-[8px] uppercase tracking-widest">                             <span>Origen</span><span>Menú</span>                         </div>                     </div>                     <div class="text-center">                         <h3 class="text-white font-serif text-2xl mb-1">El arte del café,<br>en tu taza.</h3>                         <button class="bg-white text-black px-4 py-1.5 rounded-full text-[10px] font-bold mt-2">Menú Digital</button>                     </div>                     <div class="flex gap-2">                         <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-2 rounded-lg flex-1 text-center"><span class="text-white text-[8px] block">Centro Histórico</span></div>                     </div>                 </div>             ` },
+{ id: 's2', name: 'Taller Urbano', img: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=70', html: `                 <div class="relative z-10 p-5 h-full flex flex-col justify-between">                     <div class="flex justify-between items-center w-full border-b border-white/10 pb-2">                         <span class="text-yellow-500 font-black tracking-tighter text-lg uppercase">RACING<span class="text-white">PRO</span></span>                     </div>                     <div>                         <div class="w-6 h-1 bg-yellow-500 mb-2"></div>                         <h3 class="text-white font-black text-xl uppercase leading-none mb-2">Expertos en<br>Motores.</h3>                         <button class="bg-yellow-500 text-black px-3 py-1.5 text-[10px] font-black uppercase">Cotizar</button>                     </div>                 </div>             ` },
+{ id: 's3', name: 'Spa Elegante', img: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=70', html: `                 <div class="relative z-10 p-5 h-full flex flex-col justify-between bg-gradient-to-t from-pink-900/60 to-transparent">                     <span class="text-white font-light tracking-widest text-xs uppercase text-center w-full block">Lumière</span>                     <div class="text-center mt-auto mb-4">                         <h3 class="text-white font-light text-xl mb-1">Tu momento de<br>relajación.</h3>                     </div>                     <button class="w-full bg-pink-100 text-pink-900 py-2 rounded text-[10px] font-semibold tracking-widest uppercase">Agendar</button>                 </div>             ` },
+{ id: 's4', name: 'Gym Neón', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=70', html: `                 <div class="relative z-10 p-5 h-full flex flex-col justify-between">                     <span class="text-green-400 font-black text-xl italic tracking-tighter">IRONFIT</span>                     <div class="text-left mt-auto">                         <h3 class="text-white font-black text-3xl uppercase leading-none mb-2">Supérate.</h3>                         <button class="bg-green-500 text-black px-4 py-2 text-[10px] font-black uppercase">Únete hoy</button>                     </div>                 </div>             ` },
+{ id: 's5', name: 'Barbería Clásica', img: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=70', html: `                 <div class="relative z-10 p-5 h-full flex flex-col justify-between bg-gradient-to-t from-black/80 to-transparent">                     <span class="text-amber-500 font-serif text-lg text-center block border-b border-amber-500/30 pb-2">GENTLEMEN'S</span>                     <div class="text-center">                         <button class="border border-amber-500 text-amber-500 px-4 py-2 text-[10px] uppercase">Reservar Cita</button>                     </div>                 </div>             ` },
+{ id: 's6', name: 'Taquería Local', img: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=70', html: `                 <div class="relative z-10 p-5 h-full flex flex-col justify-between">                     <span class="text-red-500 font-black text-2xl drop-shadow-md">EL REY</span>                     <div class="mt-auto">                         <h3 class="text-white font-black text-2xl mb-2 drop-shadow-md">El verdadero<br>sabor.</h3>                         <button class="bg-red-600 text-white px-4 py-2 rounded-full text-[10px] font-bold">Ver Menú</button>                     </div>                 </div>             ` },
+{ id: 's7', name: 'Odontología', img: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=70', html: `                 <div class="relative z-10 p-5 h-full flex flex-col justify-between">                     <span class="text-blue-500 font-bold text-sm bg-white px-2 py-1 rounded w-fit">SmileClinic</span>                     <div class="bg-white/90 p-3 rounded-lg">                         <h3 class="text-blue-900 font-bold text-lg mb-1">Sonrisas perfectas.</h3>                         <button class="w-full bg-blue-500 text-white py-1.5 rounded text-[10px] font-bold">Agendar Valoración</button>                     </div>                 </div>             ` },
+{ id: 's8', name: 'Estudio Foto', img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=70', html: `                 <div class="relative z-10 p-5 h-full flex flex-col justify-between">                     <span class="text-white font-mono text-xs tracking-widest border border-white p-1 w-fit">FOCUS.STUDIO</span>                     <div class="text-center mt-auto">                         <h3 class="text-white font-light text-2xl mb-3">Capturando<br>momentos.</h3>                         <button class="bg-white text-black px-4 py-2 text-[10px] font-bold">Portafolio</button>                     </div>                 </div>             ` }
+];
+            
+            function changeTemplate(id) {
+                const tpl = templates.find(t => t.id === id);
+                if(!tpl) return;
+                
+                // Update Image and Content with fade
+                const imgEl = document.getElementById('viewer-img');
+                const contentEl = document.getElementById('viewer-content');
+                
+                imgEl.style.opacity = 0;
+                contentEl.style.opacity = 0;
+                
+                setTimeout(() => {
+                    imgEl.src = tpl.img;
+                    contentEl.innerHTML = tpl.html;
+                    
+                    // Re-init lucide icons for newly injected HTML
+                    if(window.lucide) window.lucide.createIcons();
+                    
+                    imgEl.style.opacity = 0.5;
+                    contentEl.style.opacity = 1;
+                }, 250);
+                
+                // Update buttons
+                document.querySelectorAll('.template-btn').forEach(btn => {
+                    btn.classList.remove('bg-white', 'text-black');
+                    btn.classList.add('bg-white/10', 'text-white');
+                });
+                const activeBtn = document.getElementById('btn-' + id);
+                if(activeBtn) {
+                    activeBtn.classList.remove('bg-white/10', 'text-white');
+                    activeBtn.classList.add('bg-white', 'text-black');
+                    activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            }
+        </script>
+
 
         <!-- Technical Features -->
         <section class="py-16 bg-zinc-50 border-t border-zinc-200">
