@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LW1JDTZT0F"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){window.dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-LW1JDTZT0F');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AV My Web Studio | Diseño y Desarrollo Web Profesional</title>
-    <meta name="description" content="Diseño y creación de páginas web profesionales, rápidas y fáciles de usar.">
+    <title>AV My Web Studio | DiseÃ±o y Desarrollo Web Profesional</title>
+    <meta name="description" content="DiseÃ±o y creaciÃ³n de pÃ¡ginas web profesionales, rÃ¡pidas y fÃ¡ciles de usar.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +66,7 @@
             border-color: #000;
         }
         
-        /* Ocultar barra de scroll en móviles pero permitir scroll */
+        /* Ocultar barra de scroll en mÃ³viles pero permitir scroll */
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -146,7 +146,7 @@
                 <a href="index.html#cotizacion" class="text-sm font-medium bg-black hover:bg-zinc-800 text-white px-5 py-2.5 rounded-full transition-all">Cotizar por WhatsApp</a>
             </nav>
 
-            <button class="md:hidden text-zinc-900" id="mobile-menu-btn" aria-label="Abrir menú">
+            <button class="md:hidden text-zinc-900" id="mobile-menu-btn" aria-label="Abrir menÃº">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
@@ -173,7 +173,7 @@
                         </a>
                         <div class="inline-block bg-zinc-100 text-black text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-6">Detalle del paquete</div>
                         <h1 class="text-4xl md:text-5xl font-extrabold text-black tracking-tight mb-4">Tienda Web (E-Commerce)</h1>
-                        <p class="text-lg text-zinc-600 mb-8 leading-relaxed">Vende en piloto automático. Una tienda en línea completa con carrito de compras, pasarelas de pago y gestión de inventario para escalar tus ventas a nivel nacional o internacional.</p>
+                        <p class="text-lg text-zinc-600 mb-8 leading-relaxed">Vende en piloto automÃ¡tico. Una tienda en lÃ­nea completa con carrito de compras, pasarelas de pago y gestiÃ³n de inventario para escalar tus ventas a nivel nacional o internacional.</p>
                         
                         <div class="flex items-center gap-4 mb-8">
                             <div>
@@ -190,7 +190,7 @@
                             Contratar este plan
                             <i data-lucide="arrow-right" class="w-5 h-5"></i>
                         </a>
-                        <p class="text-xs text-zinc-400 mt-3">* Al contratar serás redirigido a la pantalla principal para cotizar y contactar por WhatsApp.</p>
+                        <p class="text-xs text-zinc-400 mt-3">* Al contratar serÃ¡s redirigido a la pantalla principal para cotizar y contactar por WhatsApp.</p>
                     </div>
 
                     
@@ -217,7 +217,7 @@
                             <div class="relative rounded-xl overflow-hidden bg-black w-full" style="aspect-ratio: 16/10;">
                                 <img id="viewer-img" src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=600&q=70" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-50">
                                 <div id="viewer-content" class="absolute inset-0 w-full h-full transition-opacity duration-500">
-                                    <div class="relative z-10 h-full flex flex-col justify-between"><div class="p-4"><span class="text-white font-serif font-bold text-lg tracking-widest uppercase shadow-sm">VOGUE</span></div><div class="bg-white rounded-t-2xl p-4 mt-auto shadow-2xl"><span class="text-zinc-400 text-[9px] uppercase tracking-widest block mb-1">Nueva Colección</span><h3 class="text-black font-serif text-lg mb-2">Abrigo de Lana</h3><button class="w-full bg-black text-white py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">Añadir al Carrito</button></div></div>
+                                    <div class="relative z-10 h-full flex flex-col justify-between"><div class="p-4"><span class="text-white font-serif font-bold text-lg tracking-widest uppercase shadow-sm">VOGUE</span></div><div class="bg-white rounded-t-2xl p-4 mt-auto shadow-2xl"><span class="text-zinc-400 text-[9px] uppercase tracking-widest block mb-1">Nueva ColecciÃ³n</span><h3 class="text-black font-serif text-lg mb-2">Abrigo de Lana</h3><button class="w-full bg-black text-white py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">AÃ±adir al Carrito</button></div></div>
                                 </div>
                             </div>
                         </div>
@@ -228,7 +228,7 @@
                                 <i data-lucide="layout" class="w-3 h-3"></i> 8 Estilos y Vistas de Clientes:
                             </div>
                             <div class="flex overflow-x-auto gap-2 pb-1 glass-scrollbar snap-x pb-3 px-1" id="template-bar">
-                                <button onclick="changeTemplate('s1')" id="btn-s1" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white text-black border border-white/20">Ropa de Moda</button><button onclick="changeTemplate('s2')" id="btn-s2" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Tienda Tech</button><button onclick="changeTemplate('s3')" id="btn-s3" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Skincare Natural</button><button onclick="changeTemplate('s4')" id="btn-s4" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Tienda Muebles</button><button onclick="changeTemplate('s5')" id="btn-s5" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Accesorios Deportivos</button><button onclick="changeTemplate('s6')" id="btn-s6" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Joyería Fina</button><button onclick="changeTemplate('s7')" id="btn-s7" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Productos Mascotas</button><button onclick="changeTemplate('s8')" id="btn-s8" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Postres / Repostería</button>
+                                <button onclick="changeTemplate('s1')" id="btn-s1" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white text-black border border-white/20">Ropa de Moda</button><button onclick="changeTemplate('s2')" id="btn-s2" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Tienda Tech</button><button onclick="changeTemplate('s3')" id="btn-s3" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Skincare Natural</button><button onclick="changeTemplate('s4')" id="btn-s4" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Tienda Muebles</button><button onclick="changeTemplate('s5')" id="btn-s5" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Accesorios Deportivos</button><button onclick="changeTemplate('s6')" id="btn-s6" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">JoyerÃ­a Fina</button><button onclick="changeTemplate('s7')" id="btn-s7" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Productos Mascotas</button><button onclick="changeTemplate('s8')" id="btn-s8" class="template-btn whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-colors bg-white/10 text-white hover:bg-white/20 border border-white/20">Postres / ReposterÃ­a</button>
                             </div>
                         </div>
 
@@ -240,14 +240,14 @@
         <!-- Template Viewer Script -->
         <script>
             const templates = [
-{ id: 's1', name: 'Ropa de Moda', img: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 h-full flex flex-col justify-between"><div class="p-4"><span class="text-white font-serif font-bold text-lg tracking-widest uppercase shadow-sm">VOGUE</span></div><div class="bg-white rounded-t-2xl p-4 mt-auto shadow-2xl"><span class="text-zinc-400 text-[9px] uppercase tracking-widest block mb-1">Nueva Colección</span><h3 class="text-black font-serif text-lg mb-2">Abrigo de Lana</h3><button class="w-full bg-black text-white py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">Añadir al Carrito</button></div></div>` },
+{ id: 's1', name: 'Ropa de Moda', img: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 h-full flex flex-col justify-between"><div class="p-4"><span class="text-white font-serif font-bold text-lg tracking-widest uppercase shadow-sm">VOGUE</span></div><div class="bg-white rounded-t-2xl p-4 mt-auto shadow-2xl"><span class="text-zinc-400 text-[9px] uppercase tracking-widest block mb-1">Nueva ColecciÃ³n</span><h3 class="text-black font-serif text-lg mb-2">Abrigo de Lana</h3><button class="w-full bg-black text-white py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">AÃ±adir al Carrito</button></div></div>` },
 { id: 's2', name: 'Tienda Tech', img: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><div class="bg-zinc-900/80 p-2 rounded-xl"><span class="text-white font-black italic text-sm">TECH<span class="text-blue-500">ZONE</span></span></div><div class="mt-auto"><h3 class="text-white font-bold text-xl leading-tight mb-1">PlayStation 5 Pro</h3><span class="text-white font-black text-lg block mb-2">$11,999</span><button class="w-full bg-blue-600 text-white py-2 rounded-xl text-xs font-bold shadow-[0_0_15px_rgba(37,99,235,0.4)]">Comprar Ahora</button></div></div>` },
-{ id: 's3', name: 'Skincare Natural', img: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><div class="text-center"><span class="text-green-900 font-serif font-bold text-sm tracking-widest bg-white/50 px-2 py-1 rounded">BOTANICA</span></div><div class="bg-white/90 p-4 rounded-xl mt-auto"><h3 class="text-green-950 font-serif text-lg leading-tight mb-2">Serum Ácido Hialurónico</h3><button class="w-full bg-green-800 text-white py-2 rounded-xl text-[10px] uppercase tracking-widest font-bold">Agregar - $450</button></div></div>` },
-{ id: 's4', name: 'Tienda Muebles', img: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-amber-800 font-bold text-xl tracking-tight">KøK</span><div class="bg-[#F4F1EA] p-4 mt-auto rounded-lg"><h3 class="text-amber-900 font-bold text-lg mb-1">Silla Nórdica V2</h3><span class="text-amber-700 font-bold block mb-3">$1,200 MXN</span><button class="bg-amber-800 text-white px-4 py-2 w-full text-[10px] uppercase tracking-widest">Comprar</button></div></div>` },
-{ id: 's5', name: 'Accesorios Deportivos', img: 'https://images.unsplash.com/photo-1518002171953-a080ee817e1f?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-white font-black text-2xl italic tracking-tighter">SPEED<span class="text-red-500">X</span></span><div class="mt-auto"><h3 class="text-white font-black text-2xl uppercase italic mb-1">Tenis Running</h3><span class="text-red-500 font-black text-xl block mb-3">$2,599</span><button class="bg-red-600 text-white px-4 py-2 font-black uppercase italic w-full">Añadir</button></div></div>` },
-{ id: 's6', name: 'Joyería Fina', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><div class="text-center"><span class="text-white font-serif tracking-[0.4em] text-xs uppercase border-b border-white pb-1">Aura</span></div><div class="text-center mt-auto bg-black/40 backdrop-blur-md p-4"><h3 class="text-white font-serif text-lg mb-2">Anillo Diamante 18k</h3><button class="border border-white text-white px-6 py-2 text-[9px] uppercase tracking-widest hover:bg-white hover:text-black transition-colors">Añadir al Carrito</button></div></div>` },
+{ id: 's3', name: 'Skincare Natural', img: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><div class="text-center"><span class="text-green-900 font-serif font-bold text-sm tracking-widest bg-white/50 px-2 py-1 rounded">BOTANICA</span></div><div class="bg-white/90 p-4 rounded-xl mt-auto"><h3 class="text-green-950 font-serif text-lg leading-tight mb-2">Serum Ãcido HialurÃ³nico</h3><button class="w-full bg-green-800 text-white py-2 rounded-xl text-[10px] uppercase tracking-widest font-bold">Agregar - $450</button></div></div>` },
+{ id: 's4', name: 'Tienda Muebles', img: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-amber-800 font-bold text-xl tracking-tight">KÃ¸K</span><div class="bg-[#F4F1EA] p-4 mt-auto rounded-lg"><h3 class="text-amber-900 font-bold text-lg mb-1">Silla NÃ³rdica V2</h3><span class="text-amber-700 font-bold block mb-3">$1,200 MXN</span><button class="bg-amber-800 text-white px-4 py-2 w-full text-[10px] uppercase tracking-widest">Comprar</button></div></div>` },
+{ id: 's5', name: 'Accesorios Deportivos', img: 'https://images.unsplash.com/photo-1518002171953-a080ee817e1f?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-white font-black text-2xl italic tracking-tighter">SPEED<span class="text-red-500">X</span></span><div class="mt-auto"><h3 class="text-white font-black text-2xl uppercase italic mb-1">Tenis Running</h3><span class="text-red-500 font-black text-xl block mb-3">$2,599</span><button class="bg-red-600 text-white px-4 py-2 font-black uppercase italic w-full">AÃ±adir</button></div></div>` },
+{ id: 's6', name: 'JoyerÃ­a Fina', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><div class="text-center"><span class="text-white font-serif tracking-[0.4em] text-xs uppercase border-b border-white pb-1">Aura</span></div><div class="text-center mt-auto bg-black/40 backdrop-blur-md p-4"><h3 class="text-white font-serif text-lg mb-2">Anillo Diamante 18k</h3><button class="border border-white text-white px-6 py-2 text-[9px] uppercase tracking-widest hover:bg-white hover:text-black transition-colors">AÃ±adir al Carrito</button></div></div>` },
 { id: 's7', name: 'Productos Mascotas', img: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-orange-500 font-bold text-2xl bg-white px-2 py-1 rounded-2xl w-fit shadow">HappyPet</span><div class="bg-orange-100 p-4 rounded-2xl mt-auto border-2 border-orange-500"><h3 class="text-orange-900 font-bold text-lg mb-1">Alimento Premium</h3><button class="bg-orange-500 text-white px-4 py-2 rounded-xl text-xs font-bold w-full shadow-md shadow-orange-500/30">Comprar - $850</button></div></div>` },
-{ id: 's8', name: 'Postres / Repostería', img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-pink-600 font-serif italic text-2xl bg-white/80 px-3 py-1 rounded-full w-fit">SweetBites</span><div class="bg-white/95 p-4 rounded-2xl mt-auto text-center"><h3 class="text-pink-900 font-serif text-xl mb-1">Pastel Red Velvet</h3><span class="text-pink-600 font-bold block mb-3">$450 MXN</span><button class="bg-pink-500 text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest w-full">Pedir Ahora</button></div></div>` }
+{ id: 's8', name: 'Postres / ReposterÃ­a', img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=70', html: `<div class="relative z-10 p-5 h-full flex flex-col justify-between"><span class="text-pink-600 font-serif italic text-2xl bg-white/80 px-3 py-1 rounded-full w-fit">SweetBites</span><div class="bg-white/95 p-4 rounded-2xl mt-auto text-center"><h3 class="text-pink-900 font-serif text-xl mb-1">Pastel Red Velvet</h3><span class="text-pink-600 font-bold block mb-3">$450 MXN</span><button class="bg-pink-500 text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest w-full">Pedir Ahora</button></div></div>` }
 ];
             
             function changeTemplate(id) {
@@ -297,7 +297,7 @@
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-extrabold text-black mb-4">Todo lo que incluye</h2>
-                    <p class="text-zinc-600">Construido con tecnología moderna, optimizado para cargar rápido e indexar en Google.</p>
+                    <p class="text-zinc-600">Construido con tecnologÃ­a moderna, optimizado para cargar rÃ¡pido e indexar en Google.</p>
                 </div>
                 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -308,7 +308,7 @@
             </div>
             <div>
                 <h4 class="font-bold text-black text-sm">Carrito de Compras</h4>
-                <p class="text-xs text-zinc-500 mt-0.5">Sistema de agregar al carrito y cobro automático 24/7.</p>
+                <p class="text-xs text-zinc-500 mt-0.5">Sistema de agregar al carrito y cobro automÃ¡tico 24/7.</p>
             </div>
         </div>
         
@@ -318,7 +318,7 @@
             </div>
             <div>
                 <h4 class="font-bold text-black text-sm">Pagos con Tarjeta y OXXO</h4>
-                <p class="text-xs text-zinc-500 mt-0.5">Integración con MercadoPago o Stripe para cobros seguros.</p>
+                <p class="text-xs text-zinc-500 mt-0.5">IntegraciÃ³n con MercadoPago o Stripe para cobros seguros.</p>
             </div>
         </div>
         
@@ -328,7 +328,7 @@
             </div>
             <div>
                 <h4 class="font-bold text-black text-sm">Alta inicial de productos</h4>
-                <p class="text-xs text-zinc-500 mt-0.5">Subimos tus primeros 20 a 50 productos con foto, precio y descripción.</p>
+                <p class="text-xs text-zinc-500 mt-0.5">Subimos tus primeros 20 a 50 productos con foto, precio y descripciÃ³n.</p>
             </div>
         </div>
         
@@ -338,7 +338,7 @@
             </div>
             <div>
                 <h4 class="font-bold text-black text-sm">Panel Administrador</h4>
-                <p class="text-xs text-zinc-500 mt-0.5">Una zona secreta con contraseña para que tú veas tus ventas e inventario.</p>
+                <p class="text-xs text-zinc-500 mt-0.5">Una zona secreta con contraseÃ±a para que tÃº veas tus ventas e inventario.</p>
             </div>
         </div>
         
@@ -347,8 +347,8 @@
                 <i data-lucide="check" class="w-4 h-4"></i>
             </div>
             <div>
-                <h4 class="font-bold text-black text-sm">Cálculo de Envíos</h4>
-                <p class="text-xs text-zinc-500 mt-0.5">Configuración básica para cobrar envíos fijos o variables.</p>
+                <h4 class="font-bold text-black text-sm">CÃ¡lculo de EnvÃ­os</h4>
+                <p class="text-xs text-zinc-500 mt-0.5">ConfiguraciÃ³n bÃ¡sica para cobrar envÃ­os fijos o variables.</p>
             </div>
         </div>
         
@@ -358,7 +358,7 @@
             </div>
             <div>
                 <h4 class="font-bold text-black text-sm">Dominio .com incluido</h4>
-                <p class="text-xs text-zinc-500 mt-0.5">Dirección profesional gratis por el primer año.</p>
+                <p class="text-xs text-zinc-500 mt-0.5">DirecciÃ³n profesional gratis por el primer aÃ±o.</p>
             </div>
         </div>
         
@@ -376,24 +376,24 @@
                     
         
         <div class="bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl rounded-2xl p-6">
-            <h4 class="font-bold text-white mb-2 flex items-center gap-2"><i data-lucide="eye" class="w-4 h-4 text-red-600"></i> ¿Puedo ver una demostración antes de pagar?</h4>
-            <p class="text-sm text-zinc-300">Sí. Mándanos tu info básica por WhatsApp y te enviaremos una previsualización de tu página sin costo ni compromiso. Si te gusta, procedemos al trato.<br>
-            <span class="text-[11px] font-mono bg-white/10 px-1.5 py-0.5 rounded text-zinc-400 mt-2 inline-block">*Esta prueba inicial es 100% independiente y no te descuenta "vueltas de revisión" de tu plan.</span></p>
+            <h4 class="font-bold text-white mb-2 flex items-center gap-2"><i data-lucide="eye" class="w-4 h-4 text-red-600"></i> Â¿Puedo ver una demostraciÃ³n antes de pagar?</h4>
+            <p class="text-sm text-zinc-300">SÃ­. MÃ¡ndanos tu info bÃ¡sica por WhatsApp y te enviaremos una previsualizaciÃ³n de tu pÃ¡gina sin costo ni compromiso. Si te gusta, procedemos al trato.<br>
+            <span class="text-[11px] font-mono bg-white/10 px-1.5 py-0.5 rounded text-zinc-400 mt-2 inline-block">*Esta prueba inicial es 100% independiente y no te descuenta "vueltas de revisiÃ³n" de tu plan.</span></p>
         </div>
 
 <div class="bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl rounded-2xl p-6">
-            <h4 class="font-bold text-white mb-2">¿Me cobran comisiones por mis ventas?</h4>
-            <p class="text-sm text-zinc-300">Nosotros NO cobramos ninguna comisión. Tu página es 100% tuya. Sin embargo, procesadores como Stripe o MercadoPago sí retienen un pequeño porcentaje estándar (aprox. 3.6% + $3) por cada transacción con tarjeta.</p>
+            <h4 class="font-bold text-white mb-2">Â¿Me cobran comisiones por mis ventas?</h4>
+            <p class="text-sm text-zinc-300">Nosotros NO cobramos ninguna comisiÃ³n. Tu pÃ¡gina es 100% tuya. Sin embargo, procesadores como Stripe o MercadoPago sÃ­ retienen un pequeÃ±o porcentaje estÃ¡ndar (aprox. 3.6% + $3) por cada transacciÃ³n con tarjeta.</p>
         </div>
         
         <div class="bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl rounded-2xl p-6">
-            <h4 class="font-bold text-white mb-2">¿Yo mismo podré subir más productos?</h4>
-            <p class="text-sm text-zinc-300">¡Sí! Tendrás un panel administrativo amigable donde podrás cambiar precios, ocultar cosas sin stock y subir nuevos productos tú mismo desde tu computadora o celular.</p>
+            <h4 class="font-bold text-white mb-2">Â¿Yo mismo podrÃ© subir mÃ¡s productos?</h4>
+            <p class="text-sm text-zinc-300">Â¡SÃ­! TendrÃ¡s un panel administrativo amigable donde podrÃ¡s cambiar precios, ocultar cosas sin stock y subir nuevos productos tÃº mismo desde tu computadora o celular.</p>
         </div>
         
         <div class="bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl rounded-2xl p-6">
-            <h4 class="font-bold text-white mb-2">¿El costo de mantenimiento es igual?</h4>
-            <p class="text-sm text-zinc-300">El mantenimiento de tiendas web (para asegurar que el carrito y los pagos no fallen por actualizaciones de seguridad) se cobra en un tabulador especial, usualmente $800/mes. Esto incluye soporte técnico prioritario.</p>
+            <h4 class="font-bold text-white mb-2">Â¿El costo de mantenimiento es igual?</h4>
+            <p class="text-sm text-zinc-300">El mantenimiento de tiendas web (para asegurar que el carrito y los pagos no fallen por actualizaciones de seguridad) se cobra en un tabulador especial, usualmente $800/mes. Esto incluye soporte tÃ©cnico prioritario.</p>
         </div>
         
                 </div>
@@ -407,7 +407,7 @@
             <div class="logo-av text-white mb-2">A<span class="text-zinc-500">V</span></div>
             <div class="flex flex-wrap justify-center gap-6 text-xs text-zinc-400 my-1">
                 <button type="button" onclick="openModal('privacidad')" class="hover:text-white transition-colors underline">Aviso de Privacidad (LFPDPPP)</button>
-                <button type="button" onclick="openModal('terminos')" class="hover:text-white transition-colors underline">Términos y Condiciones</button>
+                <button type="button" onclick="openModal('terminos')" class="hover:text-white transition-colors underline">TÃ©rminos y Condiciones</button>
             </div>
             <p class="text-zinc-500 text-xs">
                 &copy; <span id="current-year"></span> AV My Web Studio. Todos los derechos reservados.
@@ -416,7 +416,7 @@
     </footer>
 
     <script>
-        // Fecha límite exacta: 15 de septiembre a las 11:59:59 PM (Hora Centro de México GMT-6)
+        // Fecha lÃ­mite exacta: 15 de septiembre a las 11:59:59 PM (Hora Centro de MÃ©xico GMT-6)
         const PROMO_END_DATE = new Date('2026-09-15T23:59:59-06:00');
 
                 function isPromoActive() {
@@ -427,15 +427,16 @@
 
         const f_package = document.getElementById('f_package');
         const f_maint = document.getElementById('f_maint');
+        const f_domain = document.getElementById('f_domain');
         const f_google = document.getElementById('f_google');
         const googleDesc = document.getElementById('google-desc');
 
-        const txtBasico = "<strong>Plan Básico ($350):</strong> Crear o reclamar el perfil, poner el nombre correcto del negocio, categoría exacta, horario de atención, número de teléfono, enlace a WhatsApp/redes, y dirección exacta con el marcador GPS bien ubicado.";
-        const txtAvanzado = "<strong>Plan Avanzado ($750):</strong> Todo lo del plan Básico, MÁS la subida de una buena galería de fotos inicial y redacción de una descripción atractiva con palabras clave locales.";
+        const txtBasico = "<strong>Plan BÃ¡sico ($350):</strong> Crear o reclamar el perfil, poner el nombre correcto del negocio, categorÃ­a exacta, horario de atenciÃ³n, nÃºmero de telÃ©fono, enlace a WhatsApp/redes, y direcciÃ³n exacta con el marcador GPS bien ubicado.";
+        const txtAvanzado = "<strong>Plan Avanzado ($750):</strong> Todo lo del plan BÃ¡sico, MÃS la subida de una buena galerÃ­a de fotos inicial y redacciÃ³n de una descripciÃ³n atractiva con palabras clave locales.";
 
         let previousPromoState = null;
 
-        // Función que actualiza la apariencia de toda la página entre modo Promoción y modo Normal
+        // FunciÃ³n que actualiza la apariencia de toda la pÃ¡gina entre modo PromociÃ³n y modo Normal
         function updateUIForPromoState() {
         }
 
@@ -443,6 +444,7 @@
             const active = isPromoActive();
             const pkgText = f_package ? f_package.value : '';
             const googleText = f_google ? f_google.value : '';
+            const domainText = f_domain ? f_domain.value : '';
             const maintText = f_maint ? f_maint.value : '';
             const sumBlock = document.getElementById('summary-block');
             
@@ -461,6 +463,14 @@
             else isCustom = true;
 
             let googlePrice = 0;
+            let domainPrice = 0;
+            const isBasicCheck = pkgText.includes('BÃ¡sica') || pkgText.includes('No estoy seguro');
+            if (isBasicCheck) {
+                if (domainText.includes('$500')) domainPrice = 500;
+            } else {
+                domainPrice = 0;
+            }
+
             if (googleText && googleText.includes('$350')) googlePrice = 350;
             else if (googleText && googleText.includes('$750')) googlePrice = 750;
 
@@ -481,12 +491,30 @@
                     pkgPriceEl.className = "font-bold text-white";
                 }
 
+                const dRow = document.getElementById('sum-domain-row');
+                if (dRow) {
+                    const dNameEl = document.getElementById('sum-domain-name');
+                    const dPriceEl = document.getElementById('sum-domain-price');
+                    if (isBasicCheck) {
+                        if (domainPrice === 500) {
+                            if (dNameEl) dNameEl.textContent = "Dominio .com";
+                            if (dPriceEl) dPriceEl.textContent = "+$500";
+                        } else {
+                            if (dNameEl) dNameEl.textContent = "Subdominio (Gratuito)";
+                            if (dPriceEl) dPriceEl.textContent = "+$0";
+                        }
+                    } else {
+                        if (dNameEl) dNameEl.textContent = "Dominio .com (Incluido)";
+                        if (dPriceEl) dPriceEl.textContent = "+$0";
+                    }
+                }
+                
                 const gRow = document.getElementById('sum-google-row');
                 if (gRow) {
                     if (googlePrice > 0) {
                         gRow.classList.remove('hidden');
                         const gNameEl = document.getElementById('sum-google-name');
-                        if (gNameEl) gNameEl.textContent = googlePrice === 750 ? "Google Maps Avanzado" : "Google Maps Básico";
+                        if (gNameEl) gNameEl.textContent = googlePrice === 750 ? "Google Maps Avanzado" : "Google Maps BÃ¡sico";
                         const gPriceEl = document.getElementById('sum-google-price');
                         if (gPriceEl) gPriceEl.textContent = `+$${googlePrice.toLocaleString()}`;
                     } else {
@@ -494,7 +522,7 @@
                     }
                 }
 
-                const initialTotal = pkgPrice + googlePrice + 500;
+                const initialTotal = pkgPrice + googlePrice + domainPrice;
                 const totalEl = document.getElementById('sum-total');
                 if (totalEl) totalEl.innerHTML = `$${initialTotal.toLocaleString()} <span class="text-sm font-normal text-zinc-400">MXN</span>`;
                 const monthlyEl = document.getElementById('sum-monthly');
@@ -503,15 +531,30 @@
         }
 
         function updateFormOptions() {
-            const isBasic = f_package.value.includes('Básica') || f_package.value.includes('No estoy seguro');
+            const isBasic = f_package.value.includes('BÃ¡sica') || f_package.value.includes('No estoy seguro');
+            
+            // Actualizar Dominio
+            if (f_domain) {
+                const prevDomain = f_domain.value;
+                f_domain.innerHTML = '';
+                if (isBasic) {
+                    f_domain.add(new Option('Dominio .com (+ $500 Ãºnico)', 'Dominio .com (+ $500)'));
+                    f_domain.add(new Option('Subdominio Gratuito ($0)', 'Subdominio Gratuito ($0)'));
+                    if (prevDomain && prevDomain.includes('Subdominio')) {
+                        f_domain.value = 'Subdominio Gratuito ($0)';
+                    }
+                } else {
+                    f_domain.add(new Option('Dominio .com Profesional Incluido ($0)', 'Dominio .com Incluido ($0)'));
+                }
+            }
             
             // Actualizar Mantenimiento
             if (isBasic) {
-                f_maint.options[0].text = "Sí, $250/mes (Plan Básico: 5 cambios mensuales)";
-                f_maint.options[0].value = "Sí ($250/mes - 5 cambios)";
+                f_maint.options[0].text = "SÃ­, $250/mes (Plan BÃ¡sico: 5 cambios mensuales)";
+                f_maint.options[0].value = "SÃ­ ($250/mes - 5 cambios)";
             } else {
-                f_maint.options[0].text = "Sí, $500/mes (Plan Profesional: 10 cambios mensuales)";
-                f_maint.options[0].value = "Sí ($500/mes - 10 cambios)";
+                f_maint.options[0].text = "SÃ­, $500/mes (Plan Profesional: 10 cambios mensuales)";
+                f_maint.options[0].value = "SÃ­ ($500/mes - 10 cambios)";
             }
 
             // Actualizar Google Business Profile
@@ -519,11 +562,11 @@
             f_google.innerHTML = '';
             if (isBasic) {
                 f_google.add(new Option('No lo necesito (Opcional en tu paquete)', 'No lo necesito'));
-                f_google.add(new Option('Plan Básico (+ $350 único)', 'Google Básico ($350)'));
+                f_google.add(new Option('Plan BÃ¡sico (+ $350 Ãºnico)', 'Google BÃ¡sico ($350)'));
                 googleDesc.innerHTML = "";
             } else {
-                f_google.add(new Option('Plan Básico (+ $350 único)', 'Google Básico ($350)'));
-                f_google.add(new Option('Plan Avanzado (+ $750 único) - Recomendado', 'Google Avanzado ($750)'));
+                f_google.add(new Option('Plan BÃ¡sico (+ $350 Ãºnico)', 'Google BÃ¡sico ($350)'));
+                f_google.add(new Option('Plan Avanzado (+ $750 Ãºnico) - Recomendado', 'Google Avanzado ($750)'));
                 googleDesc.innerHTML = txtBasico;
             }
 
@@ -534,8 +577,8 @@
             calculateTotal();
         }
 
-        f_google.addEventListener('change', () => {
-            if (f_google.value.includes('Básico')) {
+        if (f_google) f_google.addEventListener('change', () => {
+            if (f_google.value.includes('BÃ¡sico')) {
                 googleDesc.innerHTML = txtBasico;
             } else if (f_google.value.includes('Avanzado')) {
                 googleDesc.innerHTML = txtAvanzado;
@@ -545,8 +588,9 @@
             calculateTotal();
         });
 
-        f_maint.addEventListener('change', calculateTotal);
-        f_package.addEventListener('change', updateFormOptions);
+        if (f_maint) f_maint.addEventListener('change', calculateTotal);
+        if (f_domain) f_domain.addEventListener('change', calculateTotal);
+        if (f_package) f_package.addEventListener('change', updateFormOptions);
 
         // --- Validation Helpers ---
         function setFieldError(inputEl, errorEl, hasError) {
@@ -624,8 +668,10 @@
             }, 1000);
         }
 
-        document.getElementById('wa-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        const waForm = document.getElementById('wa-form');
+        if (waForm) {
+            waForm.addEventListener('submit', function(e) {
+                e.preventDefault();
 
             const nameVal = nameInput ? nameInput.value.trim() : '';
             const pkgVal = pkgSelect ? pkgSelect.value.trim() : '';
@@ -664,8 +710,15 @@
             const google = document.getElementById('f_google') ? document.getElementById('f_google').value : '';
             const budget = (document.getElementById('f_budget') && document.getElementById('f_budget').value) ? document.getElementById('f_budget').value : "No especificado";
 
-            let initialTotal = 500;
-            let originalTotal = 500;
+            let isBasicMsg = pkgVal.includes('Básica') || pkgVal.includes('No estoy seguro');
+            let domainPriceWa = 0;
+            const dVal = f_domain ? f_domain.value : '';
+            if (isBasicMsg) {
+                if (dVal.includes('$500')) domainPriceWa = 500;
+            }
+            
+            let initialTotal = domainPriceWa;
+            let originalTotal = domainPriceWa;
             let isCustom = false;
             
             if (active) {
@@ -689,31 +742,33 @@
             
             let message = "";
             if (active) {
-                message = `*¡Hola! Me gustaría cotizar un proyecto web con AV My Web Studio *\n\n`;
+                message = `*Â¡Hola! Me gustarÃ­a cotizar un proyecto web con AV My Web Studio *\n\n`;
             } else {
-                message = `*¡Hola! Me gustaría cotizar un proyecto web con AV My Web Studio*\n\n`;
+                message = `*Â¡Hola! Me gustarÃ­a cotizar un proyecto web con AV My Web Studio*\n\n`;
             }
             
-            message += `👤 *Mi nombre:* ${nameVal}\n`;
-            message += `🤝 *Historial:* ${history}\n`;
-            message += `📦 *Paquete interesado:* ${pkgVal}\n`;
-            message += `🌐 *Dominio:* .com Requerido (+$500)\n`;
-            message += `📍 *Google Maps:* ${google}\n`;
-            message += `🛠️ *Mantenimiento:* ${maint}\n`;
-            message += `💰 *Presupuesto max:* ${budget}\n\n`;
+            message += `ðŸ‘¤ *Mi nombre:* ${nameVal}\n`;
+            message += `ðŸ¤ *Historial:* ${history}\n`;
+            message += `ðŸ“¦ *Paquete interesado:* ${pkgVal}\n`;
+            const dValText = f_domain ? f_domain.value : '';
+            message += `ðŸŒ *Dominio:* ${dValText}\n`;
+            message += `ðŸ“ *Google Maps:* ${google}\n`;
+            message += `ðŸ› ï¸ *Mantenimiento:* ${maint}\n`;
+            message += `ðŸ’° *Presupuesto max:* ${budget}\n\n`;
             
             if (!isCustom) {
-                message += `💸 *Inversión Inicial Estimada:* $${initialTotal.toLocaleString()} MXN\n\n`;
+                message += `ðŸ’¸ *InversiÃ³n Inicial Estimada:* $${initialTotal.toLocaleString()} MXN\n\n`;
             } else {
-                message += `💸 *Inversión Inicial Estimada:* A Cotizar\n\n`;
+                message += `ðŸ’¸ *InversiÃ³n Inicial Estimada:* A Cotizar\n\n`;
             }
             
-            message += `📝 *Detalles y personalización:*\n${details}\n\n`;
+            message += `ðŸ“ *Detalles y personalizaciÃ³n:*\n${details}\n\n`;
             message += `Quedo a la espera de tu respuesta.`;
 
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
         });
+        }
 
         // --- Modal Management ---
         let modalCloseTimer = null;
@@ -787,7 +842,7 @@
 
         // ===== COUNTDOWN LANZAMIENTO OCTUBRE =====
         (function() {
-            // Fecha límite: 16 de octubre 2026 a las 23:59:59 hora centro de México (GMT-6)
+            // Fecha lÃ­mite: 16 de octubre 2026 a las 23:59:59 hora centro de MÃ©xico (GMT-6)
             const PROMO_DEADLINE = new Date('2026-10-16T23:59:59-06:00');
 
             function padTwo(n) { return String(n).padStart(2, '0'); }
@@ -800,7 +855,7 @@
                 if (!section) return;
 
                 if (diff <= 0) {
-                    // Oferta expirada: ocultar sección completa
+                    // Oferta expirada: ocultar secciÃ³n completa
                     section.style.display = 'none';
                     clearInterval(cdInterval);
                     return;
@@ -846,44 +901,44 @@
                 </button>
             </div>
             <div class="p-6 sm:p-8 overflow-y-auto text-zinc-600 text-sm space-y-4">
-                <p><strong>Última actualización:</strong> Septiembre 2026</p>
-                <p>En cumplimiento con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), <strong>AV My Web Studio</strong> le informa que es responsable de recabar sus datos personales, del uso que se le dé a los mismos y de su protección.</p>
-                <h4 class="text-black font-bold text-base mt-6">1. Fines de la información</h4>
-                <p>Los datos personales (nombre, número de teléfono y detalles del proyecto) recabados a través de nuestro botón de contacto por WhatsApp serán utilizados única y exclusivamente para proveer los servicios y productos que ha solicitado, informarle sobre cambios en los mismos y evaluar la calidad del servicio que le brindamos.</p>
+                <p><strong>Ãšltima actualizaciÃ³n:</strong> Septiembre 2026</p>
+                <p>En cumplimiento con la Ley Federal de ProtecciÃ³n de Datos Personales en PosesiÃ³n de los Particulares (LFPDPPP), <strong>AV My Web Studio</strong> le informa que es responsable de recabar sus datos personales, del uso que se le dÃ© a los mismos y de su protecciÃ³n.</p>
+                <h4 class="text-black font-bold text-base mt-6">1. Fines de la informaciÃ³n</h4>
+                <p>Los datos personales (nombre, nÃºmero de telÃ©fono y detalles del proyecto) recabados a travÃ©s de nuestro botÃ³n de contacto por WhatsApp serÃ¡n utilizados Ãºnica y exclusivamente para proveer los servicios y productos que ha solicitado, informarle sobre cambios en los mismos y evaluar la calidad del servicio que le brindamos.</p>
                 <h4 class="text-black font-bold text-base mt-6">2. Transferencia de datos</h4>
-                <p>Le informamos que sus datos personales no serán transferidos ni tratados por personas distintas a esta agencia. No vendemos, alquilamos ni compartimos su información con terceros.</p>
+                <p>Le informamos que sus datos personales no serÃ¡n transferidos ni tratados por personas distintas a esta agencia. No vendemos, alquilamos ni compartimos su informaciÃ³n con terceros.</p>
                 <h4 class="text-black font-bold text-base mt-6">3. Derechos ARCO</h4>
-                <p>Usted tiene derecho de Acceder, Rectificar y Cancelar sus datos personales, así como de Oponerse al tratamiento de los mismos o revocar el consentimiento que para tal fin nos haya otorgado, a través de los mismos medios de contacto publicados en este sitio web (WhatsApp).</p>
+                <p>Usted tiene derecho de Acceder, Rectificar y Cancelar sus datos personales, asÃ­ como de Oponerse al tratamiento de los mismos o revocar el consentimiento que para tal fin nos haya otorgado, a travÃ©s de los mismos medios de contacto publicados en este sitio web (WhatsApp).</p>
             </div>
         </div>
     </div>
 
-    <!-- Términos y Condiciones Modal -->
+    <!-- TÃ©rminos y Condiciones Modal -->
     <div id="modal-terminos" class="fixed inset-0 z-[101] hidden items-center justify-center p-4 sm:p-6">
         <div class="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl pointer-events-auto transform scale-95 opacity-0 transition-all duration-300" id="terminos-content">
             <div class="p-6 sm:p-8 border-b border-zinc-100 flex justify-between items-center">
-                <h3 class="text-2xl font-extrabold text-black">Términos y Condiciones</h3>
+                <h3 class="text-2xl font-extrabold text-black">TÃ©rminos y Condiciones</h3>
                 <button onclick="closeModal('terminos')" class="text-zinc-400 hover:text-black bg-zinc-100 hover:bg-zinc-200 p-2 rounded-full transition-colors">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
             <div class="p-6 sm:p-8 overflow-y-auto text-zinc-600 text-sm space-y-4">
-                <p>Al contratar los servicios de <strong>AV My Web Studio</strong>, el cliente acepta los siguientes términos y condiciones comerciales para garantizar la calidad y eficiencia del proyecto:</p>
+                <p>Al contratar los servicios de <strong>AV My Web Studio</strong>, el cliente acepta los siguientes tÃ©rminos y condiciones comerciales para garantizar la calidad y eficiencia del proyecto:</p>
                 
                 <h4 class="text-black font-bold text-base mt-6">1. Pagos Estructurados</h4>
-                <p>Todo proyecto requiere un <strong>anticipo del 50%</strong> del valor total para iniciar. Este anticipo asegura su lugar en la agenda y no es reembolsable. El <strong>50% restante</strong> deberá liquidarse contra entrega, previo a la migración de la página al dominio final del cliente.</p>
+                <p>Todo proyecto requiere un <strong>anticipo del 50%</strong> del valor total para iniciar. Este anticipo asegura su lugar en la agenda y no es reembolsable. El <strong>50% restante</strong> deberÃ¡ liquidarse contra entrega, previo a la migraciÃ³n de la pÃ¡gina al dominio final del cliente.</p>
                 
                 <h4 class="text-black font-bold text-base mt-6">2. Tiempos de Entrega y Materiales</h4>
-                <p>Los tiempos de desarrollo estimados comienzan a correr <strong>únicamente a partir de que el cliente ha entregado el 100% de la información</strong> requerida (textos, fotografías, logotipos, accesos). Si hay demoras en la entrega de este material por parte del cliente, el proyecto se pausará.</p>
+                <p>Los tiempos de desarrollo estimados comienzan a correr <strong>Ãºnicamente a partir de que el cliente ha entregado el 100% de la informaciÃ³n</strong> requerida (textos, fotografÃ­as, logotipos, accesos). Si hay demoras en la entrega de este material por parte del cliente, el proyecto se pausarÃ¡.</p>
                 
-                <h4 class="text-black font-bold text-base mt-6">3. Límite de Revisiones</h4>
-                <p>Para mantener la agilidad del proyecto, se incluyen <strong>dos (2) rondas de revisiones y ajustes</strong> sobre la propuesta inicial. Cualquier cambio estructural, adición de nuevas páginas o rondas de revisión adicionales posteriores a estas dos serán cotizadas de forma independiente por hora de desarrollo.</p>
+                <h4 class="text-black font-bold text-base mt-6">3. LÃ­mite de Revisiones</h4>
+                <p>Para mantener la agilidad del proyecto, se incluyen <strong>dos (2) rondas de revisiones y ajustes</strong> sobre la propuesta inicial. Cualquier cambio estructural, adiciÃ³n de nuevas pÃ¡ginas o rondas de revisiÃ³n adicionales posteriores a estas dos serÃ¡n cotizadas de forma independiente por hora de desarrollo.</p>
                 
                 <h4 class="text-black font-bold text-base mt-6">4. Renovaciones Anuales</h4>
-                <p>El costo de los paquetes de diseño web es un pago único por el desarrollo. Sin embargo, los servicios de infraestructura como el <strong>Dominio (ej. .com) y el Hosting (Alojamiento web) tienen un costo de renovación anual</strong> que será informado claramente al cliente y dependerá de las tarifas vigentes de los proveedores de nube.</p>
+                <p>El costo de los paquetes de diseÃ±o web es un pago Ãºnico por el desarrollo. Sin embargo, los servicios de infraestructura como el <strong>Dominio (ej. .com) y el Hosting (Alojamiento web) tienen un costo de renovaciÃ³n anual</strong> que serÃ¡ informado claramente al cliente y dependerÃ¡ de las tarifas vigentes de los proveedores de nube.</p>
                 
-                <h4 class="text-black font-bold text-base mt-6">5. Política de Cancelación y Propiedad</h4>
-                <p>Después de cancelar la suscripción, la web te pertenece pero te quedas sin soporte. El cliente conservará el código fuente y los archivos entregados, pero cesará el mantenimiento preventivo, soporte técnico y actualizaciones mensuales incluidas en el plan.</p>
+                <h4 class="text-black font-bold text-base mt-6">5. PolÃ­tica de CancelaciÃ³n y Propiedad</h4>
+                <p>DespuÃ©s de cancelar la suscripciÃ³n, la web te pertenece pero te quedas sin soporte. El cliente conservarÃ¡ el cÃ³digo fuente y los archivos entregados, pero cesarÃ¡ el mantenimiento preventivo, soporte tÃ©cnico y actualizaciones mensuales incluidas en el plan.</p>
             </div>
         </div>
     </div>
@@ -897,7 +952,7 @@
             </div>
             <div>
                 <h4 class="font-bold text-sm mb-1">Tu Privacidad</h4>
-                <p class="text-xs text-zinc-400 leading-relaxed mb-4">Utilizamos cookies propias y de terceros (como Google Analytics/Meta) para analizar el tráfico de nuestra web y personalizar tu experiencia. Al hacer clic en "Aceptar", permites su uso.</p>
+                <p class="text-xs text-zinc-400 leading-relaxed mb-4">Utilizamos cookies propias y de terceros (como Google Analytics/Meta) para analizar el trÃ¡fico de nuestra web y personalizar tu experiencia. Al hacer clic en "Aceptar", permites su uso.</p>
                 <div class="flex flex-col sm:flex-row gap-2">
                     <button onclick="acceptCookies()" class="w-full text-xs font-bold bg-white text-black py-2 px-4 rounded-lg hover:bg-zinc-200 transition-colors">Aceptar todas</button>
                     <button onclick="rejectCookies()" class="w-full text-xs font-medium bg-zinc-800 text-zinc-300 py-2 px-4 rounded-lg hover:bg-zinc-700 transition-colors">Solo esenciales</button>
@@ -940,3 +995,4 @@
 
 </body>
 </html>
+
