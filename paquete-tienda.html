@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
+    <meta charset="UTF-8">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LW1JDTZT0F"></script>
     <script>
@@ -10,7 +11,6 @@
 
       gtag('config', 'G-LW1JDTZT0F');
     </script>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AV My Web Studio | Diseño y Desarrollo Web Profesional</title>
     <meta name="description" content="Diseño y creación de páginas web profesionales, rápidas y fáciles de usar.">
@@ -747,22 +747,22 @@
                 message = `*¡Hola! Me gustaría cotizar un proyecto web con AV My Web Studio*\n\n`;
             }
             
-            message += `ðŸ‘¤ *Mi nombre:* ${nameVal}\n`;
-            message += `ðŸ¤ *Historial:* ${history}\n`;
-            message += `ðŸ“¦ *Paquete interesado:* ${pkgVal}\n`;
+            message += `👤 *Mi nombre:* ${nameVal}\n`;
+            message += `🤝 *Historial:* ${history}\n`;
+            message += `📦 *Paquete interesado:* ${pkgVal}\n`;
             const dValText = f_domain ? f_domain.value : '';
             message += `🌐 *Dominio:* ${dValText}\n`;
-            message += `ðŸ“ *Google Maps:* ${google}\n`;
-            message += `ðŸ› ï¸ *Mantenimiento:* ${maint}\n`;
-            message += `ðŸ’° *Presupuesto max:* ${budget}\n\n`;
+            message += `📍 *Google Maps:* ${google}\n`;
+            message += `🛠️ *Mantenimiento:* ${maint}\n`;
+            message += `💰 *Presupuesto max:* ${budget}\n\n`;
             
             if (!isCustom) {
-                message += `ðŸ’¸ *Inversión Inicial Estimada:* $${initialTotal.toLocaleString()} MXN\n\n`;
+                message += `💸 *Inversión Inicial Estimada:* $${initialTotal.toLocaleString()} MXN\n\n`;
             } else {
-                message += `ðŸ’¸ *Inversión Inicial Estimada:* A Cotizar\n\n`;
+                message += `💸 *Inversión Inicial Estimada:* A Cotizar\n\n`;
             }
             
-            message += `ðŸ“ *Detalles y personalización:*\n${details}\n\n`;
+            message += `📝 *Detalles y personalización:*\n${details}\n\n`;
             message += `Quedo a la espera de tu respuesta.`;
 
             const encodedMessage = encodeURIComponent(message);
@@ -857,7 +857,7 @@
                 if (diff <= 0) {
                     // Oferta expirada: ocultar sección completa
                     section.style.display = 'none';
-                    clearInterval(cdInterval);
+                    if (typeof clearInterval !== 'undefined' && cdInterval) if (typeof clearInterval === 'function' && cdInterval) clearInterval(cdInterval);
                     return;
                 }
 
@@ -878,7 +878,7 @@
             }
 
             updateCountdown();
-            const cdInterval = setInterval(updateCountdown, 1000);
+            const cdInterval = typeof setInterval !== 'undefined' ? setInterval(updateCountdown, 1000) : null;
         })();
         // ===== FIN COUNTDOWN =====
 

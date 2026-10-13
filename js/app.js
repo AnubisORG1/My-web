@@ -1,6 +1,6 @@
 // mobile menu logic
 document.addEventListener('DOMContentLoaded', () => {
-    lucide.createIcons();
+    if (typeof lucide !== "undefined" && lucide.createIcons) lucide.createIcons();
     
     // Set current year in footer
     const yearEl = document.getElementById('current-year');
